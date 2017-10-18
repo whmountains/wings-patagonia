@@ -4293,6 +4293,10 @@ mime@1.4.1, mime@^1.3.4:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
 
+mime@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.0.3.tgz#4353337854747c48ea498330dc034f9f4bbbcc0b"
+
 mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
@@ -5181,6 +5185,10 @@ progress@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
 
+promise-parallel-throttle@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/promise-parallel-throttle/-/promise-parallel-throttle-3.0.0.tgz#655bcd5c8fe5a26df38347e2fd5c7904309d27da"
+
 promise@8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/promise/-/promise-8.0.1.tgz#e45d68b00a17647b6da711bf85ed6ed47208f450"
@@ -5688,6 +5696,17 @@ restore-cursor@^2.0.0:
   dependencies:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
+
+ri-loader@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ri-loader/-/ri-loader-1.0.1.tgz#a9195a974ed095eba3ad6c67063e36f4b9bf7f2d"
+  dependencies:
+    babel-preset-flow "^6.23.0"
+    loader-utils "^1.1.0"
+    lodash "^4.15.0"
+    mime "^2.0.3"
+    option-multiplexer "^0.1.0"
+    promise-parallel-throttle "^3.0.0"
 
 right-align@^0.1.1:
   version "0.1.3"
