@@ -1,9 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { ResponsiveImage } from '../elements/Image.js'
+import { Link } from 'react-router-dom'
 
 import logo from '../assets/logo-gray.svg'
 import mountain from '../assets/seamless.jpg'
+import scrollDown from '../assets/scroll-down.svg'
 
 const Container = styled.div`
   display: flex;
@@ -16,10 +18,25 @@ const Splash = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 60vh;
+  margin-top: 1em;
 `
 const Logo = styled.img`
   margin: auto;
+  height: 13rem;
+  margin-bottom: 1rem;
+`
+
+const Separator = styled.div`
+  width: 30rem;
+  border-bottom: 2px solid #777;
+  margin-bottom: 1rem;
+`
+
+const Subtitle = styled.p`
+  font-size: 1.3rem;
+  max-width: 700px;
+  text-align: center;
+  margin-bottom: 1.5rem;
 `
 
 // 1.6 aspect ratio
@@ -28,11 +45,58 @@ const SeamlessImage = styled(ResponsiveImage)`
   &,
   & * {
     width: 100%;
+    display: block;
   }
 `
 
-const BigSpace = styled.div`
+const WhiteContainer = styled.div`
   height: 200vh;
+  background: white;
+`
+
+const ActionButtons = styled.div`
+  display: flex;
+  margin-bottom: 3rem;
+`
+
+const Button = styled(Link)`
+  font-size: 1rem;
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  text-decoration: none;
+  color: inherit;
+  ${p => p.accent && `color: white; background: #4a90e2;`};
+
+  & > i {
+    margin-right: 0.5em;
+    margin-bottom: 2px;
+  }
+`
+
+const MoreBelow = styled.div`
+  margin-bottom: 0.5rem;
+`
+
+const bounce = keyframes`
+  start {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(5px);
+  }
+
+  60% {
+    transform: translateY(0);
+  }
+`
+
+const DownIcon = styled.img`
+  animation: 1.5s ${bounce} linear infinite;
 `
 
 export default ({ title }) => {
@@ -40,9 +104,25 @@ export default ({ title }) => {
     <Container>
       <Splash>
         <Logo src={logo} />
+        <Separator />
+        <Subtitle>
+          Experience Patagonia's ice fields with the only aviation company in
+          Aysén.
+        </Subtitle>
+        <ActionButtons>
+          <Button accent to="/contact">
+            Book a Flight
+          </Button>
+          <Button to="/film">
+            <i class="fa fa-youtube-play" aria-hidden="true" />{' '}
+            <span>Watch the film</span>
+          </Button>
+        </ActionButtons>
+        <MoreBelow>Descend to see more.</MoreBelow>
+        <DownIcon src={scrollDown} />
       </Splash>
       <SeamlessImage info={mountain} />
-      <BigSpace />
+      <WhiteContainer />
     </Container>
   )
 }
