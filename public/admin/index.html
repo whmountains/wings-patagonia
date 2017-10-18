@@ -10,5 +10,13 @@
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@~0.5/dist/cms.js"></script>
+<script>
+var PagePreview = ({ entry }) => {
+  console.log(entry.toJS())
+  return h('div')
+}
+
+CMS.registerPreviewTemplate('home', PagePreview)
+</script>
 </body>
 </html>

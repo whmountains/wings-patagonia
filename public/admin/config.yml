@@ -3,7 +3,7 @@ backend:
   repo: whmountains/wings-patagonia-data
   branch: master
 
-media_folder: "src/assets/uploads" # Folder where user uploaded files should go
+media_folder: "uploads" # Folder where user uploaded files should go
 
 collections: # A list of collections the CMS should be able to edit
   - name: "pages"
