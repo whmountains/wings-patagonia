@@ -106,7 +106,7 @@ export default ({ title }) => {
         <Logo src={logo} />
         <Separator />
         <Subtitle>
-          Experience Patagonia's ice fields with the only aviation company in
+          Experience Patagonia's ice fields with the best aviation company in
           Aysén.
         </Subtitle>
         <ActionButtons>
@@ -114,7 +114,7 @@ export default ({ title }) => {
             Book a Flight
           </Button>
           <Button to="/film">
-            <i class="fa fa-youtube-play" aria-hidden="true" />{' '}
+            <i class="fa fa-youtube-play" aria-hidden="true" />
             <span>Watch the film</span>
           </Button>
         </ActionButtons>
