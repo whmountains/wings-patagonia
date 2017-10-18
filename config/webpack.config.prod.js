@@ -135,6 +135,9 @@ module.exports = {
           {
             test: /\.(gif|jpe?g|png|tiff|webp)(\?.*)?$/,
             loader: 'ri-loader',
+            options: {
+              outputDir: 'static/media',
+            },
           },
           // "url" loader works just like "file" loader but it also embeds
           // assets smaller than specified size as data URLs to avoid requests.

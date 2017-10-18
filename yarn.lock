@@ -5698,8 +5698,8 @@ restore-cursor@^2.0.0:
     signal-exit "^3.0.2"
 
 ri-loader@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ri-loader/-/ri-loader-1.0.1.tgz#a9195a974ed095eba3ad6c67063e36f4b9bf7f2d"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ri-loader/-/ri-loader-1.0.2.tgz#fa4c4d6e497e6fe20086f7087181839361ca9316"
   dependencies:
     babel-preset-flow "^6.23.0"
     loader-utils "^1.1.0"
