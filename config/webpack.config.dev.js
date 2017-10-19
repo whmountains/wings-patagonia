@@ -127,6 +127,14 @@ module.exports = {
         // match the requirements. When no loader matches it will fall
         // back to the "file" loader at the end of the loader list.
         oneOf: [
+          {
+            test: require.resolve('../src/lib/GENERATE_STRINGS.js'),
+            use: [
+              {
+                loader: 'val-loader',
+              },
+            ],
+          },
           // sharp loader for responsive images
           {
             test: /\.(gif|jpe?g|png|tiff|webp)(\?.*)?$/,

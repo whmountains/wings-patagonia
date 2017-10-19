@@ -1,7 +1,9 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import { ResponsiveImage } from '../elements/Image.js'
 import { Link } from 'react-router-dom'
+
+import { ResponsiveImage } from '../elements/Image.js'
+import { t } from '../lib/i18n'
 
 import logo from '../assets/logo-gray.svg'
 import mountain from '../assets/seamless.jpg'
@@ -59,7 +61,11 @@ const ActionButtons = styled.div`
   margin-bottom: 3rem;
 `
 
-const Button = styled(Link)`
+const SafeLink = props => {
+  return <Link {...props} accent={undefined} />
+}
+
+const Button = styled(SafeLink)`
   font-size: 1rem;
   height: 2.5rem;
   padding: 0 1.5rem;
@@ -99,30 +105,32 @@ const DownIcon = styled.img`
   animation: 1.5s ${bounce} linear infinite;
 `
 
-export default ({ title }) => {
-  return (
-    <Container>
-      <Splash>
-        <Logo src={logo} />
-        <Separator />
-        <Subtitle>
-          Experience Patagonia's ice fields with the best aviation company in
-          Aysén.
-        </Subtitle>
-        <ActionButtons>
-          <Button accent to="/contact">
-            Book a Flight
-          </Button>
-          <Button to="/film">
-            <i class="fa fa-youtube-play" aria-hidden="true" />
-            <span>Watch the film</span>
-          </Button>
-        </ActionButtons>
-        <MoreBelow>Descend to see more.</MoreBelow>
-        <DownIcon src={scrollDown} />
-      </Splash>
-      <SeamlessImage info={mountain} />
-      <WhiteContainer />
-    </Container>
-  )
+export default class Home extends React.PureComponent {
+  componentDidMount() {
+    window.parent.parent.FORCE_UPDATE_HOOK = () => this.forceUpdate()
+  }
+  render() {
+    return (
+      <Container>
+        <Splash>
+          <Logo src={logo} />
+          <Separator />
+          <Subtitle>{t('subtitle')}</Subtitle>
+          <ActionButtons>
+            <Button accent to="/contact">
+              Book a Flight
+            </Button>
+            <Button to="/film">
+              <i className="fa fa-youtube-play" aria-hidden="true" />
+              <span>Watch the film</span>
+            </Button>
+          </ActionButtons>
+          <MoreBelow>Descend to see more.</MoreBelow>
+          <DownIcon src={scrollDown} />
+        </Splash>
+        <SeamlessImage info={mountain} />
+        <WhiteContainer />
+      </Container>
+    )
+  }
 }

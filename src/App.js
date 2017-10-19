@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
 
 import Home from './containers/Home'
+// import Admin from './containers/Admin'
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
+          {/* <Route path="/admin" component={Admin} /> */}
         </Switch>
       </BrowserRouter>
     )

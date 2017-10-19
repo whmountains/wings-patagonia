@@ -10,12 +10,34 @@
 </head>
 <body>
   <script src="https://unpkg.com/netlify-cms@~0.5/dist/cms.js"></script>
+  <script src="https://unpkg.com/prop-types@15.6.0/prop-types.min.js"></script>
 <script>
-var PagePreview = ({ entry }) => {
-  console.log(entry.toJS())
-  return h('div')
+const PagePreview = createClass({
+  // shouldComponentUpdate: function() {
+  //   console.log('should update?')
+  //   return false
+  // },
+  render: function() {
+    window.CMS_STRINGS = this.props.entry.toJS().data
+    window.FORCE_UPDATE_HOOK && window.FORCE_UPDATE_HOOK()
+
+    return h('iframe', {
+      src: '../index.html',
+      style: {
+        height: '100%',
+        width: '100%',
+        border: 'none',
+        background: '#fff',
+      },
+    })
+  },
+})
+
+PagePreview.contextTypes = {
+  document: PropTypes.any,
 }
 
+CMS.registerPreviewStyle('preview.css')
 CMS.registerPreviewTemplate('home', PagePreview)
 </script>
 </body>
