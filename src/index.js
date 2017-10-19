@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import Home from './containers/Home'
-import registerServiceWorker from './registerServiceWorker'
+import { unregister } from './registerServiceWorker'
 import { BrowserRouter } from 'react-router-dom'
 
 if (window.parent.parent.CMS) {
@@ -18,4 +18,4 @@ if (window.parent.parent.CMS) {
   ReactDOM.render(<App />, document.getElementById('root'))
 }
 
-registerServiceWorker()
+unregister()
