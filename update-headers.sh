@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+echo "Creating _headers file"
+
 cd build
 
 cp -f _headers-tpl _headers
