@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import { ResponsiveImage } from '../elements/Image.js'
@@ -8,13 +8,16 @@ import { t } from '../lib/i18n'
 import logo from '../assets/logo-gray.svg'
 import mountain from '../assets/seamless.jpg'
 import scrollDown from '../assets/scroll-down.svg'
+import yt from '../assets/youtube-play.svg'
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `
 
 const Splash = styled.div`
+  width: 100%;
   background: #e5ecf2;
   position: relative;
   display: flex;
@@ -41,8 +44,6 @@ const Subtitle = styled.p`
   margin-bottom: 1.5rem;
 `
 
-// 1.6 aspect ratio
-// Horizon line is at -32vw
 const SeamlessImage = styled(ResponsiveImage)`
   &,
   & * {
@@ -77,9 +78,10 @@ const Button = styled(SafeLink)`
   color: inherit;
   ${p => p.accent && `color: white; background: #4a90e2;`};
 
-  & > i {
+  & > img {
     margin-right: 0.5em;
     margin-bottom: 2px;
+    width: 25px;
   }
 `
 
@@ -115,7 +117,7 @@ export default class Home extends React.PureComponent {
     return (
       <Container>
         <Splash>
-          <Logo src={logo} />
+          <Logo src={logo} alt="Wings Logo" />
           <Separator />
           <Subtitle>{t('subtitle')}</Subtitle>
           <ActionButtons>
@@ -123,12 +125,12 @@ export default class Home extends React.PureComponent {
               {t('cta')}
             </Button>
             <Button to="/film">
-              <i className="fa fa-youtube-play" aria-hidden="true" />
+              <img src={yt} alt="" />
               <span>{t('video')}</span>
             </Button>
           </ActionButtons>
           <MoreBelow>{t('scrollPrompt')}</MoreBelow>
-          <DownIcon src={scrollDown} />
+          <DownIcon src={scrollDown} alt="Scroll Down" />
         </Splash>
         <SeamlessImage info={mountain} />
         <WhiteContainer />

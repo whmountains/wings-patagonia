@@ -6,8 +6,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { ServerStyleSheet } from 'styled-components'
 
 import App from './App'
-import Home from './containers/Home'
-// import { unregister } from './registerServiceWorker'
 
 if (typeof window !== 'undefined') {
   if (window.parent.parent.CMS) {

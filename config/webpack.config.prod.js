@@ -145,7 +145,12 @@ module.exports = {
           {
             test: /\.(gif|jpe?g|png|tiff|webp)(\?.*)?$/,
             use: [
-              'cache-loader',
+              {
+                loader: 'cache-loader',
+                options: {
+                  cacheDirectory: path.join(__dirname, '../.cache'),
+                },
+              },
               {
                 loader: 'ri-loader',
                 options: {
@@ -259,18 +264,19 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       template: paths.appHtml,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
+      filename: 'tpl.html',
+      // minify: {
+      //   removeComments: true,
+      //   collapseWhitespace: true,
+      //   removeRedundantAttributes: true,
+      //   useShortDoctype: true,
+      //   removeEmptyAttributes: true,
+      //   removeStyleLinkTypeAttributes: true,
+      //   keepClosingSlash: true,
+      //   minifyJS: true,
+      //   minifyCSS: true,
+      //   minifyURLs: true,
+      // },
     }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.

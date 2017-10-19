@@ -138,10 +138,20 @@ module.exports = {
           // sharp loader for responsive images
           {
             test: /\.(gif|jpe?g|png|tiff|webp)(\?.*)?$/,
-            loader: 'ri-loader',
-            options: {
-              outputDir: 'static/media',
-            },
+            use: [
+              {
+                loader: 'cache-loader',
+                options: {
+                  cacheDirectory: path.join(__dirname, '../.cache'),
+                },
+              },
+              {
+                loader: 'ri-loader',
+                options: {
+                  outputDir: 'static/media',
+                },
+              },
+            ],
           },
           // "url" loader works like "file" loader except that it embeds assets
           // smaller than specified limit in bytes as data URLs to avoid requests.

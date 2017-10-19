@@ -7,16 +7,12 @@ const paths = ['/']
 
 console.log(chalk.blue('rendering HTML ==>'))
 
-const originalIndex = fs.readFile(path.join(__dirname, './build/index.html'), {
+const template = fs.readFile(path.join(__dirname, './build/tpl.html'), {
   encoding: 'utf8',
 })
 
-originalIndex.then(index => {
-  return fs.writeFile('./build/index-original.html', index)
-})
-
 const { html, css } = render({ path })
-originalIndex.then(index => {
+template.then(index => {
   return fs.writeFile(
     path.join(__dirname, './build/index.html'),
     index
