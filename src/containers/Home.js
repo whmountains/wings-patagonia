@@ -45,11 +45,10 @@ const Subtitle = styled.p`
 `
 
 const SeamlessImage = styled(ResponsiveImage)`
-  &,
-  & * {
-    width: 100%;
-    display: block;
-  }
+  width: 100%;
+  display: block;
+  height: 51vw;
+  object-fit: cover;
 `
 
 const WhiteContainer = styled.div`
