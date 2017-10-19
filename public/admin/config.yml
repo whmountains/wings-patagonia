@@ -14,3 +14,6 @@ collections: # A list of collections the CMS should be able to edit
         name: "home"
         fields:
           - {label: Subtitle, name: subtitle, widget: string}
+          - {label: Accent Button, name: cta, widget: string}
+          - {label: Video Button, name: video, widget: string}
+          - {label: Scroll Prompt, name: scrollPrompt, widget: string}

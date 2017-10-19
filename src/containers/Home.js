@@ -118,14 +118,14 @@ export default class Home extends React.PureComponent {
           <Subtitle>{t('subtitle')}</Subtitle>
           <ActionButtons>
             <Button accent to="/contact">
-              Book a Flight
+              {t('cta')}
             </Button>
             <Button to="/film">
               <i className="fa fa-youtube-play" aria-hidden="true" />
-              <span>Watch the film</span>
+              <span>{t('video')}</span>
             </Button>
           </ActionButtons>
-          <MoreBelow>Descend to see more.</MoreBelow>
+          <MoreBelow>{t('scrollPrompt')}</MoreBelow>
           <DownIcon src={scrollDown} />
         </Splash>
         <SeamlessImage info={mountain} />
