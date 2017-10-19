@@ -1,21 +1,53 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router'
+import { BrowserRouter } from 'react-router-dom'
+import { ServerStyleSheet } from 'styled-components'
+
 import App from './App'
 import Home from './containers/Home'
-import { unregister } from './registerServiceWorker'
-import { BrowserRouter } from 'react-router-dom'
+// import { unregister } from './registerServiceWorker'
 
-if (window.parent.parent.CMS) {
-  console.log('inside CMS preview')
-  ReactDOM.render(
-    <BrowserRouter>
-      <Home />
-    </BrowserRouter>,
-    document.getElementById('root'),
-  )
-} else {
-  ReactDOM.render(<App />, document.getElementById('root'))
+if (typeof window !== 'undefined') {
+  if (window.parent.parent.CMS) {
+    // render into the CMS preview window
+    const context = {}
+    ReactDOM.render(
+      <StaticRouter
+        location={'/' + (window.parent.parent.ROUTE_PATH || '')}
+        context={context}
+      >
+        <App />
+      </StaticRouter>,
+      document.getElementById('root'),
+    )
+  } else {
+    // render into the dev environment
+    ReactDOM.render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>,
+      document.getElementById('root'),
+    )
+  }
 }
 
-unregister()
+export const render = locals => {
+  // render to string
+  const context = {}
+  const sheet = new ServerStyleSheet()
+
+  const html = ReactDOMServer.renderToStaticMarkup(
+    sheet.collectStyles(
+      <StaticRouter location={locals.path} context={context}>
+        <App />
+      </StaticRouter>,
+    ),
+  )
+
+  return {
+    html,
+    css: sheet.getStyleTags(),
+  }
+}
