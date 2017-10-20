@@ -27,19 +27,21 @@ const Splash = styled.div`
 `
 const Logo = styled.img`
   margin: auto;
-  height: 13rem;
+  max-height: 13rem;
   margin-bottom: 1rem;
 `
 
 const Separator = styled.div`
   width: 30rem;
+  max-width: calc(100% - 5rem);
   border-bottom: 2px solid #777;
   margin-bottom: 1rem;
 `
 
 const Subtitle = styled.p`
   font-size: 1.3rem;
-  max-width: 700px;
+  max-width: calc(100% - 5rem);
+  width: 700px;
   text-align: center;
   margin-bottom: 1.5rem;
 `
