@@ -1,4 +1,4 @@
 /
-  Link: </static/media/GRAY_LOGO>; rel=preload; as=image
-  Link: </css/YOUTUBE_PLAY>; rel=preload; as=image
-  Link: </css/SCROLL_DOWN>; rel=preload; as=image
+  Link: </GRAY_LOGO>; rel=preload; as=image
+  Link: </YOUTUBE_PLAY>; rel=preload; as=image
+  Link: </SCROLL_DOWN>; rel=preload; as=image
