@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { ResponsiveImage } from '../elements/Image.js'
 import { t } from '../lib/i18n'
+import TripOptions from '../containers/TripOptions'
 
 import logo from '../assets/logo-gray.svg'
 import mountain from '../assets/seamless.jpg'
@@ -27,7 +28,7 @@ const Splash = styled.div`
 `
 const Logo = styled.img`
   margin: auto;
-  max-height: 13rem;
+  height: 13rem;
   margin-bottom: 1rem;
 `
 
@@ -134,7 +135,9 @@ export default class Home extends React.PureComponent {
           <DownIcon src={scrollDown} alt="Scroll Down" />
         </Splash>
         <SeamlessImage info={mountain} />
-        <WhiteContainer />
+        <WhiteContainer>
+          <TripOptions />
+        </WhiteContainer>
       </Container>
     )
   }

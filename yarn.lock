@@ -2985,8 +2985,8 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
 gray-matter@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gray-matter/-/gray-matter-3.1.0.tgz#db18ab33c91d28d952c532895098c6e08393917a"
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/gray-matter/-/gray-matter-3.1.1.tgz#101f80d9e69eeca6765cdce437705b18f40876ac"
   dependencies:
     extend-shallow "^2.0.1"
     js-yaml "^3.10.0"
@@ -5805,8 +5805,8 @@ restore-cursor@^2.0.0:
     signal-exit "^3.0.2"
 
 ri-loader@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/ri-loader/-/ri-loader-1.0.3.tgz#efd9cf7c9906e64ad90a7847d8f6d2089eb887c1"
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ri-loader/-/ri-loader-1.1.0.tgz#4573bc88bfa305ff5708d3f829fba49c2a8d4184"
   dependencies:
     babel-preset-flow "^6.23.0"
     loader-utils "^1.1.0"
@@ -6280,8 +6280,8 @@ style-loader@0.18.2:
     schema-utils "^0.3.0"
 
 styled-components@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.2.1.tgz#f4835f1001c37bcc301ac3865b5d93466de4dd5b"
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.2.2.tgz#a00c4b7a432ff77e5fb962ec1fbc030248d27171"
   dependencies:
     buffer "^5.0.3"
     css-to-react-native "^2.0.3"
@@ -6290,12 +6290,12 @@ styled-components@^2.2.1:
     is-function "^1.0.1"
     is-plain-object "^2.0.1"
     prop-types "^15.5.4"
-    stylis "^3.2.1"
+    stylis "3.x"
     supports-color "^3.2.3"
 
-stylis@^3.2.1:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.3.2.tgz#95ef285836e98243f8b8f64a9a72706ea6c893ea"
+stylis@3.x:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.4.0.tgz#55c6530ebceeca5976d54fb4adc67578afee828d"
 
 supports-color@^2.0.0:
   version "2.0.0"

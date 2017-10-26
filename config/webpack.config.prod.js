@@ -143,14 +143,14 @@ module.exports = {
           },
           // sharp loader for responsive images
           {
-            test: /\.(gif|jpe?g|png|tiff|webp)(\?.*)?$/,
+            test: /\.(jpe?g|tiff|webp)(\?.*)?$/,
             use: [
-              {
-                loader: 'cache-loader',
-                options: {
-                  cacheDirectory: path.join(__dirname, '../.cache'),
-                },
-              },
+              // {
+              //   loader: 'cache-loader',
+              //   options: {
+              //     cacheDirectory: path.join(__dirname, '../.cache'),
+              //   },
+              // },
               {
                 loader: 'ri-loader',
                 options: {
