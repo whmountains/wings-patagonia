@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { Link } from 'react-router-dom'
 
 import { ResponsiveImage } from '../elements/Image.js'
+import { LinkButton } from '../elements/Button.js'
 import { t } from '../lib/i18n'
 import TripOptions from '../containers/TripOptions'
 
@@ -55,36 +55,12 @@ const SeamlessImage = styled(ResponsiveImage)`
 `
 
 const WhiteContainer = styled.div`
-  height: 200vh;
   background: white;
 `
 
 const ActionButtons = styled.div`
   display: flex;
   margin-bottom: 3rem;
-`
-
-const SafeLink = props => {
-  return <Link {...props} accent={undefined} />
-}
-
-const Button = styled(SafeLink)`
-  font-size: 1rem;
-  height: 2.5rem;
-  padding: 0 1.5rem;
-  margin: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  border-radius: 3px;
-  text-decoration: none;
-  color: inherit;
-  ${p => p.accent && `color: white; background: #4a90e2;`};
-
-  & > img {
-    margin-right: 0.5em;
-    margin-bottom: 2px;
-    width: 25px;
-  }
 `
 
 const MoreBelow = styled.div`
@@ -123,13 +99,13 @@ export default class Home extends React.PureComponent {
           <Separator />
           <Subtitle>{t('subtitle')}</Subtitle>
           <ActionButtons>
-            <Button accent to="/contact">
+            <LinkButton accent to="/contact">
               {t('cta')}
-            </Button>
-            <Button to="/film">
+            </LinkButton>
+            <LinkButton to="/film">
               <img src={yt} alt="" />
               <span>{t('video')}</span>
-            </Button>
+            </LinkButton>
           </ActionButtons>
           <MoreBelow>{t('scrollPrompt')}</MoreBelow>
           <DownIcon src={scrollDown} alt="Scroll Down" />
