@@ -14,6 +14,36 @@ collections: # A list of collections the CMS should be able to edit
         name: "home"
         fields:
           - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Accent Button, name: cta, widget: string}
-          - {label: Video Button, name: video, widget: string}
+          - {label: Cta, name: cta, widget: string}
+          - {label: Video, name: video, widget: string}
           - {label: Scroll Prompt, name: scrollPrompt, widget: string}
+          - {label: Options Title, name: optionsTitle, widget: string}
+          - {label: Options Subtitle, name: optionsSubtitle, widget: string}
+          - {label: Option 1 Title, name: scenicFlightsTitle, widget: string}
+          - {label: Option 1 Subtitle, name: scenicFlightsSubtitle, widget: string}
+          - {label: Option 1 Action, name: scenicFlightsAction, widget: string}
+          - {label: Option 1 Action Link, name: scenicFlightsActionLink, widget: string}
+          - {label: Option 1 Info, name: scenicFlightsInfo, widget: string}
+          - {label: Option 1 Info Link, name: scenicFlightsInfoLink, widget: string}
+          - {label: Option 2 Title, name: customTripsTitle, widget: string}
+          - {label: Option 2 Subtitle, name: customTripsSubtitle, widget: string}
+          - {label: Option 2 Action, name: customTripsAction, widget: string}
+          - {label: Option 2 Action Link, name: customTripsActionLink, widget: string}
+          - {label: Option 2 Info, name: customTripsInfo, widget: string}
+          - {label: Option 2 Info Link, name: customTripsInfoLink, widget: string}
+          - {label: Option 3 Title, name: commercialSolutionsTitle, widget: string}
+          - {label: Option 3 Subtitle, name: commercialSolutionsSubtitle, widget: string}
+          - {label: Option 3 Action, name: commercialSolutionsAction, widget: string}
+          - {label: Option 3 Action Link, name: commercialSolutionsActionLink, widget: string}
+          - {label: Option 3 Info, name: commercialSolutionsInfo, widget: string}
+          - {label: Option 3 Info Link, name: commercialSolutionsInfoLink, widget: string}
+          - {label: Our Partners Title, name: ourPartnersTitle, widget: string}
+          - {label: Working With, name: workingWith, widget: string}
+          - {label: Featured By, name: featuredBy, widget: string}
+          - {label: Customers, name: customers, widget: string}
+          - {label: Rave Review, name: raveReview, widget: string}
+          - {label: Review Attr, name: reviewAttr, widget: string}
+          - {label: Action Btn, name: actionBtn, widget: string}
+          - {label: Action Btn Link, name: actionBtnLink, widget: string}
+          - {label: Info Btn, name: infoBtn, widget: string}
+          - {label: Info Btn Link, name: infoBtnLink, widget: string}
