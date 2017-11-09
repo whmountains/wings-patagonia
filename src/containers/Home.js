@@ -10,6 +10,7 @@ import logo from '../assets/logo-gray.svg'
 import mountain from '../assets/seamless.jpg'
 import scrollDown from '../assets/scroll-down.svg'
 import yt from '../assets/youtube-play.svg'
+import homeStrings from '../data/home.md'
 
 const Container = styled.div`
   width: 100%;
@@ -116,4 +117,4 @@ class Home extends React.PureComponent {
   }
 }
 
-export default withStrings(Home)
+export default withStrings(Home, homeStrings)

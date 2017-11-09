@@ -52,8 +52,12 @@ export const withStrings = (Component, fallbackStrings) => {
       }
     }
   } else {
+    console.log('fallbackStrings', fallbackStrings)
     return () => (
-      <Component {...this.props} strings={fromJS(fallbackStrings || {})} />
+      <Component
+        {...this.props}
+        strings={fromJS((fallbackStrings || { attributes: {} }).attributes)}
+      />
     )
   }
 }
