@@ -86,11 +86,6 @@ const DownIcon = styled.img`
 `
 
 class Home extends React.PureComponent {
-  componentDidMount() {
-    if (typeof window !== 'undefined') {
-      window.parent.parent.FORCE_UPDATE_HOOK = () => this.forceUpdate()
-    }
-  }
   render() {
     const s = this.props.strings
 

@@ -144,7 +144,7 @@ const ImageContainer = ({
       <GoRow>
         <GoBtn to={link}>{gotxt}</GoBtn>
         <InfoBtn to={link}>
-          {infotxt} <i class="fa fa-arrow-right" aria-hidden="true" />
+          {infotxt} <i className="fa fa-arrow-right" aria-hidden="true" />
         </InfoBtn>
       </GoRow>
     </ImageContainerInner>
@@ -359,11 +359,11 @@ const FiveStarSection = () => {
     <FiveStarContainer>
       <BgImage info={planeSunset} />
       <RatingRow>
-        <i class="fa fa-star" aria-hidden="true" />
-        <i class="fa fa-star" aria-hidden="true" />
-        <i class="fa fa-star" aria-hidden="true" />
-        <i class="fa fa-star" aria-hidden="true" />
-        <i class="fa fa-star" aria-hidden="true" />
+        <i className="fa fa-star" aria-hidden="true" />
+        <i className="fa fa-star" aria-hidden="true" />
+        <i className="fa fa-star" aria-hidden="true" />
+        <i className="fa fa-star" aria-hidden="true" />
+        <i className="fa fa-star" aria-hidden="true" />
       </RatingRow>
       <RatingCaption>
         <RatingCaptionTitle>Best Flight Ever!</RatingCaptionTitle>
