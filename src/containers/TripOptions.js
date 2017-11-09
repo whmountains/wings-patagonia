@@ -184,6 +184,7 @@ const PartnersContainer = styled.div`
   margin-bottom: 5rem;
   width: 100%;
   overflow: hidden;
+  justify-content: center;
 `
 
 const PartnersGrid = styled.div`
