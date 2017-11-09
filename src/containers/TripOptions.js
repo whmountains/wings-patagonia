@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-import pageStrings from '../data/home.md'
 import { ResponsiveImage } from '../elements/Image'
 import { SafeLink } from '../elements/Button'
+import { withStrings } from '../lib/i18n'
+
+import homeStrings from '../data/home.md'
 
 import scenicFlights from '../assets/scenic-flights.jpg'
 import customFlights from '../assets/custom-flights.jpg'
@@ -16,8 +19,6 @@ import lonelyPlanet from '../assets/lonelyPlanet.png'
 import nationalGeographic from '../assets/natgeo.png'
 import nasaLogo from '../assets/nasa.png'
 import planeSunset from '../assets/plane-sunset.jpg'
-
-import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   margin-top: -5vw;
@@ -128,70 +129,56 @@ const InfoBtn = styled(Link)`
   margin-left: 1rem;
 `
 
-const ImageContainer = ({
-  caption,
-  img,
-  description,
-  link,
-  gotxt,
-  infotxt,
-}) => {
+const ImageContainer = ({ img, strings, prefix }) => {
+  const t = str => {
+    return strings.get(prefix + str)
+  }
+
+  console.log('actionLink', t('ActionLink'))
+  console.log('infolink', t('InfoLink'))
+
   return (
     <ImageContainerInner scaleFactor={1}>
       <ShadowedImage info={img} />
-      <Caption>{caption}</Caption>
-      <Description>{description}</Description>
+      <Caption>{t('Title')}</Caption>
+      <Description>{t('Subtitle')}</Description>
       <GoRow>
-        <GoBtn to={link}>{gotxt}</GoBtn>
-        <InfoBtn to={link}>
-          {infotxt} <i className="fa fa-arrow-right" aria-hidden="true" />
+        <GoBtn to={t('ActionLink')}>{t('Action')}</GoBtn>
+        <InfoBtn to={t('InfoLink')}>
+          {t('Info')} <i className="fa fa-arrow-right" aria-hidden="true" />
         </InfoBtn>
       </GoRow>
     </ImageContainerInner>
   )
 }
 
-export default () => {
+const HomeBody = ({ strings: s }) => {
   return (
     <Container>
-      <SectionTitle>It's amazing up there!</SectionTitle>
-      <SectionSubtitle>
-        Whether you’re a tourist on a budget or want a VIP package all to
-        yourself, we have something for you.
-      </SectionSubtitle>
+      <SectionTitle>{s.get('optionsTitle')}</SectionTitle>
+      <SectionSubtitle>{s.get('optionsSubtitle')}</SectionSubtitle>
 
       <ImageRow>
         <ImageContainer
           img={scenicFlights}
-          caption="Scenic Flights"
-          description="Three spectacular heli sight-seeing flight tours ranging from 20 - 55 minutes in length. Think... glaciers, waterfalls and mountains - oh my!"
-          gotxt="Book Now"
-          infotxt="More Info"
-          link="/scenic"
+          prefix="scenicFlights"
+          strings={s}
         />
-        <ImageContainer
-          img={customFlights}
-          caption="Custom Trips"
-          description="Three spectacular heli sight-seeing flight tours ranging from 20 - 55 minutes in length. Think... glaciers, waterfalls and mountains - oh my!"
-          gotxt="Book Now"
-          infotxt="More Info"
-          link="/vip"
-        />
+        <ImageContainer img={customFlights} prefix="customTrips" strings={s} />
         <ImageContainer
           img={scientificFlights}
-          caption="Commercial Solutions"
-          description="Three spectacular heli sight-seeing flight tours ranging from 20 - 55 minutes in length. Think... glaciers, waterfalls and mountains - oh my!"
-          gotxt="Book Now"
-          infotxt="More Info"
-          link="/commercial"
+          prefix="commercialSolutions"
+          strings={s}
         />
       </ImageRow>
-      <SectionTitle>Our Partners</SectionTitle>
-      <PartnersSection />
-      <FiveStarSection />
+      <SectionTitle>{s.get('ourPartnersTitle')}</SectionTitle>
+      <PartnersSection strings={s} />
+      <FiveStarSection strings={s} />
     </Container>
   )
 }
+
+export default withStrings(HomeBody, homeStrings)
 
 const PartnersContainer = styled.div`
   margin-bottom: 5rem;
@@ -229,24 +216,24 @@ const PartnerImg = styled.img`
   margin: 1rem;
 `
 
-const PartnersSection = () => {
+const PartnersSection = ({ strings: s }) => {
   return (
     <PartnersContainer>
       <PartnersHalf>
-        <SmallSectionTitle>Working With</SmallSectionTitle>
+        <SmallSectionTitle>{s.get('workingWith')}</SmallSectionTitle>
         <PartnersGrid>
           <PartnerImg src={motoPatagonia} />
           <PartnerImg src={html5} />
         </PartnersGrid>
       </PartnersHalf>
       <PartnersHalf>
-        <SmallSectionTitle>As featured by</SmallSectionTitle>
+        <SmallSectionTitle>{s.get('featuredBy')}</SmallSectionTitle>
         <PartnersGrid>
           <PartnerImg src={lonelyPlanet} />
         </PartnersGrid>
       </PartnersHalf>
       <PartnersHalf>
-        <SmallSectionTitle>Customers</SmallSectionTitle>
+        <SmallSectionTitle>{s.get('customers')}</SmallSectionTitle>
         <PartnersGrid>
           <PartnerImg src={nationalGeographic} />
           <PartnerImg src={nasaLogo} />
@@ -321,7 +308,7 @@ const TransparentFooter = styled.div`
   justify-content: flex-end;
 `
 
-const FooterLink = styled(Link)`
+const FooterLink = styled.a`
   color: white;
   text-decoration: none;
   font-size: 0.8rem;
@@ -354,7 +341,7 @@ export const HugeLinkButton = styled(SafeLink)`
   }
 `
 
-const FiveStarSection = () => {
+const FiveStarSection = ({ strings: s }) => {
   return (
     <FiveStarContainer>
       <BgImage info={planeSunset} />
@@ -366,20 +353,20 @@ const FiveStarSection = () => {
         <i className="fa fa-star" aria-hidden="true" />
       </RatingRow>
       <RatingCaption>
-        <RatingCaptionTitle>Best Flight Ever!</RatingCaptionTitle>
-        <RatingCaptionAttr>-- Satisfied Customer</RatingCaptionAttr>
+        <RatingCaptionTitle>{s.get('raveReview')}</RatingCaptionTitle>
+        <RatingCaptionAttr>-- {s.get('reviewAttr')}</RatingCaptionAttr>
       </RatingCaption>
 
       <CtaRow>
-        <HugeLinkButton accent shadow to="/contact">
-          Book Now
+        <HugeLinkButton accent shadow to={s.get('actionBtnLink')}>
+          {s.get('actionBtn')}
         </HugeLinkButton>
-        <HugeLinkButton gray shadow to="/contact">
-          Contact Us
+        <HugeLinkButton gray shadow to={s.get('infoBtnLink')}>
+          {s.get('infoBtn')}
         </HugeLinkButton>
       </CtaRow>
       <TransparentFooter>
-        <FooterLink to="https://whiting.io/">
+        <FooterLink href="https://whiting.io/" target="_blank">
           Website by Caleb Whiting
         </FooterLink>
       </TransparentFooter>
