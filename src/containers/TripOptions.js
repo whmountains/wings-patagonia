@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import pageStrings from '../data/home.md'
 import { ResponsiveImage } from '../elements/Image'
 import { SafeLink } from '../elements/Button'
 

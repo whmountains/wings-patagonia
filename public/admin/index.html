@@ -12,14 +12,24 @@
   <script src="https://unpkg.com/netlify-cms@~0.5/dist/cms.js"></script>
   <script src="https://unpkg.com/prop-types@15.6.0/prop-types.min.js"></script>
 <script>
+const subscribers = new Set()
+let strings
+window.CMS_CHANNEL = {
+  getStrings: () => strings,
+  subscribe: fn => {
+    subscribers.add(fn)
+  },
+  unsubscribe: fn => {
+    subscribe.remove(fn)
+  },
+}
+
 const PagePreview = createClass({
-  // shouldComponentUpdate: function() {
-  //   console.log('should update?')
-  //   return false
-  // },
   render: function() {
-    window.CMS_STRINGS = this.props.entry.toJS().data
-    window.FORCE_UPDATE_HOOK && window.FORCE_UPDATE_HOOK()
+    strings = this.props.entry
+
+    // notify
+    subscribers.forEach(s => this.props.entry())
 
     return h('iframe', {
       src: '../index.html',

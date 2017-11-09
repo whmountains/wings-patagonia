@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 
 import { ResponsiveImage } from '../elements/Image.js'
 import { LinkButton } from '../elements/Button.js'
-import { t } from '../lib/i18n'
+import { withStrings } from '../lib/i18n'
 import TripOptions from '../containers/TripOptions'
 
 import logo from '../assets/logo-gray.svg'
@@ -85,29 +85,31 @@ const DownIcon = styled.img`
   animation: 1.5s ${bounce} linear infinite;
 `
 
-export default class Home extends React.PureComponent {
+class Home extends React.PureComponent {
   componentDidMount() {
     if (typeof window !== 'undefined') {
       window.parent.parent.FORCE_UPDATE_HOOK = () => this.forceUpdate()
     }
   }
   render() {
+    const s = this.props.strings
+
     return (
       <Container>
         <Splash>
           <Logo src={logo} alt="Wings Logo" />
           <Separator />
-          <Subtitle>{t('subtitle')}</Subtitle>
+          <Subtitle>{s.get('subtitle')}</Subtitle>
           <ActionButtons>
             <LinkButton accent to="/contact">
-              {t('cta')}
+              {s.get('cta')}
             </LinkButton>
             <LinkButton to="/film">
               <img src={yt} alt="" />
-              <span>{t('video')}</span>
+              <span>{s.get('video')}</span>
             </LinkButton>
           </ActionButtons>
-          <MoreBelow>{t('scrollPrompt')}</MoreBelow>
+          <MoreBelow>{s.get('scrollPrompt')}</MoreBelow>
           <DownIcon src={scrollDown} alt="Scroll Down" />
         </Splash>
         <SeamlessImage info={mountain} />
@@ -118,3 +120,5 @@ export default class Home extends React.PureComponent {
     )
   }
 }
+
+export default withStrings(Home)
