@@ -134,10 +134,11 @@ module.exports = {
         // back to the "file" loader at the end of the loader list.
         oneOf: [
           {
-            test: require.resolve('../src/lib/GENERATE_STRINGS.js'),
+            test: /\.(markdown|md)$/,
             use: [
+              'json-loader',
               {
-                loader: 'val-loader',
+                loader: 'front-matter-loader',
               },
             ],
           },
