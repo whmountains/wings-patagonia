@@ -52,7 +52,6 @@ export const withStrings = (Component, fallbackStrings) => {
       }
     }
   } else {
-    console.log('fallbackStrings', fallbackStrings)
     return () => (
       <Component
         {...this.props}
