@@ -21,4 +21,4 @@ template.then(index => {
   )
 })
 
-console.log(chalk.green('Done'))
+console.log(chalk.green('Done!'))
