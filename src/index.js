@@ -22,7 +22,7 @@ if (typeof window !== 'undefined') {
     )
   } else {
     // render into the dev environment
-    ReactDOM.render(
+    ReactDOM.hydrate(
       <BrowserRouter>
         <App />
       </BrowserRouter>,
