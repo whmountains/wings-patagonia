@@ -23,40 +23,40 @@ const getCMS = () => {
 
 export const withStrings = (Component, fallbackStrings) => {
   const cms = getCMS()
+  const destructuredFallback = fromJS(
+    (fallbackStrings || { attributes: {} }).attributes,
+  )
 
-  if (cms) {
-    return class StringsWrapper extends React.Component {
-      constructor() {
-        super()
-        this.state = {
-          strings: cms.getStrings(),
-        }
-      }
-      update = strings => {
-        this.setState(strings)
-      }
-      componentDidMount() {
-        let cms = getCMS()
-        if (cms) {
-          cms.subscribe(this.update)
-        }
-      }
-      componentWillUnmount() {
-        let cms = getCMS()
-        if (cms) {
-          cms.unsubscribe(this.update)
-        }
-      }
-      render() {
-        return <Component {...this.props} strings={this.state.strings} />
+  return class StringsWrapper extends React.Component {
+    constructor() {
+      super()
+      this.state = {
+        strings: null,
       }
     }
-  } else {
-    return () => (
-      <Component
-        {...this.props}
-        strings={fromJS((fallbackStrings || { attributes: {} }).attributes)}
-      />
-    )
+    update = strings => {
+      console.log('got update', strings)
+      this.setState({ strings })
+    }
+    componentDidMount() {
+      let cms = getCMS()
+      if (cms) {
+        cms.subscribe(this.update)
+      }
+    }
+    componentWillUnmount() {
+      let cms = getCMS()
+      if (cms) {
+        cms.unsubscribe(this.update)
+      }
+    }
+    render() {
+      return (
+        <Component
+          {...this.props}
+          strings={this.state.strings || destructuredFallback}
+        />
+      )
+    }
   }
 }

@@ -134,9 +134,6 @@ const ImageContainer = ({ img, strings, prefix }) => {
     return strings.get(prefix + str)
   }
 
-  console.log('actionLink', t('ActionLink'))
-  console.log('infolink', t('InfoLink'))
-
   return (
     <ImageContainerInner scaleFactor={1}>
       <ShadowedImage info={img} />

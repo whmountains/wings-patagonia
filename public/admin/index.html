@@ -26,10 +26,12 @@ window.CMS_CHANNEL = {
 
 const PagePreview = createClass({
   render: function() {
-    strings = this.props.entry
+    strings = this.props.entry.get('data')
 
     // notify
-    subscribers.forEach(s => this.props.entry())
+    subscribers.forEach(s => {
+      s(strings)
+    })
 
     return h('iframe', {
       src: '../index.html',
