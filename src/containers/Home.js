@@ -90,6 +90,8 @@ class Home extends React.PureComponent {
   render() {
     const s = this.props.strings
 
+    console.log('home strings', s.toJS())
+
     return (
       <Container>
         <Splash>

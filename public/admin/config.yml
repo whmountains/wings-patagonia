@@ -2,7 +2,8 @@ backend:
   name: git-gateway
   branch: beta
 
-media_folder: "src/uploads" # Folder where user uploaded files should go
+media_folder: "public/uploads" # Folder where user uploaded files should go
+public_folder: "/uploads" # The build system will put the uploaded files here
 
 collections: # A list of collections the CMS should be able to edit
   - name: "pages"
@@ -37,9 +38,18 @@ collections: # A list of collections the CMS should be able to edit
           - {label: Option 3 Info, name: commercialSolutionsInfo, widget: string}
           - {label: Option 3 Info Link, name: commercialSolutionsInfoLink, widget: string}
           - {label: Our Partners Title, name: ourPartnersTitle, widget: string}
-          - {label: Working With, name: workingWith, widget: string}
-          - {label: Featured By, name: featuredBy, widget: string}
-          - {label: Customers, name: customers, widget: string}
+          - name: partnersSections
+            widget: list
+            label: Partners Section
+            fields:
+              - {label: Title, name: title, widget: string}
+              - name: logos
+                widget: list
+                label: Partner
+                fields:
+                  - {label: Name, name: name, widget: string}
+                  - {label: Website, name: url, widget: string}
+                  - {label: Logo, name: image, widget: image}
           - {label: Rave Review, name: raveReview, widget: string}
           - {label: Review Attr, name: reviewAttr, widget: string}
           - {label: Action Btn, name: actionBtn, widget: string}

@@ -12,12 +12,6 @@ import scenicFlights from '../assets/scenic-flights.jpg'
 import customFlights from '../assets/custom-flights.jpg'
 import scientificFlights from '../assets/scientific-flights.jpg'
 import arrowRight from '../assets/arrow-right.svg'
-import motoPatagonia from '../assets/moto-patagonia.png'
-import promethius from '../assets/promethius-logo.png'
-import html5 from '../assets/html5-logo.png'
-import lonelyPlanet from '../assets/lonelyPlanet.png'
-import nationalGeographic from '../assets/natgeo.png'
-import nasaLogo from '../assets/nasa.png'
 import planeSunset from '../assets/plane-sunset.jpg'
 
 const Container = styled.div`
@@ -217,26 +211,24 @@ const PartnerImg = styled.img`
 const PartnersSection = ({ strings: s }) => {
   return (
     <PartnersContainer>
-      <PartnersHalf>
-        <SmallSectionTitle>{s.get('workingWith')}</SmallSectionTitle>
-        <PartnersGrid>
-          <PartnerImg src={motoPatagonia} />
-          <PartnerImg src={html5} />
-        </PartnersGrid>
-      </PartnersHalf>
-      <PartnersHalf>
-        <SmallSectionTitle>{s.get('featuredBy')}</SmallSectionTitle>
-        <PartnersGrid>
-          <PartnerImg src={lonelyPlanet} />
-        </PartnersGrid>
-      </PartnersHalf>
-      <PartnersHalf>
-        <SmallSectionTitle>{s.get('customers')}</SmallSectionTitle>
-        <PartnersGrid>
-          <PartnerImg src={nationalGeographic} />
-          <PartnerImg src={nasaLogo} />
-        </PartnersGrid>
-      </PartnersHalf>
+      {s.get('partnersSections').map(section => {
+        return (
+          <PartnersHalf key={section.get('title')}>
+            <SmallSectionTitle>{section.get('title')}</SmallSectionTitle>
+            <PartnersGrid>
+              {section
+                .get('logos')
+                .map(logo => (
+                  <PartnerImg
+                    src={logo.get('image')}
+                    alt={logo.get('name')}
+                    key={logo.get('name') + logo.get('image') + logo.get('url')}
+                  />
+                ))}
+            </PartnersGrid>
+          </PartnersHalf>
+        )
+      })}
     </PartnersContainer>
   )
 }
