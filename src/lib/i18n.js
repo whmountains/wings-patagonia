@@ -35,7 +35,6 @@ export const withStrings = (Component, fallbackStrings) => {
       }
     }
     update = strings => {
-      console.log('got update', strings)
       this.setState({ strings })
     }
     componentDidMount() {

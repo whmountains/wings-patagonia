@@ -4,8 +4,6 @@ export class ResponsiveImage extends React.PureComponent {
   render() {
     const { src, srcsets } = this.props.info
 
-    console.log(this.props.info)
-
     return (
       <picture style={this.props.outerStyles}>
         {srcsets.map(({ mime, srcset }) => (

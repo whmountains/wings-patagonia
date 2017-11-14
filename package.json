@@ -40,7 +40,7 @@
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "ri-loader": "^1.0.1",
+    "ri-loader": "^1.1.1",
     "style-loader": "0.18.2",
     "styled-components": "^2.2.1",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -99,6 +99,7 @@
   "devDependencies": {
     "decamelize": "^1.2.0",
     "github": "^11.0.0",
+    "globby": "^6.1.0",
     "gray-matter": "^3.1.1",
     "prettier": "^1.7.4",
     "pretty-error": "^2.1.1",
