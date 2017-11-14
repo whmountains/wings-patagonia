@@ -5,6 +5,8 @@ import { StaticRouter } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
 import { ServerStyleSheet } from 'styled-components'
 
+import './assets/clear-sans/clearsans.css'
+
 import App from './App'
 
 if (typeof window !== 'undefined') {
