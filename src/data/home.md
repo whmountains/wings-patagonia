@@ -43,5 +43,7 @@ actionBtn: Book Now
 actionBtnLink: '/contact#book'
 infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
+test:
+  - testlist: /uploads/image.png
 ---
 
