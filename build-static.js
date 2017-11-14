@@ -11,14 +11,16 @@ const template = fs.readFile(path.join(__dirname, './build/tpl.html'), {
   encoding: 'utf8',
 })
 
-const { html, css } = render({ path })
-template.then(index => {
-  return fs.writeFile(
-    path.join(__dirname, './build/index.html'),
-    index
-      .replace('</head>', css + '</head>')
-      .replace('<div id="root">', '<div id="root">' + html),
-  )
+paths.forEach(p => {
+  const { html, css } = render({ p })
+  template.then(tpl => {
+    return fs.writeFile(
+      path.join(__dirname, `./build`, p, `index.html`),
+      tpl
+        .replace('</head>', css + '</head>')
+        .replace('<div id="root">', '<div id="root">' + html),
+    )
+  })
 })
 
-console.log(chalk.green('Done!'))
+console.log(chalk.green('Done with static rendering!'))
