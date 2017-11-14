@@ -34,7 +34,7 @@ commercialSolutionsActionLink: /contact
 commercialSolutionsInfo: More Info
 commercialSolutionsInfoLink: /commercial
 ourPartnersTitle: Our Partners
-workingWith: Working With
+workingWith: Working with
 featuredBy: As featured by
 customers: Customers
 raveReview: Best Flight Ever!
