@@ -36,7 +36,12 @@ commercialSolutionsInfoLink: /commercial
 ourPartnersTitle: Our Partners
 partnersSections:
   - logos:
-      - image: /uploads/image.png
+      - image: /uploads/moto-patagonia.png
+        name: Moto Patagonia
+        url: 'http://www.motopatagonia.com/'
+    title: Working With
+  - logos:
+      - image: /uploads/moto-patagonia.png
         name: GNS Science
         url: 'https://www.gns.cri.nz/'
     title: Customers
