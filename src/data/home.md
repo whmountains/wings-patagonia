@@ -44,6 +44,9 @@ partnersSections:
       - image: /uploads/image.png
         name: GNS Science
         url: 'https://www.gns.cri.nz/'
+      - image: /uploads/nasa.png
+        name: NASA
+        url: 'https://www.nasa.gov/'
     title: Customers
 raveReview: Best Flight Ever!
 reviewAttr: Satisfied Customer
