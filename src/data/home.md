@@ -41,7 +41,7 @@ partnersSections:
         url: 'http://www.motopatagonia.com/'
     title: Working With
   - logos:
-      - image: /uploads/moto-patagonia.png
+      - image: /uploads/image.png
         name: GNS Science
         url: 'https://www.gns.cri.nz/'
     title: Customers
