@@ -34,16 +34,17 @@ commercialSolutionsActionLink: /contact
 commercialSolutionsInfo: More Info
 commercialSolutionsInfoLink: /commercial
 ourPartnersTitle: Our Partners
-workingWith: Working with
-featuredBy: As featured by
-customers: Customers
+partnersSections:
+  - logos:
+      - image: /uploads/image.png
+        name: GNS Science
+        url: 'https://www.gns.cri.nz/'
+    title: Customers
 raveReview: Best Flight Ever!
 reviewAttr: Satisfied Customer
 actionBtn: Book Now
 actionBtnLink: '/contact#book'
 infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
-test:
-  - testlist: /uploads/image.png
 ---
 
