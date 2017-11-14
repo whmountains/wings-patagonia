@@ -40,8 +40,8 @@ customers: Customers
 raveReview: Best Flight Ever!
 reviewAttr: Satisfied Customer
 actionBtn: Book Now
-actionBtnLink: /contact
+actionBtnLink: '/contact#book'
 infoBtn: Contact Us
-infoBtnLink: /contact
+infoBtnLink: '/contact#contact'
 ---
 
