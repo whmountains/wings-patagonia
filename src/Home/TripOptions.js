@@ -10,7 +10,7 @@ import customFlights from '../assets/custom-flights.jpg'
 import scientificFlights from '../assets/scientific-flights.jpg'
 import homeStrings from '../data/home.md'
 
-const ImageRow = styled.div`
+const Row = styled.div`
   padding: 1rem 5rem;
   width: 100%;
   box-sizing: border-box;
@@ -27,7 +27,7 @@ const ImageRow = styled.div`
   }
 `
 
-const ImageContainerInner = styled.div`
+const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 22rem;
@@ -61,7 +61,7 @@ const ImageContainerInner = styled.div`
   }
 `
 
-const ShadowedImage = styled(ResponsiveImage)`
+const Image = styled(ResponsiveImage)`
   width: calc(${p => p.height} / 3 * 4);
   object-fit: cover;
   object-position: center;
@@ -70,7 +70,7 @@ const ShadowedImage = styled(ResponsiveImage)`
   border-radius: 2px;
 `
 
-const Caption = styled.span`
+const Title = styled.span`
   margin-bottom: 0.8rem;
   font-size: 1.3rem;
   font-weight: bold;
@@ -104,15 +104,15 @@ const InfoBtn = styled(Link)`
   margin-left: 1rem;
 `
 
-const ImageContainer = ({ img, strings, prefix, ...params }) => {
+const Card = ({ img, strings, prefix, ...params }) => {
   const t = str => {
     return strings.get(prefix + str)
   }
 
   return (
-    <ImageContainerInner scaleFactor={1} {...params}>
-      <ShadowedImage info={img} />
-      <Caption>{t('Title')}</Caption>
+    <CardContainer scaleFactor={1} {...params}>
+      <Image info={img} />
+      <Title>{t('Title')}</Title>
       <Description>{t('Subtitle')}</Description>
       <GoRow>
         <GoBtn to={t('ActionLink')}>
@@ -122,26 +122,17 @@ const ImageContainer = ({ img, strings, prefix, ...params }) => {
           {t('Info')} <i className="fa fa-arrow-right" aria-hidden="true" />
         </InfoBtn> */}
       </GoRow>
-    </ImageContainerInner>
+    </CardContainer>
   )
 }
 
 const TripOptions = ({ strings: s }) => {
   return (
-    <ImageRow>
-      <ImageContainer
-        large
-        img={scenicFlights}
-        prefix="scenicFlights"
-        strings={s}
-      />
-      <ImageContainer img={customFlights} prefix="customTrips" strings={s} />
-      <ImageContainer
-        img={scientificFlights}
-        prefix="commercialSolutions"
-        strings={s}
-      />
-    </ImageRow>
+    <Row>
+      <Card large img={scenicFlights} prefix="scenicFlights" strings={s} />
+      <Card img={customFlights} prefix="customTrips" strings={s} />
+      <Card img={scientificFlights} prefix="commercialSolutions" strings={s} />
+    </Row>
   )
 }
 
