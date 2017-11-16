@@ -55,6 +55,10 @@ const ImageRow = styled.div`
   @media (max-width: 1300px) {
     flex-direction: column;
   }
+
+  @media (max-width: 800px) {
+    padding: 1rem 1rem;
+  }
 `
 
 const ImageContainerInner = styled.div`
@@ -72,6 +76,7 @@ const ImageContainerInner = styled.div`
   border-radius: 5px;
   box-sizing: border-box;
   flex: 1;
+  height: 100%;
 
   transition: border-color 0.2s;
 
@@ -102,14 +107,18 @@ const Description = styled.p`
   margin-bottom: 0.5rem;
 `
 
-const GoRow = styled.div``
+const GoRow = styled.div`
+  margin-top: auto;
+  width: 100%;
+  justify-content: flex-end;
+`
 
 const GoBtn = styled(Link)`
   ${'' /* color: #4a90e2; */} color: #3282e0;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
-  margin-right: 1rem;
+  ${'' /* margin-right: 1rem; */};
 `
 
 const InfoBtn = styled(Link)`
@@ -120,21 +129,23 @@ const InfoBtn = styled(Link)`
   margin-left: 1rem;
 `
 
-const ImageContainer = ({ img, strings, prefix }) => {
+const ImageContainer = ({ img, strings, prefix, ...params }) => {
   const t = str => {
     return strings.get(prefix + str)
   }
 
   return (
-    <ImageContainerInner scaleFactor={1}>
+    <ImageContainerInner scaleFactor={1} {...params}>
       <ShadowedImage info={img} />
       <Caption>{t('Title')}</Caption>
       <Description>{t('Subtitle')}</Description>
       <GoRow>
-        <GoBtn to={t('ActionLink')}>{t('Action')}</GoBtn>
-        <InfoBtn to={t('InfoLink')}>
+        <GoBtn to={t('ActionLink')}>
+          {t('Action')} <i className="fa fa-arrow-right" aria-hidden="true" />
+        </GoBtn>
+        {/* <InfoBtn to={t('InfoLink')}>
           {t('Info')} <i className="fa fa-arrow-right" aria-hidden="true" />
-        </InfoBtn>
+        </InfoBtn> */}
       </GoRow>
     </ImageContainerInner>
   )
@@ -148,6 +159,7 @@ const HomeBody = ({ strings: s }) => {
 
       <ImageRow>
         <ImageContainer
+          large
           img={scenicFlights}
           prefix="scenicFlights"
           strings={s}
