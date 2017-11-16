@@ -20,6 +20,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   color: #444;
+  background-color: #fcfbfa;
 `
 
 const SectionTitle = styled.h2`
@@ -40,10 +41,11 @@ const ShadowedImage = styled(ResponsiveImage)`
   object-position: center;
   width: 100%;
   margin-bottom: 0.8rem;
+  border-radius: 2px;
 `
 
 const ImageRow = styled.div`
-  padding: 0 1rem;
+  padding: 1rem 5rem;
   width: 100%;
   box-sizing: border-box;
   justify-content: center;
@@ -59,21 +61,19 @@ const ImageContainerInner = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 22rem;
-  margin: 0 0;
-  padding: 0 1rem;
-  box-sizing: border-box;
+  margin: 0 1rem;
+  padding: 1rem;
   background: #fff;
-  ${'' /* min-height: 25rem; */}
   transform: scale(${p => p.scaleFactor});
   overflow: hidden;
   min-width: 16rem;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-sizing: border-box;
+  flex: 1;
 
-  border-right: 2px solid #ccc;
-  &:last-child {
-    border-right: none;
-  }
-
-  transition: transform 0.1s;
+  transition: border-color 0.2s;
 
   @media (min-width: 1900px) {
     padding: 0 1.5rem;
@@ -85,12 +85,8 @@ const ImageContainerInner = styled.div`
     max-width: 28rem;
   }
 
-  *:hover > & {
-    ${'' /* transform: scale(0.9); */};
-  }
-
   &:hover {
-    ${'' /* transform: scale(1); */};
+    border-color: hsla(212, 74%, 70%, 1);
   }
 `
 
