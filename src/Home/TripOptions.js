@@ -11,39 +11,39 @@ import scientificFlights from '../assets/scientific-flights.jpg'
 import homeStrings from '../data/home.md'
 
 const Row = styled.div`
-  padding: 1rem 5rem;
+  display: grid;
+
+  padding: 0 5rem;
   width: 100%;
   box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 5rem;
 
+  grid-template: auto auto / repeat(2, 1fr);
+  grid-gap: 2rem;
+
   @media (max-width: 1300px) {
-    flex-direction: column;
+    ${'' /* flex-direction: column; */};
   }
 
   @media (max-width: 800px) {
-    padding: 1rem 1rem;
+    ${'' /* padding: 1rem 1rem; */};
   }
 `
 
 const CardContainer = styled.div`
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  grid-gap: 1rem;
+
   align-items: center;
-  max-width: 22rem;
-  margin: 0 1rem;
   padding: 1rem;
   background: #fff;
   transform: scale(${p => p.scaleFactor});
   overflow: hidden;
-  min-width: 16rem;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
   border-radius: 5px;
   box-sizing: border-box;
-  flex: 1;
-  height: 100%;
-
   transition: border-color 0.2s;
 
   @media (min-width: 1900px) {
@@ -59,15 +59,24 @@ const CardContainer = styled.div`
   &:hover {
     border-color: hsla(212, 74%, 70%, 1);
   }
+
+  ${p => p.large && 'grid-column: span 2;'};
 `
 
-const Image = styled(ResponsiveImage)`
-  width: calc(${p => p.height} / 3 * 4);
+const Image = styled(ResponsiveImage).attrs({
+  outerStyles: {
+    height: '100%',
+  },
+})`
   object-fit: cover;
   object-position: center;
   width: 100%;
-  margin-bottom: 0.8rem;
+  height: 100%;
   border-radius: 2px;
+`
+
+const CardContents = styled.div`
+  flex-direction: column;
 `
 
 const Title = styled.span`
@@ -78,7 +87,6 @@ const Title = styled.span`
 `
 
 const Description = styled.p`
-  text-align: center;
   margin-bottom: 0.5rem;
 `
 
@@ -112,16 +120,18 @@ const Card = ({ img, strings, prefix, ...params }) => {
   return (
     <CardContainer scaleFactor={1} {...params}>
       <Image info={img} />
-      <Title>{t('Title')}</Title>
-      <Description>{t('Subtitle')}</Description>
-      <GoRow>
-        <GoBtn to={t('ActionLink')}>
-          {t('Action')} <i className="fa fa-arrow-right" aria-hidden="true" />
-        </GoBtn>
-        {/* <InfoBtn to={t('InfoLink')}>
-          {t('Info')} <i className="fa fa-arrow-right" aria-hidden="true" />
-        </InfoBtn> */}
-      </GoRow>
+      <CardContents>
+        <Title>{t('Title')}</Title>
+        <Description>{t('Subtitle')}</Description>
+        <GoRow>
+          <GoBtn to={t('ActionLink')}>
+            {t('Action')} <i className="fa fa-arrow-right" aria-hidden="true" />
+          </GoBtn>
+          {/* <InfoBtn to={t('InfoLink')}>
+            {t('Info')} <i className="fa fa-arrow-right" aria-hidden="true" />
+          </InfoBtn> */}
+        </GoRow>
+      </CardContents>
     </CardContainer>
   )
 }
