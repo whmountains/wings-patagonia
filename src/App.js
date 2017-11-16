@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router'
 
-import Home from './containers/Home'
+import Home from './Home/'
 // import Admin from './containers/Admin'
 
 class App extends Component {
