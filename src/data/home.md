@@ -17,7 +17,7 @@ scenicFlightsAction: Book Now
 scenicFlightsActionLink: /contact
 scenicFlightsInfo: More Info
 scenicFlightsInfoLink: /scenic
-customTripsTitle: Scenic Flights
+customTripsTitle: Custom Flights
 customTripsSubtitle: >-
   Three spectacular heli sight-seeing flight tours ranging from 20 - 55 minutes
   in length. Think... glaciers, waterfalls and mountains - oh my!
@@ -25,7 +25,7 @@ customTripsAction: Book Now
 customTripsActionLink: /contact
 customTripsInfo: More Info
 customTripsInfoLink: /vip
-commercialSolutionsTitle: Scenic Flights
+commercialSolutionsTitle: Commercial Solutions
 commercialSolutionsSubtitle: >-
   Three spectacular heli sight-seeing flight tours ranging from 20 - 55 minutes
   in length. Think... glaciers, waterfalls and mountains - oh my!
