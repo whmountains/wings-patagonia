@@ -22,7 +22,7 @@ const Container = styled.div`
 const SectionTitle = styled.h2`
   font-weight: 700;
   font-size: 2em;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `
 
 const SectionSubtitle = styled.p`
