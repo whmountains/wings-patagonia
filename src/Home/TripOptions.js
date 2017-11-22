@@ -17,6 +17,7 @@ const Row = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
+  position: relative;
 
   @media (max-width: 1300px) {
     flex-direction: column;
@@ -31,10 +32,10 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 22rem;
-  margin: 0 1rem;
+  margin: 0 2rem;
   padding: 1rem;
   background: #fff;
-  transform: scale(${p => p.scaleFactor});
+  transform: scale(${p => (p.large ? 1.2 : 1)});
   overflow: hidden;
   min-width: 16rem;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
@@ -110,7 +111,7 @@ const Card = ({ img, strings, prefix, ...params }) => {
   }
 
   return (
-    <CardContainer scaleFactor={1} {...params}>
+    <CardContainer {...params}>
       <Image info={img} />
       <Title>{t('Title')}</Title>
       <Description>{t('Subtitle')}</Description>
@@ -126,11 +127,22 @@ const Card = ({ img, strings, prefix, ...params }) => {
   )
 }
 
+const SlantBg = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #eaf6fd;
+  transform: rotate(-7deg) scale(1.5, 0.9);
+`
+
 const TripOptions = ({ strings: s }) => {
   return (
     <Row>
-      <Card large img={scenicFlights} prefix="scenicFlights" strings={s} />
+      <SlantBg />
       <Card img={customFlights} prefix="customTrips" strings={s} />
+      <Card large img={scenicFlights} prefix="scenicFlights" strings={s} />
       <Card img={scientificFlights} prefix="commercialSolutions" strings={s} />
     </Row>
   )

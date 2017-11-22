@@ -7,6 +7,7 @@ import { withStrings } from '../lib/i18n'
 import TripOptions from './TripOptions'
 import Partners from './Partners'
 import FinalCall from './FinalCall'
+import PlaneQuote from './PlaneQuote'
 
 import homeStrings from '../data/home.md'
 
@@ -17,6 +18,7 @@ const Container = styled.div`
   width: 100%;
   color: #444;
   background-color: #fcfbfa;
+  overflow: hidden;
 `
 
 const SectionTitle = styled.h2`
@@ -28,7 +30,7 @@ const SectionTitle = styled.h2`
 const SectionSubtitle = styled.p`
   max-width: 800px;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 `
 
 const HomeBody = ({ strings: s }) => {
@@ -37,6 +39,7 @@ const HomeBody = ({ strings: s }) => {
       <SectionTitle>{s.get('optionsTitle')}</SectionTitle>
       <SectionSubtitle>{s.get('optionsSubtitle')}</SectionSubtitle>
       <TripOptions />
+      <PlaneQuote />
 
       <SectionTitle>{s.get('ourPartnersTitle')}</SectionTitle>
       <Partners />
