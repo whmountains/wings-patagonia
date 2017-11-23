@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -17,6 +19,7 @@ const Row = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: 1;
 
   @media (max-width: 1300px) {
     flex-direction: column;

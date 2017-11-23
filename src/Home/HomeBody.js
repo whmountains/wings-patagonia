@@ -25,6 +25,7 @@ const SectionTitle = styled.h2`
   font-weight: 700;
   font-size: 2em;
   margin-bottom: 1rem;
+  z-index: 1;
 `
 
 const SectionSubtitle = styled.p`

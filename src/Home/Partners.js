@@ -10,6 +10,7 @@ const PartnersContainer = styled.div`
   width: 100%;
   overflow: hidden;
   justify-content: center;
+  z-index: 1;
 `
 
 const PartnersGrid = styled.div`
