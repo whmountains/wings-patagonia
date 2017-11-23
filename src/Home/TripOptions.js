@@ -16,7 +16,6 @@ const Row = styled.div`
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5rem;
   position: relative;
 
   @media (max-width: 1300px) {
