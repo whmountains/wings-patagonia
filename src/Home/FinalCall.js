@@ -112,13 +112,13 @@ const FiveStarSection = ({ strings: s }) => {
   return (
     <FiveStarContainer>
       <BgImage info={planeSunset} />
-      <RatingRow>
+      {/* <RatingRow>
         <i className="fa fa-star" aria-hidden="true" />
         <i className="fa fa-star" aria-hidden="true" />
         <i className="fa fa-star" aria-hidden="true" />
         <i className="fa fa-star" aria-hidden="true" />
         <i className="fa fa-star" aria-hidden="true" />
-      </RatingRow>
+      </RatingRow> */}
       <RatingCaption>
         <RatingCaptionTitle>{s.get('raveReview')}</RatingCaptionTitle>
         <RatingCaptionAttr>-- {s.get('reviewAttr')}</RatingCaptionAttr>
