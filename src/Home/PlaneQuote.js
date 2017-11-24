@@ -6,7 +6,7 @@ import { withStrings } from '../lib/i18n'
 import homeStrings from '../data/home.md'
 import { ResponsiveImage } from '../elements/Image'
 
-import plane from '../assets/aplane.jpg'
+import plane from '../assets/aplane.tiff'
 
 const Container = styled.div`
   height: 40rem;
