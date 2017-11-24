@@ -47,6 +47,9 @@ partnersSections:
       - image: /uploads/nasa.png
         name: NASA
         url: 'https://www.nasa.gov/'
+      - image: /uploads/natgeo.png
+        name: National Geographic
+        url: 'http://nationalgeographic.com/'
     title: Customers
 raveReview: Best Flight Ever!
 reviewAttr: Satisfied Customer
@@ -55,3 +58,4 @@ actionBtnLink: '/contact#book'
 infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
 ---
+
