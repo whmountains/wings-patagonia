@@ -2,7 +2,7 @@
 subtitle: >-
   Come fly with us for the best Patagonia experience and see the Ice Fields and
   glaciers of the Deep South.
-cta: Book a Flight
+cta: Contact Us
 video: Watch the film
 scrollPrompt: Descend to see more.
 optionsTitle: It's amazing up there!
@@ -58,4 +58,3 @@ actionBtnLink: '/contact#book'
 infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
 ---
-
