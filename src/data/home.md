@@ -7,8 +7,8 @@ video: Watch the film
 scrollPrompt: Descend to see more.
 optionsTitle: It's amazing up there!
 optionsSubtitle: >-
-  Whether you’re a tourist on a budget or want a VIP package all to yourself, we
-  have something for you.
+  Whether you’re a traveler on a budget or want a VIP package all to yourself,
+  we have something for you.
 scenicFlightsTitle: Scenic Flights
 scenicFlightsSubtitle: >-
   Spectacular sight-seeing flight tours ranging from 30 - 60 minutes in length.
