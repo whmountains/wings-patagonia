@@ -14,7 +14,7 @@ scenicFlightsSubtitle: >-
   Spectacular sight-seeing flight tours ranging from 30 - 60 minutes in length.
   See the expansive southern ice fields for yourself!
 scenicFlightsAction: More Info
-scenicFlightsActionLink: /contact
+scenicFlightsActionLink: /flights/scenic
 scenicFlightsInfo: More Info
 scenicFlightsInfoLink: /scenic
 customTripsTitle: Custom Flights

@@ -8,15 +8,20 @@ const Container = styled.div`
   flex-direction: column;
   color: white;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 
   padding: 2rem;
 `
 
 const Title = styled.h1`
-  font-size: 4rem;
+  font-size: 3rem;
 `
 
-const Tagline = styled.p``
+const Tagline = styled.p`
+  width: 100%;
+  max-width: 40rem;
+`
 
 const FlightsPage = () => {
   return [

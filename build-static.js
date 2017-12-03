@@ -2,8 +2,9 @@ const chalk = require('chalk')
 const fs = require('mz/fs')
 const path = require('path')
 const globby = require('globby')
+const mkdirp = require('mkdirp-then')
 
-const paths = ['/']
+const paths = ['/', '/flights/scenic']
 
 main()
 
@@ -20,13 +21,18 @@ async function main() {
   })
 
   paths.forEach(p => {
+    const dirPath = path.join(__dirname, `./build`, p)
+    const mkdirProgress = mkdirp(dirPath)
     const { html, css } = render({ p })
-    fs.writeFile(
-      path.join(__dirname, `./build`, p, `index.html`),
-      template
-        .replace('</head>', css + '</head>')
-        .replace('<div id="root">', '<div id="root">' + html),
-    )
+
+    mkdirProgress.then(() => {
+      fs.writeFile(
+        path.join(__dirname, `./build`, p, `index.html`),
+        template
+          .replace('</head>', css + '</head>')
+          .replace('<div id="root">', '<div id="root">' + html),
+      )
+    })
   })
 
   console.log(chalk.green('Done with static rendering!'))

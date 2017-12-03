@@ -9,13 +9,13 @@ export class ResponsiveImage extends React.PureComponent {
         {srcsets.map(({ mime, srcset }) => (
           <source
             sizes={this.props.sizes}
-            srcSet={srcset}
+            srcSet={srcset.replace(/static\//g, '/static/')}
             type={mime}
             key={mime}
           />
         ))}
         <img
-          src={src}
+          src={'/' + src}
           alt={this.props.alt}
           className={this.props.className}
           style={this.props.innerStyles}

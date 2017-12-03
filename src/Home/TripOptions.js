@@ -30,13 +30,15 @@ const Row = styled.div`
   }
 `
 
-const CardContainer = styled.div`
+const CardContainer = styled(Link)`
+  display: flex;
+
   flex-direction: column;
   align-items: center;
   max-width: 22rem;
   margin: 0 2rem;
-  padding: 1rem;
-  background: #fff;
+  padding: 0.4rem;
+  ${'' /* padding: 0.6rem; */} background: #fff;
   transform: scale(${p => (p.large ? 1.2 : 1)});
   overflow: hidden;
   min-width: 16rem;
@@ -46,6 +48,8 @@ const CardContainer = styled.div`
   box-sizing: border-box;
   flex: 1;
   height: 100%;
+  color: inherit;
+  text-decoration: inherit;
 
   transition: border-color 0.2s;
 
@@ -69,8 +73,7 @@ const Image = styled(ResponsiveImage)`
   object-fit: cover;
   object-position: center;
   width: 100%;
-  margin-bottom: 0.8rem;
-  border-radius: 2px;
+  ${'' /* margin-bottom: 0.8rem; */} border-radius: 2px;
 `
 
 const Title = styled.span`
@@ -107,24 +110,33 @@ const InfoBtn = styled(Link)`
   margin-left: 1rem;
 `
 
+const RestOfCard = styled.div`
+  padding: 0.6rem;
+  align-items: inherit;
+  flex-direction: inherit;
+  flex: auto;
+`
+
 const Card = ({ img, strings, prefix, ...params }) => {
   const t = str => {
     return strings.get(prefix + str)
   }
 
   return (
-    <CardContainer {...params}>
+    <CardContainer to={t('ActionLink')} {...params}>
       <Image info={img} />
-      <Title>{t('Title')}</Title>
-      <Description>{t('Subtitle')}</Description>
-      <GoRow>
-        <GoBtn to={t('ActionLink')}>
-          {t('Action')} <i className="fa fa-arrow-right" aria-hidden="true" />
-        </GoBtn>
-        {/* <InfoBtn to={t('InfoLink')}>
+      <RestOfCard>
+        <Title>{t('Title')}</Title>
+        <Description>{t('Subtitle')}</Description>
+        <GoRow>
+          <GoBtn to={t('ActionLink')}>
+            {t('Action')} <i className="fa fa-arrow-right" aria-hidden="true" />
+          </GoBtn>
+          {/* <InfoBtn to={t('InfoLink')}>
           {t('Info')} <i className="fa fa-arrow-right" aria-hidden="true" />
         </InfoBtn> */}
-      </GoRow>
+        </GoRow>
+      </RestOfCard>
     </CardContainer>
   )
 }
