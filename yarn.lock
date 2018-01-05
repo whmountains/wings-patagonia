@@ -4386,8 +4386,8 @@ mime@1.4.1, mime@^1.2.11, mime@^1.3.4:
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
 
 mime@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/mime/-/mime-2.0.3.tgz#4353337854747c48ea498330dc034f9f4bbbcc0b"
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.2.0.tgz#161e541965551d3b549fa1114391e3a3d55b923b"
 
 mimic-fn@^1.0.0:
   version "1.1.0"
@@ -5307,8 +5307,8 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
 
 promise-parallel-throttle@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/promise-parallel-throttle/-/promise-parallel-throttle-3.0.0.tgz#655bcd5c8fe5a26df38347e2fd5c7904309d27da"
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/promise-parallel-throttle/-/promise-parallel-throttle-3.1.0.tgz#0fd4179e944cf94430582e632efde13b8b7bb43d"
 
 promise@8.0.1:
   version "8.0.1"
@@ -5801,7 +5801,7 @@ restore-cursor@^2.0.0:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
 
-ri-loader@^1.1.1:
+ri-loader@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/ri-loader/-/ri-loader-1.2.3.tgz#892d2878defe95b37748f010fe6da41f04a31b61"
   dependencies:
@@ -6311,8 +6311,8 @@ supports-color@^4.2.1, supports-color@^4.4.0:
     has-flag "^2.0.0"
 
 supports-color@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.0.0.tgz#1db26229f6ae02f9acdb5410907c36ce2e362b13"
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.1.0.tgz#058a021d1b619f7ddf3980d712ea3590ce7de3d5"
   dependencies:
     has-flag "^2.0.0"
 
