@@ -1,0 +1,99 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+cite,
+code,
+em,
+img,
+strong,
+sub,
+sup,
+tt,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+html,
+body,
+div {
+  display: flex;
+}
+html,
+body,
+#___gatsby {
+  width: 100%;
+}
+html {
+  background: #e6ecf2;
+  /*font-family:"Helvetica Neue","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans",sans-serif;*/
+  font-family: 'Source Sans Pro';
+  font-size: 24px;
+  color: #777;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: spectral;
+}
+a {
+  color: #4a90e2;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}

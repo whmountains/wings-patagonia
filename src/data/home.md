@@ -17,6 +17,7 @@ scenicFlightsAction: More Info
 scenicFlightsActionLink: /flights/scenic
 scenicFlightsInfo: More Info
 scenicFlightsInfoLink: /scenic
+scenicFlightsImage: ../assets/scenic-flights.jpg
 customTripsTitle: Custom Flights
 customTripsSubtitle: >-
   Short on time?  We can provide chartered transport for your group with a
@@ -25,6 +26,7 @@ customTripsAction: More Info
 customTripsActionLink: /contact
 customTripsInfo: More Info
 customTripsInfoLink: /vip
+customTripsImage: ../assets/custom-flights.jpg
 commercialSolutionsTitle: Commercial Solutions
 commercialSolutionsSubtitle: >-
   Three spectacular heli sight-seeing flight tours ranging from 20 - 55 minutes
@@ -33,6 +35,7 @@ commercialSolutionsAction: More Info
 commercialSolutionsActionLink: /contact
 commercialSolutionsInfo: More Info
 commercialSolutionsInfoLink: /commercial
+commercialSolutionsImage: ../assets/scientific-flights.jpg
 ourPartnersTitle: Our Partners
 partnersSections:
   - logos:

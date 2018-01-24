@@ -1,117 +1,43 @@
 {
-  "name": "wings",
-  "version": "0.1.0",
-  "private": true,
+  "name": "gatsby-starter-netlify-cms",
+  "description": "Example Gatsby, and Netlify CMS project",
+  "version": "1.0.0",
+  "author": "Austin Green",
   "dependencies": {
-    "autoprefixer": "7.1.2",
-    "babel-core": "6.25.0",
-    "babel-eslint": "7.2.3",
-    "babel-jest": "20.0.3",
-    "babel-loader": "7.1.1",
-    "babel-preset-react-app": "^3.0.3",
-    "babel-runtime": "6.26.0",
-    "cache-loader": "^1.1.0",
-    "case-sensitive-paths-webpack-plugin": "2.1.1",
-    "chalk": "1.1.3",
-    "css-loader": "0.28.4",
-    "dotenv": "4.0.0",
-    "eslint": "4.4.1",
-    "eslint-config-react-app": "^2.0.1",
-    "eslint-loader": "1.9.0",
-    "eslint-plugin-flowtype": "2.35.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "7.1.0",
-    "extract-text-webpack-plugin": "3.0.0",
-    "file-loader": "0.11.2",
-    "front-matter-loader": "^0.2.0",
-    "fs-extra": "3.0.1",
-    "got": "^7.1.0",
-    "html-webpack-plugin": "2.29.0",
-    "immutable": "^3.8.2",
-    "jest": "20.0.4",
-    "mz": "^2.7.0",
-    "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "3.2.0",
-    "postcss-loader": "2.0.6",
-    "promise": "8.0.1",
-    "react": "^16.0.0",
-    "react-dev-utils": "^4.1.0",
-    "react-dom": "^16.0.0",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "ri-loader": "^1.2.3",
-    "style-loader": "0.18.2",
-    "styled-components": "^2.2.1",
-    "sw-precache-webpack-plugin": "0.11.4",
-    "url-loader": "0.5.9",
-    "webpack": "3.5.1",
-    "webpack-dev-server": "2.8.2",
-    "webpack-manifest-plugin": "1.2.1",
-    "whatwg-fetch": "2.0.3"
+    "@fortawesome/fontawesome": "^1.1.2",
+    "@fortawesome/react-fontawesome": "^0.0.17",
+    "babel-plugin-emotion": "^8.0.12",
+    "bulma": "^0.6.0",
+    "emotion": "^8.0.12",
+    "emotion-server": "^8.0.12",
+    "gatsby": "^1.9.63",
+    "gatsby-image": "^1.0.34",
+    "gatsby-link": "^1.6.21",
+    "gatsby-plugin-emotion": "^1.1.10",
+    "gatsby-plugin-react-helmet": "^1.0.5",
+    "gatsby-plugin-sass": "^1.0.12",
+    "gatsby-plugin-sharp": "^1.6.26",
+    "gatsby-remark-images": "^1.5.18",
+    "gatsby-source-filesystem": "^1.5.5",
+    "gatsby-transformer-remark": "^1.7.17",
+    "gatsby-transformer-sharp": "^1.6.16",
+    "react-emotion": "^8.0.12",
+    "styled-components": "^2.4.0",
+    "typeface-source-sans-pro": "^0.0.44",
+    "typeface-spectral": "^0.0.44"
   },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js && node build-static.js && ./update-headers.sh",
-    "test": "node scripts/test.js --env=jsdom"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.js?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "decamelize": "^1.2.0",
-    "github": "^11.0.0",
-    "globby": "^6.1.0",
-    "gray-matter": "^3.1.1",
-    "mkdirp-then": "^1.2.0",
-    "prettier": "^1.7.4",
-    "pretty-error": "^2.1.1",
-    "sharp": "whmountains/sharp",
-    "titleize": "^1.0.0",
-    "val-loader": "^1.0.2"
-  },
-  "prettier": {
-    "semi": false,
-    "trailingComma": "all",
-    "singleQuote": true
-  },
-  "homepage": "https://beta--wings.netlify.com/"
+    "prettier": "^1.7.4"
+  }
 }
