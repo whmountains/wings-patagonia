@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom'
 
 import TripOptions from './TripOptions'
 import Partners from './Partners'
-import FinalCall from './FinalCall'
+import Footer from '../Footer'
 import PlaneQuote from './PlaneQuote'
 
 const Container = styled.div`
+  display: flex;
+
   margin-top: -5vw;
   flex-direction: column;
   align-items: center;
@@ -42,7 +44,7 @@ const HomeBody = ({ data }) => {
 
       <SectionTitle>{strings.ourPartnersTitle}</SectionTitle>
       <Partners data={data} />
-      <FinalCall data={data} />
+      <Footer strings={data.globalStrings.frontmatter} />
     </Container>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'react-emotion'
 
 const PartnersContainer = styled.div`
+  display: flex;
   margin-bottom: 5rem;
   width: 100%;
   overflow: hidden;
@@ -10,12 +11,14 @@ const PartnersContainer = styled.div`
 `
 
 const PartnersGrid = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 `
 
 const PartnersHalf = styled.div`
+  display: flex;
   padding: 0 1rem;
   border-right: 2px solid #ccc;
   flex-direction: column;

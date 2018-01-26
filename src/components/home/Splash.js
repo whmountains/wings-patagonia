@@ -9,6 +9,7 @@ import scrollDown from '../../assets/scroll-down.svg'
 import yt from '../../assets/youtube-play.svg'
 
 const Container = styled.div`
+  display: flex;
   width: 100%;
   background: #e5ecf2;
   position: relative;

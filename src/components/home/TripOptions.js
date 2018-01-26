@@ -15,6 +15,7 @@ import { SafeLink } from '../../elements/Button'
 // import scientificFlights from '../assets/scientific-flights.jpg'
 
 const Row = styled.div`
+  display: flex;
   padding: 1rem 5rem;
   width: 100%;
   box-sizing: border-box;
@@ -52,6 +53,7 @@ const CardContainer = styled(SafeLink)`
   height: 100%;
   color: inherit;
   text-decoration: inherit;
+  z-index: 1;
 
   transition: border-color 0.2s;
 
@@ -96,13 +98,15 @@ const Description = styled.p`
 `
 
 const GoRow = styled.div`
+  display: flex;
   margin-top: auto;
   width: 100%;
   justify-content: flex-end;
 `
 
-const GoBtn = styled(Link)`
-  ${'' /* color: #4a90e2; */} color: #3282e0;
+const GoBtn = styled.span`
+  ${'' /* background: none;
+  border: none; */} ${'' /* color: #4a90e2; */} color: #3282e0;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
@@ -118,6 +122,7 @@ const InfoBtn = styled(Link)`
 `
 
 const RestOfCard = styled.div`
+  display: flex;
   padding: 0.6rem;
   align-items: inherit;
   flex-direction: inherit;
@@ -139,7 +144,7 @@ const Card = ({ strings, prefix, ...params }) => {
         <Title>{t('Title')}</Title>
         <Description>{t('Subtitle')}</Description>
         <GoRow>
-          <GoBtn to={t('ActionLink')}>
+          <GoBtn>
             {t('Action')} <FaIcon icon={faArrowRight} />
           </GoBtn>
           {/* <InfoBtn to={t('InfoLink')}>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Img from 'gatsby-image'
 
 const Container = styled.div`
+  display: flex;
   height: 40rem;
   width: 100%;
   position: relative;
@@ -41,6 +42,7 @@ const BottomCut = styled.div`
 `
 
 const QuoteContainer = styled.div`
+  display: flex;
   height: 100%;
   width: 35%;
   color: white;
@@ -48,7 +50,7 @@ const QuoteContainer = styled.div`
   font-size: 1.5rem;
   flex-direction: column;
   justify-content: center;
-  z-index: 1;
+  z-index: 0;
   margin-top: 1rem;
   margin-left: 3rem;
   font-weight: 300;

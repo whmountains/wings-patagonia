@@ -15,26 +15,20 @@ scenicFlightsSubtitle: >-
   See the expansive southern ice fields for yourself!
 scenicFlightsAction: More Info
 scenicFlightsActionLink: /flights/scenic
-scenicFlightsInfo: More Info
-scenicFlightsInfoLink: /scenic
 scenicFlightsImage: ../assets/scenic-flights.jpg
 customTripsTitle: Custom Flights
 customTripsSubtitle: >-
   Short on time?  We can provide chartered transport for your group with a
   low-flying glacier tour on the way.
 customTripsAction: More Info
-customTripsActionLink: /contact
-customTripsInfo: More Info
-customTripsInfoLink: /vip
+customTripsActionLink: /flights/custom
 customTripsImage: ../assets/custom-flights.jpg
 commercialSolutionsTitle: Commercial Solutions
 commercialSolutionsSubtitle: >-
   Three spectacular heli sight-seeing flight tours ranging from 20 - 55 minutes
   in length. Think... glaciers, waterfalls and mountains - oh my!
 commercialSolutionsAction: More Info
-commercialSolutionsActionLink: /contact
-commercialSolutionsInfo: More Info
-commercialSolutionsInfoLink: /commercial
+commercialSolutionsActionLink: /flights/commercial
 commercialSolutionsImage: ../assets/scientific-flights.jpg
 ourPartnersTitle: Our Partners
 quoteText: >-

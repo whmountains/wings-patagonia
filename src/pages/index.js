@@ -60,6 +60,11 @@ export const pageQuery = graphql`
         }
       }
     }
+    globalStrings: markdownRemark(fileAbsolutePath: { regex: "/global.md$/" }) {
+      frontmatter {
+        ...FooterQuery
+      }
+    }
     homeStrings: markdownRemark(fileAbsolutePath: { regex: "/home.md$/" }) {
       frontmatter {
         title
@@ -134,23 +139,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        footerImg {
-          childImageSharp {
-            sizes(
-              maxWidth: 5120
-              traceSVG: { background: "transparent", color: "#999" }
-            ) {
-              # ...GatsbyImageSharpSizes_withWebp
-              ...GatsbyImageSharpSizes_withWebp_tracedSVG
-            }
-          }
-        }
-        raveReview
-        reviewAttr
-        actionBtn
-        actionBtnLink
-        infoBtn
-        infoBtnLink
         partnersSections {
           title
           logos {
