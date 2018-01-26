@@ -1,28 +1,33 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import { Link } from 'react-router-dom'
-
-import { withStrings } from '../lib/i18n'
-import homeStrings from '../data/home.md'
-import { ResponsiveImage } from '../elements/Image'
-
-import plane from '../assets/aplane.tiff'
+import Img from 'gatsby-image'
 
 const Container = styled.div`
   height: 40rem;
   width: 100%;
   position: relative;
   margin-top: -6rem;
+  overflow: hidden;
 `
 
-const Image = styled(ResponsiveImage)`
+const ImageContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  object-position: 50% 75%;
+
+  & > div {
+    display: block;
+    width: 100%;
+  }
+`
+
+const Image = styled(Img)`
+  display: block;
+  ${'' /* object-fit: cover;
+  object-position: 50% 75%; */};
 `
 
 const BottomCut = styled.div`
@@ -56,18 +61,17 @@ const QAttr = styled.span`
   font-style: italic;
 `
 
-const PlaneQuote = ({ strings }) => {
+const PlaneQuote = ({ data }) => {
+  const strings = data.homeStrings.frontmatter
   return (
     <Container>
-      <Image info={plane} />
+      <ImageContainer>
+        <Image sizes={strings.quoteBg.childImageSharp.sizes} />
+      </ImageContainer>
       <BottomCut />
       <QuoteContainer>
-        <Quote>
-          “Once you have tasted flight, you will forever walk the earth with
-          your eyes turned skyward, for there you have been, and there you will
-          always long to return.”
-        </Quote>
-        <QAttr>- Leonardo da Vinci</QAttr>
+        <Quote>"{strings.quoteText}"</Quote>
+        <QAttr>- {strings.quoteAttr}</QAttr>
       </QuoteContainer>
     </Container>
   )

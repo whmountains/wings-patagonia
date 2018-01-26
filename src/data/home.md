@@ -37,6 +37,10 @@ commercialSolutionsInfo: More Info
 commercialSolutionsInfoLink: /commercial
 commercialSolutionsImage: ../assets/scientific-flights.jpg
 ourPartnersTitle: Our Partners
+quoteText: >-
+  Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.
+quoteAttr: Leonardo da Vinci
+quoteBg: ../assets/aplane.jpg
 partnersSections:
   - logos:
       - image: /uploads/moto-patagonia.png
@@ -60,4 +64,5 @@ actionBtn: Book Now
 actionBtnLink: '/contact#book'
 infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
+footerImg: ../assets/plane-sunset.jpg
 ---

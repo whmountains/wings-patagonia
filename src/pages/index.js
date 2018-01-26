@@ -5,10 +5,8 @@ import { css } from 'emotion'
 import Img from 'gatsby-image'
 // import { withStrings } from '../lib/i18n'
 //
-import TripOptions from '../components/home/TripOptions'
 import Splash from '../components/home/Splash'
-// import mountain from '../assets/seamless.jpg'
-// import homeStrings from '../data/home.md'
+import HomeBody from '../components/home/HomeBody'
 
 const Container = styled.div`
   width: 100%;
@@ -40,7 +38,7 @@ class Home extends React.PureComponent {
           sizes={this.props.data.seamlessImg.childImageSharp.sizes}
         />
         <WhiteContainer>
-          <TripOptions data={this.props.data} />
+          <HomeBody data={this.props.data} />
         </WhiteContainer>
       </Container>
     )
@@ -123,12 +121,44 @@ export const pageQuery = graphql`
           }
         }
         ourPartnersTitle
+        quoteText
+        quoteAttr
+        quoteBg {
+          childImageSharp {
+            sizes(
+              maxWidth: 5120
+              traceSVG: { background: "transparent", color: "#999" }
+            ) {
+              # ...GatsbyImageSharpSizes_withWebp
+              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+            }
+          }
+        }
+        footerImg {
+          childImageSharp {
+            sizes(
+              maxWidth: 5120
+              traceSVG: { background: "transparent", color: "#999" }
+            ) {
+              # ...GatsbyImageSharpSizes_withWebp
+              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+            }
+          }
+        }
         raveReview
         reviewAttr
         actionBtn
         actionBtnLink
         infoBtn
         infoBtnLink
+        partnersSections {
+          title
+          logos {
+            image
+            name
+            url
+          }
+        }
         _PARENT
         parent
       }

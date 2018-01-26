@@ -1,14 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
+import Img from 'gatsby-image'
 
-import { withStrings } from '../lib/i18n'
-import { ResponsiveImage } from '../elements/Image'
-import { SafeLink } from '../elements/Button'
-
-import arrowRight from '../assets/arrow-right.svg'
-import planeSunset from '../assets/plane-sunset.jpg'
-
-import homeStrings from '../data/home.md'
+import { SafeLink } from '../../elements/Button'
 
 const FiveStarContainer = styled.div`
   width: 100%;
@@ -19,7 +13,7 @@ const FiveStarContainer = styled.div`
   padding: 5rem 1rem 8rem 1rem;
   box-sizing: border-box;
 `
-const BgImage = styled(ResponsiveImage)`
+const BgImage = styled.div`
   top: 0;
   right: 0;
   width: 100%;
@@ -28,6 +22,11 @@ const BgImage = styled(ResponsiveImage)`
   object-position: center;
   position: absolute;
   z-index: -1;
+  display: block;
+
+  & div {
+    display: block;
+  }
 `
 
 const ContentContainer = styled.div``
@@ -108,10 +107,14 @@ export const HugeLinkButton = styled(SafeLink)`
   }
 `
 
-const FiveStarSection = ({ strings: s }) => {
+const FiveStarSection = ({ data }) => {
+  const strings = data.homeStrings.frontmatter
+
   return (
     <FiveStarContainer>
-      <BgImage info={planeSunset} />
+      <BgImage>
+        <Img sizes={strings.footerImg.childImageSharp.sizes} />
+      </BgImage>
       {/* <RatingRow>
         <i className="fa fa-star" aria-hidden="true" />
         <i className="fa fa-star" aria-hidden="true" />
@@ -120,16 +123,16 @@ const FiveStarSection = ({ strings: s }) => {
         <i className="fa fa-star" aria-hidden="true" />
       </RatingRow> */}
       <RatingCaption>
-        <RatingCaptionTitle>{s.get('raveReview')}</RatingCaptionTitle>
-        <RatingCaptionAttr>-- {s.get('reviewAttr')}</RatingCaptionAttr>
+        <RatingCaptionTitle>{strings.raveReview}</RatingCaptionTitle>
+        <RatingCaptionAttr>-- {strings.reviewAttr}</RatingCaptionAttr>
       </RatingCaption>
 
       <CtaRow>
-        <HugeLinkButton accent shadow to={s.get('actionBtnLink')}>
-          {s.get('actionBtn')}
+        <HugeLinkButton accent shadow to={strings.actionBtnLink}>
+          {strings.actionBtn}
         </HugeLinkButton>
-        <HugeLinkButton gray shadow to={s.get('infoBtnLink')}>
-          {s.get('infoBtn')}
+        <HugeLinkButton gray shadow to={strings.infoBtnLink}>
+          {strings.infoBtn}
         </HugeLinkButton>
       </CtaRow>
       <TransparentFooter>
@@ -141,4 +144,4 @@ const FiveStarSection = ({ strings: s }) => {
   )
 }
 
-export default withStrings(FiveStarSection, homeStrings)
+export default FiveStarSection

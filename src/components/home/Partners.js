@@ -1,9 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-
-import { withStrings } from '../lib/i18n'
-
-import homeStrings from '../data/home.md'
+import styled from 'react-emotion'
 
 const PartnersContainer = styled.div`
   margin-bottom: 5rem;
@@ -43,23 +39,25 @@ const PartnerImg = styled.img`
   margin: 1rem;
 `
 
-const PartnersSection = ({ strings: s }) => {
+const PartnersSection = ({ data }) => {
+  const strings = data.homeStrings.frontmatter
+
+  console.log(strings)
+
   return (
     <PartnersContainer>
-      {s.get('partnersSections').map(section => {
+      {strings.partnersSections.map(section => {
         return (
-          <PartnersHalf key={section.get('title')}>
-            <SmallSectionTitle>{section.get('title')}</SmallSectionTitle>
+          <PartnersHalf key={section.title}>
+            <SmallSectionTitle>{section.title}</SmallSectionTitle>
             <PartnersGrid>
-              {section
-                .get('logos')
-                .map(logo => (
-                  <PartnerImg
-                    src={logo.get('image')}
-                    alt={logo.get('name')}
-                    key={logo.get('name') + logo.get('image') + logo.get('url')}
-                  />
-                ))}
+              {section.logos.map(logo => (
+                <PartnerImg
+                  src={logo.image}
+                  alt={logo.name}
+                  key={logo.name + logo.image + logo.url}
+                />
+              ))}
             </PartnersGrid>
           </PartnersHalf>
         )
@@ -68,4 +66,4 @@ const PartnersSection = ({ strings: s }) => {
   )
 }
 
-export default withStrings(PartnersSection, homeStrings)
+export default PartnersSection
