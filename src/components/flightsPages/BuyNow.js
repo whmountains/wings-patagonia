@@ -34,8 +34,6 @@ const Button = styled(SafeLink)`
 `
 
 const BuyNow = ({ strings }) => {
-  console.log(strings)
-
   return (
     <Container>
       <Title>{strings.ctaTitle}</Title>

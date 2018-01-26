@@ -45,8 +45,6 @@ const PartnerImg = styled.img`
 const PartnersSection = ({ data }) => {
   const strings = data.homeStrings.frontmatter
 
-  console.log(strings)
-
   return (
     <PartnersContainer>
       {strings.partnersSections.map(section => {

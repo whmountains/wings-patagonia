@@ -11,9 +11,6 @@ const ScenicFlights = ({ data }) => {
   const strings = data.scenicStrings.frontmatter
   const globalStrings = data.globalStrings.frontmatter
 
-  console.log('strings', strings)
-  console.log('globalStrings', globalStrings)
-
   return (
     <PageContainer>
       <Splash strings={strings} />
