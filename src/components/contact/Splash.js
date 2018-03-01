@@ -2,13 +2,10 @@ import React from 'react'
 import styled from 'react-emotion'
 import Img from 'gatsby-image'
 import FaIcon from '@fortawesome/react-fontawesome'
-import {
-  faEnvelope,
-  faPhone,
-  faCaretDown,
-} from '@fortawesome/fontawesome-free-solid'
+import { faEnvelope, faPhone } from '@fortawesome/fontawesome-free-solid'
 
-import logoFlame from '../../assets/white-logo-flame.svg'
+import Nav from '../Nav.js'
+
 import bg from '../../assets/contact-fill.svg'
 import scenery from '../../assets/contact-scenery.svg'
 
@@ -58,34 +55,6 @@ const Subtitle = styled.div`
   padding: 1rem;
 `
 
-const Navbar = styled.nav`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to top, transparent, #4c5d6f);
-  display: flex;
-  height: 4rem;
-  justify-content: space-between;
-  padding: 0 1.3rem;
-  box-sizing: border-box;
-`
-
-const NavItems = styled.ul`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  height: 3rem;
-  list-style: none;
-  font-weight: 300;
-`
-
-const Logo = styled.img``
-
-const NavItem = styled.li`
-  margin-left: 1rem;
-`
-
 const ContactMethod = styled.div`
   margin-bottom: 0.8rem;
 
@@ -116,16 +85,7 @@ const Splash = ({ strings }) => {
     <Container>
       <BgTexture src={bg} />
       <Scenery src={scenery} />
-      <Navbar>
-        <Logo src={logoFlame} />
-        <NavItems>
-          <NavItem>Home</NavItem>
-          <NavItem>
-            Flights <FaIcon icon={faCaretDown} />
-          </NavItem>
-          <NavItem>Contact Us</NavItem>
-        </NavItems>
-      </Navbar>
+      <Nav />
       <ContentContainer>
         <Title>{strings.title}</Title>
         <Subtitle>

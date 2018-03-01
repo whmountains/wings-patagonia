@@ -4,6 +4,8 @@ import Img from 'gatsby-image'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/fontawesome-free-solid'
 
+import Nav from '../Nav'
+
 import logoFlame from '../../assets/white-logo-flame.svg'
 
 const Container = styled.div`
@@ -79,16 +81,7 @@ const Splash = ({ strings }) => {
       <ImgContainer>
         <Img sizes={strings.splashImg.childImageSharp.sizes} />
       </ImgContainer>
-      <Navbar>
-        <Logo src={logoFlame} />
-        <NavItems>
-          <NavItem>Home</NavItem>
-          <NavItem>
-            Flights <FaIcon icon={faCaretDown} />
-          </NavItem>
-          <NavItem>Contact Us</NavItem>
-        </NavItems>
-      </Navbar>
+      <Nav />
       <ContentContainer>
         <Title>{strings.title}</Title>
         <Subtitle>{strings.description}</Subtitle>

@@ -3,6 +3,7 @@ import styled, { keyframes } from 'react-emotion'
 
 // import { withStrings } from '../../lib/i18n'
 import { LinkButton } from '../../elements/Button.js'
+import Nav from '../Nav'
 
 import logo from '../../assets/logo-gray.svg'
 import scrollDown from '../../assets/scroll-down.svg'
@@ -68,6 +69,7 @@ const DownIcon = styled.img`
 export default ({ strings: s }) => {
   return (
     <Container>
+      <Nav color="#777" noScrim noLogo />
       <Logo src={logo} alt="Wings Logo" />
       <Separator />
       <Subtitle>{s.subtitle}</Subtitle>
