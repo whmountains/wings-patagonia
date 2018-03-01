@@ -26,7 +26,7 @@ locations:
     coordinates:
       lng: -72.56288340409276
       lat: -48.46951542872052
-    zoom: 11
+    zoom: 11.5
   - name: Puerto Varas (Winter Base)
     directionsBody: |
       ## Directions to Puerto Varas Airport
@@ -35,5 +35,14 @@ locations:
     coordinates:
       lng: -72.94708240275378
       lat: -41.349177140685285
-    zoom: 11
+    zoom: 13
+faq:
+  - q: How long are the flights?
+    a: Flights typically last around one hour.
+  - q: Do I get free snacks?
+    a: Spicy Cheetos are the only snacks allowed on the plane, all other snacks will be confiscated.
+aboutTitle: About Us
+aboutContent: |
+  **Lorem** ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+aboutImg: ../assets/about.jpg
 ---

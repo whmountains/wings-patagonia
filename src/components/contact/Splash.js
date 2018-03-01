@@ -158,16 +158,5 @@ export const pageQuery = graphql`
       info
       title
     }
-    splashImg {
-      childImageSharp {
-        sizes(
-          maxWidth: 5120
-          traceSVG: { background: "transparent", color: "#999" }
-        ) {
-          # ...GatsbyImageSharpSizes_withWebp
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
   }
 `

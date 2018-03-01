@@ -5,7 +5,9 @@ import Img from 'gatsby-image'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/fontawesome-free-solid'
 import Remarkable from 'remarkable'
-import loadJS from 'load-js'
+// import loadJS from 'load-js'
+import mapboxgl from 'mapbox-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 // import 'mapbox-gl/mapb-x'
 
@@ -13,6 +15,7 @@ import logoFlame from '../../assets/white-logo-flame.svg'
 import bg from '../../assets/contact-fill.svg'
 import scenery from '../../assets/contact-scenery.svg'
 import { blacklistProps } from '../../lib/propRemoval'
+import Mapbox from '../../elements/Mapbox'
 
 const Container = styled.div`
   display: flex;
@@ -79,16 +82,26 @@ const DirectionsContainer = styled.div`
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
+
+  & strong {
+    font-weight: bold;
+  }
+
+  & em {
+    font-style: italic;
+  }
 `
 
-const MapContainer = styled.div`
+const mapContainer = css`
   flex: 1;
   position: relative;
 `
 
 const map = css`
-  height: 100%;
-  width: 100%;
+  flex: 1;
+  ${'' /* height: 100%;
+
+  width: 100%; */};
 `
 
 class Directions extends React.Component {
@@ -99,32 +112,38 @@ class Directions extends React.Component {
       mapComponent: null,
     }
   }
-  componentDidMount() {
-    if (!this.state.mapComponent) {
-      // loadJS('https://bundle.run/react-mapbox-gl@3.8.0').then(() => {
-
-      loadJS('/react-mapbox-gl.js').then(() => {
-        this.setState({
-          mapComponent: window.ReactMapboxGl({
-            accessToken:
-              'pk.eyJ1IjoiZ3JlZW5mbHkiLCJhIjoiZjNlNWVmZDM1ODljZGRiZmVmNWZhYmFmNDk5YTA5YzQifQ.yNJKHV3yNnwcV5pNBTIjtA',
-          }),
-        })
-      })
-    }
-  }
+  // componentDidMount() {
+  // if (!this.state.mapComponent) {
+  // loadJS('https://bundle.run/react-mapbox-gl@3.8.0').then(() => {
+  // loadJS('https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js').then(
+  // () => {
+  // loadJS('/react-mapbox-gl.js').then(() => {
+  // this.setState({
+  // mapComponent: ReactMapboxGl({
+  //   accessToken:
+  //     'pk.eyJ1IjoiZ3JlZW5mbHkiLCJhIjoiZjNlNWVmZDM1ODljZGRiZmVmNWZhYmFmNDk5YTA5YzQifQ.yNJKHV3yNnwcV5pNBTIjtA',
+  // }),
+  // })
+  // },
+  // )
+  // }
+  // }
   mapMove = (map, event) => {
     // console.log(map.getCenter(), map.getZoom())
   }
+  attachMap = (ref, foo, bar) => {
+    if (ref) {
+      console.log('ref', ref)
+      mapboxgl.accessToken =
+        'pk.eyJ1IjoiZ3JlZW5mbHkiLCJhIjoiZjNlNWVmZDM1ODljZGRiZmVmNWZhYmFmNDk5YTA5YzQifQ.yNJKHV3yNnwcV5pNBTIjtA'
+      const map = (this.map = new mapboxgl.Map({
+        container: ref,
+        style: 'mapbox://styles/mapbox/streets-v10',
+      }))
+    }
+  }
   render() {
     const { strings } = this.props
-
-    const Map = this.state.mapComponent
-    let Layer, Feature
-    if (Map) {
-      Layer = ReactMapboxGl.Layer
-      Feature = ReactMapboxGl.Feature
-    }
 
     const loc = strings.locations.find(
       (l) => l.name === this.state.currentLocation,
@@ -132,6 +151,38 @@ class Directions extends React.Component {
 
     const md = new Remarkable()
     const renderedDirections = { __html: md.render(loc.directionsBody) }
+
+    const icons = {
+      id: 'points',
+      type: 'symbol',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: strings.locations.map((location) => {
+            return {
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: [
+                  location.coordinates.lng,
+                  location.coordinates.lat,
+                ],
+              },
+              properties: {
+                name: location.mapName,
+              },
+            }
+          }),
+        },
+      },
+      layout: {
+        'icon-image': 'airfield-15',
+        'text-field': '{name}',
+        'text-offset': [0, 0.6],
+        'text-anchor': 'top',
+      },
+    }
 
     return (
       <Container>
@@ -152,42 +203,13 @@ class Directions extends React.Component {
         </TopRow>
         <LowerRow>
           <DirectionsContainer dangerouslySetInnerHTML={renderedDirections} />
-          <MapContainer>
-            {Map && (
-              <Map
-                onZoom={this.mapMove}
-                className={map}
-                center={loc.coordinates}
-                zoom={[loc.zoom]}
-                onMoveEnd={this.mapMove}
-                style={'mapbox://styles/mapbox/outdoors-v10'}
-              >
-                <Layer
-                  type="symbol"
-                  id="marker"
-                  layout={{
-                    'icon-image': 'airfield-15',
-                    'text-field': '{name}',
-                    'text-offset': [0, 0.6],
-                    'text-anchor': 'top',
-                  }}
-                >
-                  {strings.locations.map((location) => {
-                    return (
-                      <Feature
-                        key={location.name}
-                        properties={{ name: location.mapName }}
-                        coordinates={[
-                          location.coordinates.lng,
-                          location.coordinates.lat,
-                        ]}
-                      />
-                    )
-                  })}
-                </Layer>
-              </Map>
-            )}
-          </MapContainer>
+          <Mapbox
+            className={map}
+            center={[loc.coordinates]}
+            zoom={[loc.zoom]}
+            style="mapbox://styles/mapbox/streets-v10"
+            layers={[icons]}
+          />
         </LowerRow>
       </Container>
     )
