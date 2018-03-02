@@ -105,6 +105,8 @@ const caret = css`
 
 const DropdownLinks = styled.ul`
   list-style-position: inside;
+  display: flex;
+  flex-direction: column;
 `
 
 const DropdownLink = styled.li``

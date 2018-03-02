@@ -29,7 +29,7 @@ const SectionTitle = styled.h2`
 const SectionSubtitle = styled.p`
   max-width: 800px;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 5.5rem;
 `
 
 const HomeBody = ({ data }) => {

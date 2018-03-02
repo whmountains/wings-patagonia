@@ -14,24 +14,7 @@ import { SafeLink } from '../../elements/Button'
 // import customFlights from '../assets/custom-flights.jpg'
 // import scientificFlights from '../assets/scientific-flights.jpg'
 
-const Row = styled.div`
-  display: flex;
-  padding: 1rem 5rem;
-  width: 100%;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-
-  @media (max-width: 1300px) {
-    flex-direction: column;
-  }
-
-  @media (max-width: 800px) {
-    padding: 1rem 1rem;
-  }
-`
+const tablet_brk = '1300px'
 
 const CardContainer = styled(SafeLink)`
   display: flex;
@@ -42,7 +25,7 @@ const CardContainer = styled(SafeLink)`
   margin: 0 2rem;
   padding: 0.4rem;
   ${'' /* padding: 0.6rem; */} background: #fff;
-  transform: scale(${p => (p.large ? 1.2 : 1)});
+  transform: scale(${(p) => (p.large ? 1.2 : 1)});
   overflow: hidden;
   min-width: 16rem;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
@@ -57,14 +40,14 @@ const CardContainer = styled(SafeLink)`
 
   transition: border-color 0.2s;
 
-  @media (min-width: 1900px) {
-    padding: 0 1.5rem;
-  }
+  @media (max-width: ${tablet_brk}) {
+    margin: none;
+    margin-top: 3rem;
+    transform: none;
 
-  @media (max-width: 1300px) {
-    border-right: none;
-    margin-bottom: 3rem;
-    max-width: 28rem;
+    &:last-child {
+      margin-bottom: 3rem;
+    }
   }
 
   &:hover {
@@ -73,7 +56,7 @@ const CardContainer = styled(SafeLink)`
 `
 
 const Image = styled(Img)`
-  width: calc(${p => p.height} / 3 * 4);
+  width: calc(${(p) => p.height} / 3 * 4);
   object-fit: cover;
   object-position: center;
   width: 100%;
@@ -130,7 +113,7 @@ const RestOfCard = styled.div`
 `
 
 const Card = ({ strings, prefix, ...params }) => {
-  const t = str => {
+  const t = (str) => {
     return strings[prefix + str]
   }
 
@@ -156,6 +139,25 @@ const Card = ({ strings, prefix, ...params }) => {
   )
 }
 
+const Row = styled.div`
+  display: flex;
+  padding: 0 5rem;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: ${tablet_brk}) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 800px) {
+    padding: 0 1rem;
+  }
+`
+
 const SlantBg = styled.div`
   position: absolute;
   top: 0;
@@ -163,7 +165,7 @@ const SlantBg = styled.div`
   width: 100%;
   height: 100%;
   background: #eaf6fd;
-  transform: rotate(-7deg) scale(1.5, 0.9);
+  transform: rotate(-7deg) scale(1.5, 1);
 `
 
 const TripOptions = ({ data }) => {

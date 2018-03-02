@@ -101,9 +101,9 @@ export const HugeLinkButton = styled(SafeLink)`
   border-radius: 3px;
   text-decoration: none;
   color: inherit;
-  ${p => p.accent && `color: white; background: #4a90e2;`};
-  ${p => p.gray && `background: #eee;`};
-  ${p => p.shadow && `box-shadow: 3px 5px 8px 1px #0006;`};
+  ${(p) => p.accent && `color: white; background: #4a90e2;`};
+  ${(p) => p.gray && `background: #eee;`};
+  ${(p) => p.shadow && `box-shadow: 3px 5px 8px 1px #0006;`};
 
   & > img {
     margin-right: 0.5em;
@@ -134,9 +134,9 @@ const FiveStarSection = ({ strings }) => {
         <HugeLinkButton accent shadow to={strings.actionBtnLink}>
           {strings.actionBtn}
         </HugeLinkButton>
-        <HugeLinkButton gray shadow to={strings.infoBtnLink}>
+        {/* <HugeLinkButton gray shadow to={strings.infoBtnLink}>
           {strings.infoBtn}
-        </HugeLinkButton>
+        </HugeLinkButton> */}
       </CtaRow>
       <TransparentFooter>
         <FooterLink href="https://whiting.io/" target="_blank">

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import { Link } from 'react-router-dom'
 import Img from 'gatsby-image'
 
@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 40rem;
   width: 100%;
   position: relative;
-  margin-top: -6rem;
+  margin-top: calc(-0.5 * (100vw + 25px) * 0.12278456);
   overflow: hidden;
 `
 
@@ -25,10 +25,13 @@ const ImageContainer = styled.div`
   }
 `
 
-const Image = styled(Img)`
+const imageOuter = css`
+  height: 100%;
+`
+
+const imageInner = css`
   display: block;
-  ${'' /* object-fit: cover;
-  object-position: 50% 75%; */};
+  height: 100%;
 `
 
 const BottomCut = styled.div`
@@ -36,9 +39,11 @@ const BottomCut = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 10rem;
-  background: white;
-  transform: rotate(-7deg) scale(1.5, 1) translateY(5.5rem);
+  /* h = w sin(7), adding 25px padding in case of scrollbars */
+  height: calc((100vw + 25px) * 0.12186934341);
+  background: #fcfbfa;
+  transform-origin: bottom right;
+  transform: rotate(-7deg) scale(1.5, 1) translateX(50px);
 `
 
 const QuoteContainer = styled.div`
@@ -54,6 +59,10 @@ const QuoteContainer = styled.div`
   margin-top: 1rem;
   margin-left: 3rem;
   font-weight: 300;
+
+  @media (max-width: 900px) {
+    width: 50%;
+  }
 `
 
 const Quote = styled.p``
@@ -68,7 +77,11 @@ const PlaneQuote = ({ data }) => {
   return (
     <Container>
       <ImageContainer>
-        <Image sizes={strings.quoteBg.childImageSharp.sizes} />
+        <Img
+          className={imageInner}
+          outerWrapperClassName={imageOuter}
+          sizes={strings.quoteBg.childImageSharp.sizes}
+        />
       </ImageContainer>
       <BottomCut />
       <QuoteContainer>
