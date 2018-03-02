@@ -17,6 +17,10 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 1em;
+
+  ${'' /* prevent the nav from running over the logo */} @media(max-width: 950px) {
+    margin-top: 5rem;
+  }
 `
 const Logo = styled.img`
   margin: auto;
