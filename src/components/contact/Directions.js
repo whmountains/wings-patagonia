@@ -24,22 +24,40 @@ const Container = styled.div`
 `
 
 const TopRow = styled.div`
-  display: flex;
-
   height: 4rem;
   background: #656565;
+  display: flex;
+  overflow: auto;
+  box-sizing: border-box;
+`
+
+const TopRowInner = styled.div`
+  height: 100%;
+  display: flex;
   align-items: center;
+  margin: 0 1.5rem;
+  box-sizing: border-box;
+  flex: none;
 `
 
 const SectionTitle = styled.h2`
   color: white;
-  padding: 0 1.5rem;
+  padding-right: 1.5rem;
   margin-right: 1rem;
   border-right: 2px solid white;
   height: 70%;
   display: flex;
   align-items: center;
   font-size: 1.3rem;
+`
+
+const LocationOptions = styled.div`
+  display: flex;
+  align-items: center;
+
+  ${'' /* @media (max-width: 790px) {
+    flex-direction: column;
+  } */};
 `
 
 const LocationOption = styled.div`
@@ -52,6 +70,7 @@ const LocationOption = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  flex: none;
 `
 
 const OptionDot = styled(blacklistProps(['isActive'], FaIcon))`
@@ -187,19 +206,25 @@ class Directions extends React.Component {
     return (
       <Container>
         <TopRow>
-          <SectionTitle>{strings.directionsHeading}</SectionTitle>
-          {strings.locations.map((location) => (
-            <LocationOption
-              key={location.name}
-              onClick={() => this.setState({ currentLocation: location.name })}
-            >
-              <OptionDot
-                isActive={location.name === this.state.currentLocation}
-                icon={faCircle}
-              />
-              {location.name}
-            </LocationOption>
-          ))}
+          <TopRowInner>
+            <SectionTitle>{strings.directionsHeading}</SectionTitle>
+            {/* <LocationOptions> */}
+            {strings.locations.map((location) => (
+              <LocationOption
+                key={location.name}
+                onClick={() =>
+                  this.setState({ currentLocation: location.name })
+                }
+              >
+                <OptionDot
+                  isActive={location.name === this.state.currentLocation}
+                  icon={faCircle}
+                />
+                {location.name}
+              </LocationOption>
+            ))}
+            {/* </LocationOptions> */}
+          </TopRowInner>
         </TopRow>
         <LowerRow>
           <DirectionsContainer dangerouslySetInnerHTML={renderedDirections} />
