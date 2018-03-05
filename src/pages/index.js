@@ -27,7 +27,7 @@ const WhiteContainer = styled.div`
   background: white;
 `
 
-export const Content = ({ strings }) => {
+export const Content = ({ strings, data }) => {
   return (
     <Container>
       <Splash strings={strings} />
@@ -45,7 +45,7 @@ export const Content = ({ strings }) => {
 export default (props) => {
   const strings = props.strings || props.data.homeStrings.frontmatter
 
-  return <Content strings={strings} />
+  return <Content strings={strings} data={props.data} />
 }
 
 export const pageQuery = graphql`
