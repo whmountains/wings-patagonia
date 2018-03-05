@@ -27,25 +27,26 @@ const WhiteContainer = styled.div`
   background: white;
 `
 
-class Home extends React.PureComponent {
-  render() {
-    const strings = this.props.data.homeStrings.frontmatter
-    return (
-      <Container>
-        <Splash strings={strings} />
-        <SeamlessImageContainer
-          outerWrapperClassName={imageContainerOuterStyles}
-          sizes={this.props.data.seamlessImg.childImageSharp.sizes}
-        />
-        <WhiteContainer>
-          <HomeBody data={this.props.data} />
-        </WhiteContainer>
-      </Container>
-    )
-  }
+export const Content = ({ strings }) => {
+  return (
+    <Container>
+      <Splash strings={strings} />
+      <SeamlessImageContainer
+        outerWrapperClassName={imageContainerOuterStyles}
+        sizes={this.props.data.seamlessImg.childImageSharp.sizes}
+      />
+      <WhiteContainer>
+        <HomeBody data={this.props.data} />
+      </WhiteContainer>
+    </Container>
+  )
 }
 
-export default Home
+export default (props) => {
+  const strings = props.strings || props.data.homeStrings.frontmatter
+
+  return <Content strings={strings} />
+}
 
 export const pageQuery = graphql`
   query HomeQuery {
