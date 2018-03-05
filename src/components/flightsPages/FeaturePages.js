@@ -3,31 +3,48 @@ import styled from 'react-emotion'
 import Img from 'gatsby-image'
 import { Motion, spring } from 'react-motion'
 
+const TABLET_BRK = '1000px'
+const SECTION_HEIGHT_INT = 35
+const SECTION_HEIGHT = SECTION_HEIGHT_INT + 'rem'
+
 const FeaturePageContainer = styled.div`
   display: flex;
-  height: 35rem;
+  height: ${SECTION_HEIGHT};
   flex: none;
+  @media (max-width: ${TABLET_BRK}) {
+    flex-direction: column;
+  }
 `
 
 const ImageContainer = styled.div`
-  width: 50%;
-  height: 100%;
+  flex: 1;
+  min-width: 0;
 
   & .gatsby-image-outer-wrapper,
   & .gatsby-image-wrapper {
     height: 100%;
+    width: 100%;
   }
 `
 
 const ContentContainer = styled.div`
   display: flex;
-  width: 50%;
+  flex: 1;
+  min-width: 0;
+
+  @media (max-width: ${TABLET_BRK}) {
+    order: -1;
+  }
+`
+
+const Content = styled.div`
+  display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 3rem;
-  box-sizing: border-box;
+  margin: 3rem;
 `
 
 const Title = styled.h2`
@@ -49,8 +66,10 @@ const FeaturePage = ({ title, description, image, index }) => {
         <Img sizes={image.childImageSharp.sizes} />
       </ImageContainer>
       <ContentContainer>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
+        <Content>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
+        </Content>
       </ContentContainer>
     </FeaturePageContainer>
   )
@@ -61,8 +80,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background: linear-gradient(to right, #5cc1d8, #5cc1d8, #2f8aab);
-  height: 35rem;
+  height: ${SECTION_HEIGHT};
   overflow: hidden;
+
+  @media (max-width: ${TABLET_BRK}) {
+    height: auto;
+  }
 `
 
 const NavDots = styled.div`
@@ -75,6 +98,10 @@ const NavDots = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: ${TABLET_BRK}) {
+    display: none;
+  }
 `
 
 const Dot = styled.a`
@@ -94,10 +121,20 @@ const DotChild = styled.div`
   height: 5rem;
   background: white;
   transition: opacity 0.1s;
-  opacity: ${p => (p.active ? 1 : 0)};
+  opacity: ${(p) => (p.active ? 1 : 0)};
 
   ${Dot}:hover & {
     opacity: 1;
+  }
+`
+
+const FeaturePagesWrapper = styled.div`
+  position: relative;
+  ${'' /* display: flex; */}
+  ${'' /* flex-direction: column; */}
+
+  @media (max-width: ${TABLET_BRK}) {
+    position: static;
   }
 `
 
@@ -111,17 +148,22 @@ class FeaturePages extends React.Component {
   render() {
     const { strings } = this.props
     return (
-      <Container>
+      <Container className="featurePages">
         <Motion
-          defaultStyle={{ y: -35 * this.state.currentPage }}
-          style={{ y: spring(-35 * this.state.currentPage) }}
+          defaultStyle={{ y: this.state.currentPage }}
+          style={{ y: spring(this.state.currentPage) }}
         >
           {({ y }) => (
-            <div style={{ position: 'relative', top: `${y}rem` }}>
+            <FeaturePagesWrapper
+              className="FeaturePagesWrapper"
+              style={{
+                top: `${y * -SECTION_HEIGHT_INT}rem`,
+              }}
+            >
               {strings.featurePages.map((featuredSection, i) => (
                 <FeaturePage {...featuredSection} index={i} />
               ))}
-            </div>
+            </FeaturePagesWrapper>
           )}
         </Motion>
 

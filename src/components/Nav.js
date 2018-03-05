@@ -109,7 +109,9 @@ const DropdownLinks = styled.ul`
   flex-direction: column;
 `
 
-const DropdownLink = styled.li``
+const DropdownLink = styled.li`
+  flex: none;
+`
 
 const eventChomper = (e) => {
   console.log('chomped', e)

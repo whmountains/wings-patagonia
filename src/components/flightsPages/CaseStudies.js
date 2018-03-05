@@ -3,12 +3,17 @@ import styled from 'react-emotion'
 import Img from 'gatsby-image'
 import { Motion, spring } from 'react-motion'
 
+const TABLET_BRK_INT = 1000
+const TABLET_BRK = TABLET_BRK_INT + 'px'
+
 const FeaturePageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   flex: 3;
   padding: 1rem 3rem;
+  box-sizing: border-box;
+  max-width: 100%;
 `
 
 const ImageContainer = styled.div`
@@ -41,15 +46,57 @@ const Subtitle = styled.h3`
 
 const Description = styled.p`
   font-size: 1rem;
-  font-weight: 100;
   margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.65);
 `
 
-const FeaturePage = ({ title, description, image, index }) => {
+const CaseStudySelector = styled.div`
+  margin-top: -0.6rem;
+  margin-bottom: 0.8rem;
+
+  @media (min-width: ${TABLET_BRK_INT + 1}px) {
+    display: none;
+  }
+`
+const CaseStudyButton = styled.button`
+  font-size: 0.7rem;
+  border: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.62);
+  outline: none;
+  background: none;
+  ${(p) =>
+    p.selected &&
+    'background: rgba(128, 128, 128, 0.26); color: rgba(0, 0, 0, 0.77);'};
+`
+
+const FeaturePage = ({
+  title,
+  description,
+  image,
+  index,
+  currentStudy,
+  selectStudy,
+  caseStudies,
+}) => {
   return (
     <FeaturePageContainer>
       <ContentContainer>
         <Title>We Have Lots to Offer</Title>
+        <CaseStudySelector>
+          {caseStudies.map((study, i) => (
+            <CaseStudyButton
+              key={i}
+              onClick={() => selectStudy(i)}
+              selected={currentStudy === i}
+            >
+              {study}
+            </CaseStudyButton>
+          ))}
+        </CaseStudySelector>
         <Subtitle>{title}</Subtitle>
         <Description>{description}</Description>
       </ContentContainer>
@@ -76,6 +123,10 @@ const Nav = styled.ul`
   padding-top: 1rem;
   min-width: 13rem;
   flex: 1;
+
+  @media (max-width: ${TABLET_BRK}) {
+    display: none;
+  }
 `
 
 const NavItem = styled.li`
@@ -83,7 +134,7 @@ const NavItem = styled.li`
   color: white;
   font-weight: 300;
   justify-content: flex-end;
-  ${p =>
+  ${(p) =>
     p.active &&
     `
     background: white;
@@ -118,7 +169,12 @@ class CaseStudies extends React.Component {
             )
           })}
         </Nav>
-        <FeaturePage {...strings.caseStudies[this.state.currentPage]} />
+        <FeaturePage
+          {...strings.caseStudies[this.state.currentPage]}
+          caseStudies={strings.caseStudies.map((s) => s.shortTitle)}
+          selectStudy={(i) => this.setState({ currentPage: i })}
+          currentStudy={this.state.currentPage}
+        />
       </Container>
     )
   }

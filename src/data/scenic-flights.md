@@ -8,15 +8,15 @@ featurePages:
     description: >-
       Reiciendis rerum dolorem dolores libero in. Et sed similique doloremque repellat quis et. Sint corporis est eveniet nihil. Earum maiores deserunt natus quisquam sed omnis numquam. Placeat dignissimos beatae ipsa sit rerum. Itaque maxime qui praesentium mollitia repudiandae a.
     image: ../assets/el-chico.jpg
-  - title: Experience the Incredible
+  - title: Page 2
     description: >-
       Reiciendis rerum dolorem dolores libero in. Et sed similique doloremque repellat quis et. Sint corporis est eveniet nihil. Earum maiores deserunt natus quisquam sed omnis numquam. Placeat dignissimos beatae ipsa sit rerum. Itaque maxime qui praesentium mollitia repudiandae a.
     image: ../assets/el-chico.jpg
-  - title: Experience the Incredible
+  - title: Page 3
     description: >-
       Reiciendis rerum dolorem dolores libero in. Et sed similique doloremque repellat quis et. Sint corporis est eveniet nihil. Earum maiores deserunt natus quisquam sed omnis numquam. Placeat dignissimos beatae ipsa sit rerum. Itaque maxime qui praesentium mollitia repudiandae a.
     image: ../assets/el-chico.jpg
-  - title: Experience the Incredible
+  - title: Page 4
     description: >-
       Reiciendis rerum dolorem dolores libero in. Et sed similique doloremque repellat quis et. Sint corporis est eveniet nihil. Earum maiores deserunt natus quisquam sed omnis numquam. Placeat dignissimos beatae ipsa sit rerum. Itaque maxime qui praesentium mollitia repudiandae a.
     image: ../assets/el-chico.jpg
