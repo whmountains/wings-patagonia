@@ -27,25 +27,25 @@ const WhiteContainer = styled.div`
   background: white;
 `
 
-export const Content = ({ strings, data }) => {
+export const Content = ({ data }) => {
+  const strings = data.homeStrings.frontmatter
+
   return (
     <Container>
       <Splash strings={strings} />
       <SeamlessImageContainer
         outerWrapperClassName={imageContainerOuterStyles}
-        sizes={this.props.data.seamlessImg.childImageSharp.sizes}
+        sizes={data.seamlessImg.childImageSharp.sizes}
       />
       <WhiteContainer>
-        <HomeBody data={this.props.data} />
+        <HomeBody data={data} />
       </WhiteContainer>
     </Container>
   )
 }
 
 export default (props) => {
-  const strings = props.strings || props.data.homeStrings.frontmatter
-
-  return <Content strings={strings} data={props.data} />
+  return <Content data={props.data} />
 }
 
 export const pageQuery = graphql`

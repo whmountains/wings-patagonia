@@ -1,12 +1,13 @@
 import React from 'react'
-import styled from 'react-emotion'
-import Img from 'gatsby-image'
+import styled, { css } from 'react-emotion'
+import Image from 'gatsby-image'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/fontawesome-free-solid'
 
 import Nav from '../Nav.js'
 
-import bg from '../../assets/contact-fill.svg'
+// import bg from '../../assets/contact-fill.svg'
+import bg from '../../assets/mountains-stars.jpg'
 import scenery from '../../assets/contact-scenery.svg'
 
 const Container = styled.div`
@@ -16,10 +17,10 @@ const Container = styled.div`
   color: white;
   flex-direction: column;
   z-index: 1;
-  background: linear-gradient(-4deg, #59ac9d, #2e96ad);
+  background: linear-gradient(to bottom right, #72b6f7, #449add);
 `
 
-const BgTexture = styled.img`
+const BgTextureContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -27,8 +28,18 @@ const BgTexture = styled.img`
 
   width: 100%;
   height: 100%;
-  ${'' /* display: none; */};
 `
+
+const bgTextureInner = css`
+  width: 100%;
+  height: 100%;
+`
+
+const bgTextureOuter = css`
+  width: 100%;
+  height: 100%;
+`
+
 const Scenery = styled.img`
   position: absolute;
   bottom: -1px;
@@ -41,18 +52,24 @@ const ContentContainer = styled.div`
   margin: auto;
   flex-direction: column;
   align-items: center;
-  max-width: 28rem;
 `
 
 const Title = styled.h1`
   font-size: 4rem;
+  margin-bottom: 1rem;
 `
 
 const Subtitle = styled.div`
   font-size: 1rem;
   background: white;
   color: #595959;
-  padding: 1rem;
+  padding: 1.3rem 3rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 450px) {
+    padding: 1rem;
+  }
 `
 
 const ContactMethod = styled.div`
@@ -83,8 +100,14 @@ const getIcon = (type) => {
 const Splash = ({ strings }) => {
   return (
     <Container>
-      <BgTexture src={bg} />
-      <Scenery src={scenery} />
+      <BgTextureContainer>
+        <Image
+          className={bgTextureInner}
+          outerWrapperClassName={bgTextureOuter}
+          sizes={strings.backgroundImage.childImageSharp.sizes}
+        />
+      </BgTextureContainer>
+      {/* <Scenery src={scenery} /> */}
       <Nav />
       <ContentContainer>
         <Title>{strings.title}</Title>
@@ -117,6 +140,16 @@ export const pageQuery = graphql`
       type
       info
       title
+    }
+    backgroundImage {
+      childImageSharp {
+        sizes(
+          maxWidth: 5800
+          traceSVG: { background: "transparent", color: "#999" }
+        ) {
+          ...GatsbyImageSharpSizes_withWebp
+        }
+      }
     }
   }
 `

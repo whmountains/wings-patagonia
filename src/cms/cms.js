@@ -5,4 +5,4 @@ import HomePagePreview from './preview-templates/HomePagePreview'
 // import ProductPagePreview from './preview-templates/ProductPagePreview'
 
 // CMS.registerPreviewStyle('/styles.css')
-CMS.registerPreviewTemplate('home', PagePreview)
+CMS.registerPreviewTemplate('home', HomePagePreview)

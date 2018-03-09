@@ -21,11 +21,13 @@ const Container = styled.div`
   ${'' /* prevent the nav from running over the logo */} @media(max-width: 950px) {
     margin-top: 5rem;
   }
+
+  ${'' /* color: hsla(208, 6%, 53%, 1); */} color: hsla(208, 0%, 38%, 0.7);
 `
 const Logo = styled.img`
   margin: auto;
   height: 13rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 `
 
 const Separator = styled.div`
@@ -68,6 +70,7 @@ const bounce = keyframes`
 
 const DownIcon = styled.img`
   animation: 1.5s ${bounce} linear infinite;
+  height: 0.9rem;
 `
 
 export default ({ strings: s }) => {
@@ -75,7 +78,7 @@ export default ({ strings: s }) => {
     <Container>
       <Nav color="#777" noScrim noLogo />
       <Logo src={logo} alt="Wings Logo" />
-      <Separator />
+      {/* <Separator /> */}
       <Subtitle>{s.subtitle}</Subtitle>
       <ActionButtons>
         <LinkButton accent to="/contact">

@@ -45,7 +45,7 @@ const RatingCaption = styled.div`
   flex-direction: column;
   align-items: flex-end;
   color: white;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 `
 
 const RatingCaptionTitle = styled.h2`
@@ -92,7 +92,7 @@ const FooterLink = styled.a`
 `
 
 export const HugeLinkButton = styled(SafeLink)`
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 2em;
   padding: 0 1.5em;
   margin: 0.5em;
@@ -140,7 +140,7 @@ const FiveStarSection = ({ strings }) => {
       </CtaRow>
       <TransparentFooter>
         <FooterLink href="https://whiting.io/" target="_blank">
-          Website by Caleb Whiting
+          Website by Caleb Whiting and Jonathan Jensen
         </FooterLink>
       </TransparentFooter>
     </FiveStarContainer>

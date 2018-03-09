@@ -58,7 +58,7 @@ const SvgContainer = styled.svg`
   overflow: hidden;
 `
 
-export const SvgSlant = ({ className, bottom }) => {
+export const SvgSlant = ({ className, bottom, color }) => {
   return (
     <ZeroSizeWrapper>
       <SvgContainer
@@ -74,7 +74,7 @@ export const SvgSlant = ({ className, bottom }) => {
       >
         <path
           d={bottom ? 'M0 24V0h24L0 24z' : 'M0 24h24V0L0 24z'}
-          fill="#89c9ff"
+          fill={color}
         />
       </SvgContainer>
     </ZeroSizeWrapper>

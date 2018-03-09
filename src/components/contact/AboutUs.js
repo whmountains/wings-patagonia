@@ -15,11 +15,14 @@ const Container = styled.div`
   padding: 2rem;
   display: flex;
   position: relative;
+  justify-content: space-around;
 `
 
 const Left = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 800px;
+  justify-content: center;
 `
 
 const Title = styled.h2`

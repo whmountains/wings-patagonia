@@ -91,11 +91,31 @@ const LowerRow = styled.div`
 const DirectionsContainer = styled.div`
   flex: 1;
   background: #444;
+  color: white;
+
+  & h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  & strong {
+    font-weight: bold;
+  }
+
+  & em {
+    font-style: italic;
+  }
+`
+
+const DirectionsInner = styled.div`
+  width: 100%;
+  height: 100%;
   align-items: center;
   color: white;
   display: flex;
   flex-direction: column;
-  padding: 1.2rem;
+  padding: 1.2rem 4.5rem;
+  box-sizing: border-box;
 
   & h2 {
     font-size: 1.5rem;
@@ -227,7 +247,9 @@ class Directions extends React.Component {
           </TopRowInner>
         </TopRow>
         <LowerRow>
-          <DirectionsContainer dangerouslySetInnerHTML={renderedDirections} />
+          <DirectionsContainer>
+            <DirectionsInner dangerouslySetInnerHTML={renderedDirections} />
+          </DirectionsContainer>
           <Mapbox
             className={map}
             center={[loc.coordinates]}

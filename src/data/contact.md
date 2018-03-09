@@ -1,5 +1,5 @@
 ---
-splashImg: ../assets/fitzroy.jpg
+backgroundImage: ../assets/mountains-stars.jpg
 title: Contact Us
 contactMethods:
   - type: email

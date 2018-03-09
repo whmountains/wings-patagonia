@@ -1,6 +1,8 @@
 import React from 'react'
-import { Content } from '../../pages/index'
+import Content from '../../pages/index'
 
-const PagePreview = ({ entry, widgetFor }) => <Content content={entry.toJS()} />
-
+const PagePreview = ({ entry, widgetFor }) => {
+  // const simulatedData =
+  // return <Content data={data} />
+}
 export default PagePreview
