@@ -35,11 +35,9 @@ export const pageQuery = graphql`
     contactStrings: markdownRemark(
       fileAbsolutePath: { regex: "/contact.md$/" }
     ) {
-      frontmatter {
+      fields {
         ...ContactSplashStrings
         ...DirectionsStrings
-        ...CaseStudiesStrings
-        ...BuyNowQuery
         ...FaqStrings
         ...AboutUsStrings
       }

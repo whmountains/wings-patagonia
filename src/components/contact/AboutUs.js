@@ -78,7 +78,7 @@ const AboutUs = ({ strings }) => {
 export default AboutUs
 
 export const pageQuery = graphql`
-  fragment AboutUsStrings on frontmatter_2 {
+  fragment AboutUsStrings on fields_2 {
     aboutTitle
     aboutContent
     aboutImg {

@@ -35,6 +35,29 @@
 //   });
 // };
 
+exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+  const { createNodeField } = boundActionCreators
+  if (node.internal.type === 'MarkdownRemark') {
+    // TODO: always move the value to fields, even if we aren't porting anything
+
+    for (const key in node.frontmatter) {
+      const value = node.frontmatter[key]
+
+      let newValue = value
+
+      if (typeof value === 'string' && value.startsWith('/')) {
+        newValue = '../..' + newValue
+      }
+
+      createNodeField({
+        node,
+        name: key,
+        value: newValue,
+      })
+    }
+  }
+}
+
 exports.modifyWebpackConfig = ({ config, stage }) => {
   if (stage === 'build-html') {
     config.loader('null', {

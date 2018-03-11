@@ -266,7 +266,7 @@ class Directions extends React.Component {
 export default Directions
 
 export const pageQuery = graphql`
-  fragment DirectionsStrings on frontmatter_2 {
+  fragment DirectionsStrings on fields_2 {
     directionsHeading
     locations {
       name

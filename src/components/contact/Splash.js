@@ -6,10 +6,6 @@ import { faEnvelope, faPhone } from '@fortawesome/fontawesome-free-solid'
 
 import Nav from '../Nav.js'
 
-// import bg from '../../assets/contact-fill.svg'
-import bg from '../../assets/mountains-stars.jpg'
-import scenery from '../../assets/contact-scenery.svg'
-
 const Container = styled.div`
   display: flex;
   height: 35rem;
@@ -134,7 +130,7 @@ const Splash = ({ strings }) => {
 export default Splash
 
 export const pageQuery = graphql`
-  fragment ContactSplashStrings on frontmatter_2 {
+  fragment ContactSplashStrings on fields_2 {
     title
     contactMethods {
       type

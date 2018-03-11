@@ -10915,6 +10915,10 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
+strip-path@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/strip-path/-/strip-path-1.0.0.tgz#1950cb7ebd96c35ad44cbdb810c578ad446b74e0"
+
 style-loader@^0.13.0:
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.13.2.tgz#74533384cf698c7104c7951150b49717adc2f3bb"

@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: beta
 
-media_folder: "static/assets"
+media_folder: "/src/cms-assets"
 
 collections:
   - label: Pages
     name: pages
     files:
-      - file: ./src/data/commercial-flights.md
+      - file: src/data/commercial-flights.md
         name: commercial-flights
         label: Commercial Flights
         fields:
@@ -49,12 +49,12 @@ collections:
           - name: ctaActionLink
             label: cta action link
             widget: string
-      - file: ./src/data/contact.md
+      - file: src/data/contact.md
         name: contact
         label: Contact
         fields:
-          - name: splashImg
-            label: splash img
+          - name: backgroundImage
+            label: background image
             widget: image
           - name: title
             label: title
@@ -132,7 +132,7 @@ collections:
           - name: aboutImg
             label: about img
             widget: image
-      - file: ./src/data/custom-flights.md
+      - file: src/data/custom-flights.md
         name: custom-flights
         label: Custom Flights
         fields:
@@ -157,7 +157,7 @@ collections:
           - name: ctaActionLink
             label: cta action link
             widget: string
-      - file: ./src/data/global.md
+      - file: src/data/global.md
         name: global
         label: Global
         fields:
@@ -295,45 +295,7 @@ collections:
           - name: footerImg
             label: footer img
             widget: image
-      - file: ./src/data/scenic-flights.md
-        name: scenic-flights
-        label: Scenic Flights
-        fields:
-          - name: splashImg
-            label: splash img
-            widget: image
-          - name: title
-            label: title
-            widget: string
-          - name: description
-            label: description
-            widget: markdown
-          - name: featurePages
-            label: feature pages
-            widget: list
-            fields:
-              - name: title
-                label: title
-                widget: string
-              - name: description
-                label: description
-                widget: markdown
-              - name: image
-                label: image
-                widget: image
-          - name: ctaTitle
-            label: cta title
-            widget: string
-          - name: ctaSubtitle
-            label: cta subtitle
-            widget: markdown
-          - name: ctaActionTxt
-            label: cta action txt
-            widget: string
-          - name: ctaActionLink
-            label: cta action link
-            widget: string
-      - file: ./src/data/home.md
+      - file: src/data/home.md
         name: home
         label: Home
         fields:
@@ -453,3 +415,41 @@ collections:
           - name: footerImg
             label: footer img
             widget: image
+      - file: src/data/scenic-flights.md
+        name: scenic-flights
+        label: Scenic Flights
+        fields:
+          - name: splashImg
+            label: splash img
+            widget: image
+          - name: title
+            label: title
+            widget: string
+          - name: description
+            label: description
+            widget: markdown
+          - name: featurePages
+            label: feature pages
+            widget: list
+            fields:
+              - name: title
+                label: title
+                widget: string
+              - name: description
+                label: description
+                widget: markdown
+              - name: image
+                label: image
+                widget: image
+          - name: ctaTitle
+            label: cta title
+            widget: string
+          - name: ctaSubtitle
+            label: cta subtitle
+            widget: markdown
+          - name: ctaActionTxt
+            label: cta action txt
+            widget: string
+          - name: ctaActionLink
+            label: cta action link
+            widget: string

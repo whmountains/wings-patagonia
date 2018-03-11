@@ -8,6 +8,7 @@ const R = require('ramda')
 const capitalize = require('capitalize')
 const decamelize = require('decamelize')
 const titleize = require('titleize')
+const stripPath = require('strip-path')
 
 const getFieldTree = (fields) => {
   // if (typeof source === 'object') {
@@ -61,7 +62,7 @@ const scanFile = async (filePath) => {
   // generate an entry
   const basename = path.basename(filePath, '.md')
   const fileEntry = {
-    file: filePath,
+    file: stripPath(filePath, __dirname),
     name: basename,
     label: titleize(basename.replace('-', ' ')),
     fields: fieldTree,
@@ -73,7 +74,9 @@ const scanFile = async (filePath) => {
 const main = async () => {
   const filesToScan = await globby(['./src/data/**/*.md'])
 
-  const fieldTree = await Promise.all(filesToScan.map(scanFile))
+  const fieldTree = await Promise.all(
+    filesToScan.map((file) => path.join(__dirname, file)).map(scanFile),
+  )
 
   const result = {
     collections: [
