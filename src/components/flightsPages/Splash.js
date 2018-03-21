@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'react-emotion'
-import Img from 'gatsby-image'
+import Img from '../../lib/Image'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/fontawesome-free-solid'
 
@@ -79,7 +79,7 @@ const Splash = ({ strings }) => {
   return (
     <Container>
       <ImgContainer>
-        <Img sizes={strings.splashImg.childImageSharp.sizes} />
+        <Img info={strings.splashImg} />
       </ImgContainer>
       <Nav />
       <ContentContainer>

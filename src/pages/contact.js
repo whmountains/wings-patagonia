@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 import AboutUs from '../components/contact/AboutUs'
 
 const ScenicFlights = ({ data }) => {
-  const strings = data.contactStrings.frontmatter
+  const strings = data.contactStrings.fields
   const globalStrings = data.globalStrings.frontmatter
 
   return (

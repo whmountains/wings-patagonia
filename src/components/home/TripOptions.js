@@ -2,9 +2,9 @@
 
 import React from 'react'
 import styled from 'react-emotion'
-import { css } from 'emotion'
+import { css } from '../../lib/emotion'
 import { Link } from 'react-router-dom'
-import Img from 'gatsby-image'
+import Img from '../../lib/Image'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 
@@ -119,10 +119,7 @@ const Card = ({ strings, prefix, ...params }) => {
 
   return (
     <CardContainer to={t('ActionLink')} {...params}>
-      <Image
-        sizes={t('Image').childImageSharp.sizes}
-        outerWrapperClassName={imageContainerExpander}
-      />
+      <Image info={t('Image')} outerWrapperClassName={imageContainerExpander} />
       <RestOfCard>
         <Title>{t('Title')}</Title>
         <Description>{t('Subtitle')}</Description>

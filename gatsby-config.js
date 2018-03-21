@@ -3,7 +3,6 @@ module.exports = {
     title: `Wings`,
   },
   plugins: [
-    `gatsby-plugin-emotion`,
     'gatsby-plugin-react-helmet',
     // `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,

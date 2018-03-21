@@ -1,6 +1,6 @@
 import React from 'react'
-import styled, { css } from 'react-emotion'
-import Image from 'gatsby-image'
+import styled, { css } from '../../lib/react-emotion'
+import Image from '../../lib/react-emotion'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/fontawesome-free-solid'
 
@@ -100,7 +100,7 @@ const Splash = ({ strings }) => {
         <Image
           className={bgTextureInner}
           outerWrapperClassName={bgTextureOuter}
-          sizes={strings.backgroundImage.childImageSharp.sizes}
+          info={strings.backgroundImage}
         />
       </BgTextureContainer>
       {/* <Scenery src={scenery} /> */}

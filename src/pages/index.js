@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'react-emotion'
-import { css } from 'emotion'
+import { css } from '../lib/emotion'
 
-import Img from 'gatsby-image'
+import Img from '../lib/Image'
 // import { withStrings } from '../lib/i18n'
 //
 import Splash from '../components/home/Splash'
@@ -33,13 +33,13 @@ export const Content = ({ data }) => {
   return (
     <Container>
       <Splash strings={strings} />
-      <SeamlessImageContainer
+      {/* <SeamlessImageContainer
         outerWrapperClassName={imageContainerOuterStyles}
-        sizes={data.seamlessImg.childImageSharp.sizes}
+        info={data.seamlessImg}
       />
       <WhiteContainer>
         <HomeBody data={data} />
-      </WhiteContainer>
+      </WhiteContainer> */}
     </Container>
   )
 }

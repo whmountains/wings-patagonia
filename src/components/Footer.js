@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'react-emotion'
-import Img from 'gatsby-image'
+import Img from '../lib/Image'
 
 import { SafeLink } from '../elements/Button'
 
@@ -116,7 +116,7 @@ const FiveStarSection = ({ strings }) => {
   return (
     <FiveStarContainer>
       <BgImage>
-        <Img sizes={strings.footerImg.childImageSharp.sizes} />
+        <Img info={strings.footerImg} />
       </BgImage>
       {/* <RatingRow>
         <i className="fa fa-star" aria-hidden="true" />

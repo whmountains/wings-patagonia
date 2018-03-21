@@ -1,4 +1,4 @@
-// const path = require('path')
+const path = require('path')
 
 // exports.createPages = ({ boundActionCreators, graphql }) => {
 //   const { createPage } = boundActionCreators;
@@ -64,5 +64,30 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
       test: /mapbox-gl/,
       loader: 'null-loader',
     })
+  }
+}
+
+exports.modifyBabelrc = ({ babelrc }) => {
+  console.log(path.join(__dirname, 'src/lib/emotion.js'))
+
+  return {
+    plugins: [
+      [
+        require.resolve(`babel-plugin-emotion`),
+        {
+          sourceMap: true,
+          autoLabel: true,
+          labelFormat: '[local]--[filename]',
+          instances: [
+            'emotion',
+            'react-emotion',
+            'preact-emotion',
+            path.join(__dirname, 'src/lib/emotion'),
+            path.join(__dirname, 'src/lib/react-emotion'),
+          ],
+          primaryInstance: path.join(__dirname, 'src/lib/emotion'),
+        },
+      ],
+    ].concat(babelrc.plugins),
   }
 }

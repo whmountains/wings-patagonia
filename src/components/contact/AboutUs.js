@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from 'react-emotion'
-import Image from 'gatsby-image'
+import styled from '../../lib/react-emotion'
+import Image from '../../lib/Image'
 import Remarkable from 'remarkable'
 
 import { SvgSlant as Slant } from '../../elements/Slant'
@@ -67,7 +67,7 @@ const AboutUs = ({ strings }) => {
           <About dangerouslySetInnerHTML={renderedAboutUs} />
         </Left>
         <RightImage>
-          <Image sizes={strings.aboutImg.childImageSharp.sizes} />
+          <Image info={strings.aboutImg} />
         </RightImage>
       </Container>
       <Slant bottom color="#89c9ff" />

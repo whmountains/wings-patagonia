@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
 import { Link } from 'react-router-dom'
-import Img from 'gatsby-image'
+import Img from '../../lib/Image'
 
 const Container = styled.div`
   display: flex;
@@ -80,7 +80,7 @@ const PlaneQuote = ({ data }) => {
         <Img
           className={imageInner}
           outerWrapperClassName={imageOuter}
-          sizes={strings.quoteBg.childImageSharp.sizes}
+          info={strings.quoteBg}
         />
       </ImageContainer>
       <BottomCut />

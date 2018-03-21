@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from 'react-emotion'
-import Img from 'gatsby-image'
+import styled from '../../lib/react-emotion'
+import Img from '../../lib/Image'
 import { Motion, spring } from 'react-motion'
 
 const TABLET_BRK_INT = 1000
@@ -101,7 +101,7 @@ const FeaturePage = ({
         <Description>{description}</Description>
       </ContentContainer>
       <ImageContainer>
-        <Img sizes={image.childImageSharp.sizes} />
+        <Img info={image} />
       </ImageContainer>
     </FeaturePageContainer>
   )
