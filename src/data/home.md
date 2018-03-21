@@ -15,7 +15,7 @@ scenicFlightsSubtitle: >-
   See the expansive southern ice fields for yourself!
 scenicFlightsAction: More Info
 scenicFlightsActionLink: /flights/scenic
-scenicFlightsImage: ../assets/scenic-flights.jpg
+scenicFlightsImage: /src/cms-assets/scientific-flights.jpg
 customTripsTitle: Custom Flights
 customTripsSubtitle: >-
   Short on time?  We can provide chartered transport for your group with a
@@ -32,7 +32,9 @@ commercialSolutionsActionLink: /flights/commercial
 commercialSolutionsImage: ../assets/scientific-flights.jpg
 ourPartnersTitle: Our Partners
 quoteText: >-
-  Once you have tasted flight, you will forever walk the earth with your eyes turned skyward, for there you have been, and there you will always long to return.
+  Once you have tasted flight, you will forever walk the earth with your eyes
+  turned skyward, for there you have been, and there you will always long to
+  return.
 quoteAttr: Leonardo da Vinci
 quoteBg: ../assets/aplane.jpg
 partnersSections:
@@ -60,3 +62,4 @@ infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
 footerImg: ../assets/plane-sunset.jpg
 ---
+
