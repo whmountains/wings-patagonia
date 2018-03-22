@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-env browser */
 import CMS from 'netlify-cms'
+import 'netlify-cms/dist/cms.css'
+import netlifyIdentityWidget from 'netlify-identity-widget'
 
-import HomePagePreview from './preview-templates/HomePagePreview'
-// import BlogPostPreview from './preview-templates/BlogPostPreview'
-// import ProductPagePreview from './preview-templates/ProductPagePreview'
-
-// CMS.registerPreviewStyle('/styles.css')
-CMS.registerPreviewTemplate('home', HomePagePreview)
+window.netlifyIdentity = netlifyIdentityWidget
+netlifyIdentityWidget.init()

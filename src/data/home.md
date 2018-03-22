@@ -15,7 +15,7 @@ scenicFlightsSubtitle: >-
   See the expansive southern ice fields for yourself!
 scenicFlightsAction: More Info
 scenicFlightsActionLink: /flights/scenic
-scenicFlightsImage: /src/cms-assets/scientific-flights.jpg
+scenicFlightsImage: /assets/scientific-flights.jpg
 customTripsTitle: Custom Flights
 customTripsSubtitle: >-
   Short on time?  We can provide chartered transport for your group with a
@@ -62,4 +62,3 @@ infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
 footerImg: ../assets/plane-sunset.jpg
 ---
-

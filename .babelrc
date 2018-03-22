@@ -1,0 +1,13 @@
+{
+  "extends": "react-static/.babelrc",
+  "plugins": [
+    [
+      "emotion",
+      {
+        "sourceMap": true,
+        "autoLabel": true,
+        "instances": ["./src/lib/emotion", "./src/lib/react-emotion"]
+      }
+    ]
+  ]
+}
