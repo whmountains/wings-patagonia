@@ -1,5 +1,6 @@
 import React from 'react'
-import styled, { css, cx } from 'react-emotion'
+import { css, cx } from '../lib/emotion'
+import styled from '../lib/react-emotion'
 import { Link } from 'react-static'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/fontawesome-free-solid'

@@ -5,7 +5,7 @@ import matter from 'gray-matter'
 import fs from 'fs-extra'
 import path from 'path'
 
-import { transformData } from './buildTools'
+import { transformData, dumpConfig } from './buildTools'
 import { responsiveSizes } from './buildTools/imageEngine/'
 
 const ABS_ROOT = path.join(process.cwd(), 'public')
@@ -159,13 +159,17 @@ export default {
   webpack: [
     // create a cms entry point
     (config, { stage }) => {
+      // dumpConfig(config)
+
+      return config
+
       // include entry point name in output so we don't get conflics
       if (stage !== 'node') {
         config.output.filename = '[name].[hash].js'
 
         // add a new entry point for the cms javascript
         config.entry = {
-          app: config.entry,
+          main: config.entry,
           cms: require.resolve('./src/cms/cms.js'),
         }
 

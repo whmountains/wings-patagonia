@@ -10,7 +10,6 @@ const imageminPngquant = require(`imagemin-pngquant`)
 const imageminWebp = require(`imagemin-webp`)
 const queue = require(`async/queue`)
 const path = require(`path`)
-const pMap = require('p-map')
 
 const imageSizeCache = new Map()
 const getImageSize = (file) => {
@@ -209,66 +208,61 @@ const q = queue((task, callback) => {
 }, 1)
 
 const queueJob = (job, reporter) => {
-  return new Promise((resolve, reject) => {
-    const inputFileKey = job.file.absolutePath.replace(/\./g, `%2E`)
-    const outputFileKey = job.outputPath.replace(/\./g, `%2E`)
-    const jobPath = `${inputFileKey}.${outputFileKey}`
+  const inputFileKey = job.file.absolutePath.replace(/\./g, `%2E`)
+  const outputFileKey = job.outputPath.replace(/\./g, `%2E`)
+  const jobPath = `${inputFileKey}.${outputFileKey}`
 
-    // Check if the job has already been queued. If it has, there's nothing
-    // to do, return.
-    if (_.has(toProcess, jobPath)) {
-      return
-    }
+  // Check if the job has already been queued. If it has, there's nothing
+  // to do, return.
+  if (_.has(toProcess, jobPath)) {
+    return
+  }
 
-    // Check if the output file already exists so we don't redo work.
-    if (fs.existsSync(job.outputPath)) {
-      return
-    }
+  // Check if the output file already exists so we don't redo work.
+  if (fs.existsSync(job.outputPath)) {
+    return
+  }
 
-    let notQueued = true
-    if (toProcess[inputFileKey]) {
-      notQueued = false
-    }
-    _.set(toProcess, jobPath, job)
+  let notQueued = true
+  if (toProcess[inputFileKey]) {
+    notQueued = false
+  }
+  _.set(toProcess, jobPath, job)
 
-    totalJobs += 1
+  totalJobs += 1
 
-    if (notQueued) {
-      q.push((cb) => {
-        const jobs = _.values(toProcess[inputFileKey])
-        // Delete the input key from the toProcess list so more jobs can be queued.
-        delete toProcess[inputFileKey]
-        // boundActionCreators.createJob(
-        //   {
-        //     id: `processing image ${job.file.absolutePath}`,
-        //     imagesCount: _.values(toProcess[inputFileKey]).length,
-        //   },
-        //   { name: `gatsby-plugin-sharp` },
-        // )
-        // We're now processing the file's jobs.
-        processFile(
-          job.file.absolutePath,
-          jobs,
-          () => {
-            // boundActionCreators.endJob(
-            //   {
-            //     id: `processing image ${job.file.absolutePath}`,
-            //   },
-            //   { name: `gatsby-plugin-sharp` },
-            // )
-            cb()
-            resolve()
-          },
-          reporter,
-        )
-      })
-    } else (
-      resolve()
-    )
-  })
+  if (notQueued) {
+    q.push((cb) => {
+      const jobs = _.values(toProcess[inputFileKey])
+      // Delete the input key from the toProcess list so more jobs can be queued.
+      delete toProcess[inputFileKey]
+      // boundActionCreators.createJob(
+      //   {
+      //     id: `processing image ${job.file.absolutePath}`,
+      //     imagesCount: _.values(toProcess[inputFileKey]).length,
+      //   },
+      //   { name: `gatsby-plugin-sharp` },
+      // )
+      // We're now processing the file's jobs.
+      processFile(
+        job.file.absolutePath,
+        jobs,
+        () => {
+          // boundActionCreators.endJob(
+          //   {
+          //     id: `processing image ${job.file.absolutePath}`,
+          //   },
+          //   { name: `gatsby-plugin-sharp` },
+          // )
+          cb()
+        },
+        reporter,
+      )
+    })
+  }
 }
 
-async function queueImageResizing({ file, args = {}, reporter }) {
+function queueImageResizing({ file, args = {}, reporter }) {
   const defaultArgs = {
     width: 400,
     quality: 50,
@@ -352,7 +346,7 @@ async function queueImageResizing({ file, args = {}, reporter }) {
     outputPath: filePath,
   }
 
-  await queueJob(job, reporter)
+  queueJob(job, reporter)
 
   // Prefix the image src.
   const prefixedSrc = options.pathPrefix + `/static` + imgSrc
@@ -504,7 +498,7 @@ async function responsiveSizes({ file, args = {}, reporter }) {
   const sortedSizes = _.sortBy(filteredSizes)
 
   // Queue sizes for processing.
-  const images = await pMap(sortedSizes, async (size) => {
+  const images = sortedSizes.map((size) => {
     const arrrgs = {
       ...options,
       width: Math.round(size),
@@ -514,7 +508,6 @@ async function responsiveSizes({ file, args = {}, reporter }) {
       arrrgs.height = Math.round(size * (options.maxHeight / options.maxWidth))
     }
 
-    console.log('pre-queue', file)
     return queueImageResizing({
       file,
       args: arrrgs, // matey

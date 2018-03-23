@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '../lib/react-emotion'
 
 import Img from '../elements/Image'
 

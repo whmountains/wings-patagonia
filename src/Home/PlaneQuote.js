@@ -1,5 +1,6 @@
 import React from 'react'
-import styled, { css } from 'react-emotion'
+// import { css } from '../lib/emotion'
+import styled from '../lib/react-emotion'
 import Img from '../elements/Image'
 
 const Container = styled.div`
@@ -24,14 +25,14 @@ const ImageContainer = styled.div`
   }
 `
 
-const imageOuter = css`
-  height: 100%;
-`
-
-const imageInner = css`
-  display: block;
-  height: 100%;
-`
+// const imageOuter = css`
+//   height: 100%;
+// `
+//
+// const imageInner = css`
+//   display: block;
+//   height: 100%;
+// `
 
 const BottomCut = styled.div`
   position: absolute;
@@ -79,7 +80,7 @@ const PlaneQuote = ({ strings }) => {
       </ImageContainer>
       <BottomCut />
       <QuoteContainer>
-        <Quote>"{strings.quoteText}"</Quote>
+        <Quote>&quot;{strings.quoteText}&quot;</Quote>
         <QAttr>- {strings.quoteAttr}</QAttr>
       </QuoteContainer>
     </Container>

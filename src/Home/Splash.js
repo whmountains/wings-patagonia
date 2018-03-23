@@ -1,5 +1,6 @@
 import React from 'react'
-import styled, { keyframes } from 'react-emotion'
+import { keyframes } from '../lib/emotion'
+import styled from '../lib/react-emotion'
 
 // import { withStrings } from '../../lib/i18n'
 import { LinkButton } from '../elements/Button.js'
@@ -30,12 +31,12 @@ const Logo = styled.img`
   margin-bottom: 1.2rem;
 `
 
-const Separator = styled.div`
-  width: 30rem;
-  max-width: calc(100% - 5rem);
-  border-bottom: 2px solid #777;
-  margin-bottom: 1rem;
-`
+// const Separator = styled.div`
+//   width: 30rem;
+//   max-width: calc(100% - 5rem);
+//   border-bottom: 2px solid #777;
+//   margin-bottom: 1rem;
+// `
 
 const Subtitle = styled.p`
   font-size: 1.3rem;
@@ -73,7 +74,7 @@ const DownIcon = styled.img`
   height: 0.9rem;
 `
 
-export default ({ strings: s }) => {
+const Splash = ({ strings: s }) => {
   return (
     <Container>
       <Nav color="#777" noScrim noLogo />
@@ -94,3 +95,5 @@ export default ({ strings: s }) => {
     </Container>
   )
 }
+
+export default Splash

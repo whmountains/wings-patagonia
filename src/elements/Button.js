@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '../lib/react-emotion'
 import { Link } from 'react-static'
 
 export const SafeLink = ({ to, className, children }) => {

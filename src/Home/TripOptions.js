@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '../lib/react-emotion'
 import { css } from '../lib/emotion'
 import Img from '../elements/Image'
 import FaIcon from '@fortawesome/react-fontawesome'
