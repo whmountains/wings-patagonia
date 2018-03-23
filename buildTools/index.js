@@ -36,6 +36,10 @@ export const transformValue = ({
   absoluteRoot,
   outputDir,
 }) => async (value) => {
+  if (typeof value !== 'string') {
+    return value
+  }
+
   if (!isImage(value)) {
     return value
   }

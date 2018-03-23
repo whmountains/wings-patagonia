@@ -1,9 +1,9 @@
 import React from 'react'
-import styled from '../../lib/react-emotion'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 
-import { SafeLink } from '../../elements/Button'
+import styled from '../lib/react-emotion'
+import { SafeLink } from '../elements/Button'
 
 const Container = styled.div`
   padding: 4em;
@@ -49,11 +49,11 @@ const BuyNow = ({ strings }) => {
 
 export default BuyNow
 
-export const pageQuery = graphql`
-  fragment BuyNowQuery on frontmatter_2 {
-    ctaTitle
-    ctaSubtitle
-    ctaActionTxt
-    ctaActionLink
-  }
-`
+// export const pageQuery = graphql`
+//   fragment BuyNowQuery on frontmatter_2 {
+//     ctaTitle
+//     ctaSubtitle
+//     ctaActionTxt
+//     ctaActionLink
+//   }
+// `

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from '../lib/react-emotion'
-import Image from '../lib/react-emotion'
+import Image from '../elements/Image'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/fontawesome-free-solid'
 
@@ -129,23 +129,23 @@ const Splash = ({ strings }) => {
 
 export default Splash
 
-export const pageQuery = graphql`
-  fragment ContactSplashStrings on fields_2 {
-    title
-    contactMethods {
-      type
-      info
-      title
-    }
-    backgroundImage {
-      childImageSharp {
-        sizes(
-          maxWidth: 5800
-          traceSVG: { background: "transparent", color: "#999" }
-        ) {
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   fragment ContactSplashStrings on fields_2 {
+//     title
+//     contactMethods {
+//       type
+//       info
+//       title
+//     }
+//     backgroundImage {
+//       childImageSharp {
+//         sizes(
+//           maxWidth: 5800
+//           traceSVG: { background: "transparent", color: "#999" }
+//         ) {
+//           ...GatsbyImageSharpSizes_withWebp
+//         }
+//       }
+//     }
+//   }
+// `

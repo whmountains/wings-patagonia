@@ -1,7 +1,6 @@
 import React from 'react'
-import styled from '../../lib/react-emotion'
-import Img from '../../lib/Image'
-import { Motion, spring } from 'react-motion'
+import styled from '../lib/react-emotion'
+import Img from '../elements/Image'
 
 const TABLET_BRK_INT = 1000
 const TABLET_BRK = TABLET_BRK_INT + 'px'
@@ -77,7 +76,6 @@ const FeaturePage = ({
   title,
   description,
   image,
-  index,
   currentStudy,
   selectStudy,
   caseStudies,
@@ -161,6 +159,7 @@ class CaseStudies extends React.Component {
           {strings.caseStudies.map((caseStudy, i) => {
             return (
               <NavItem
+                key={`${i}${i === this.state.currentPage}`}
                 active={i === this.state.currentPage}
                 onMouseOver={() => this.setState({ currentPage: i })}
               >
@@ -182,23 +181,23 @@ class CaseStudies extends React.Component {
 
 export default CaseStudies
 
-export const pageQuery = graphql`
-  fragment CaseStudiesStrings on frontmatter_2 {
-    caseStudies {
-      shortTitle
-      title
-      description
-      image {
-        childImageSharp {
-          sizes(
-            maxWidth: 3000
-            traceSVG: { background: "transparent", color: "#999" }
-          ) {
-            # ...GatsbyImageSharpSizes_withWebp
-            ...GatsbyImageSharpSizes_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   fragment CaseStudiesStrings on frontmatter_2 {
+//     caseStudies {
+//       shortTitle
+//       title
+//       description
+//       image {
+//         childImageSharp {
+//           sizes(
+//             maxWidth: 3000
+//             traceSVG: { background: "transparent", color: "#999" }
+//           ) {
+//             # ...GatsbyImageSharpSizes_withWebp
+//             ...GatsbyImageSharpSizes_withWebp_tracedSVG
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

@@ -7,7 +7,7 @@ module.exports = {
   },
   rules: {
     'no-console': 'warn',
-    'react/prop-types': 'warn',
+    'react/prop-types': 'off',
   },
   parser: 'babel-eslint',
 }

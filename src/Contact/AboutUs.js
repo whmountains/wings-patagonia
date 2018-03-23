@@ -78,19 +78,19 @@ const AboutUs = ({ strings }) => {
 
 export default AboutUs
 
-export const pageQuery = graphql`
-  fragment AboutUsStrings on fields_2 {
-    aboutTitle
-    aboutContent
-    aboutImg {
-      childImageSharp {
-        sizes(
-          maxWidth: 1000
-          traceSVG: { background: "transparent", color: "#999" }
-        ) {
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   fragment AboutUsStrings on fields_2 {
+//     aboutTitle
+//     aboutContent
+//     aboutImg {
+//       childImageSharp {
+//         sizes(
+//           maxWidth: 1000
+//           traceSVG: { background: "transparent", color: "#999" }
+//         ) {
+//           ...GatsbyImageSharpSizes_withWebp
+//         }
+//       }
+//     }
+//   }
+// `

@@ -1,7 +1,8 @@
 import React from 'react'
-import styled from '../../lib/react-emotion'
-import Img from '../../lib/Image'
 import { Motion, spring } from 'react-motion'
+
+import styled from '../lib/react-emotion'
+import Img from '../elements/Image'
 
 const TABLET_BRK = '1000px'
 const SECTION_HEIGHT_INT = 35
@@ -161,7 +162,11 @@ class FeaturePages extends React.Component {
               }}
             >
               {strings.featurePages.map((featuredSection, i) => (
-                <FeaturePage {...featuredSection} index={i} />
+                <FeaturePage
+                  {...featuredSection}
+                  index={i}
+                  key={JSON.stringify(featuredSection)}
+                />
               ))}
             </FeaturePagesWrapper>
           )}
@@ -169,7 +174,10 @@ class FeaturePages extends React.Component {
 
         <NavDots>
           {strings.featurePages.map((_, i) => (
-            <Dot onClick={() => this.setState({ currentPage: i })}>
+            <Dot
+              key={String(i) + String(i === this.state.currentPage)}
+              onClick={() => this.setState({ currentPage: i })}
+            >
               <DotChild active={i === this.state.currentPage} />
             </Dot>
           ))}
@@ -181,22 +189,22 @@ class FeaturePages extends React.Component {
 
 export default FeaturePages
 
-export const pageQuery = graphql`
-  fragment FeaturePageStrings on frontmatter_2 {
-    featurePages {
-      title
-      description
-      image {
-        childImageSharp {
-          sizes(
-            maxWidth: 3000
-            traceSVG: { background: "transparent", color: "#999" }
-          ) {
-            # ...GatsbyImageSharpSizes_withWebp
-            ...GatsbyImageSharpSizes_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   fragment FeaturePageStrings on frontmatter_2 {
+//     featurePages {
+//       title
+//       description
+//       image {
+//         childImageSharp {
+//           sizes(
+//             maxWidth: 3000
+//             traceSVG: { background: "transparent", color: "#999" }
+//           ) {
+//             # ...GatsbyImageSharpSizes_withWebp
+//             ...GatsbyImageSharpSizes_withWebp_tracedSVG
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

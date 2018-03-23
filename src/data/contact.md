@@ -1,5 +1,5 @@
 ---
-backgroundImage: /src/assets/mountains-stars.jpg
+backgroundImage: /assets/mountains-stars.jpg
 title: Contact Us
 contactMethods:
   - type: email

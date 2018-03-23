@@ -261,18 +261,18 @@ class Directions extends React.Component {
 
 export default Directions
 
-export const pageQuery = graphql`
-  fragment DirectionsStrings on fields_2 {
-    directionsHeading
-    locations {
-      name
-      mapName
-      directionsBody
-      coordinates {
-        lng
-        lat
-      }
-      zoom
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   fragment DirectionsStrings on fields_2 {
+//     directionsHeading
+//     locations {
+//       name
+//       mapName
+//       directionsBody
+//       coordinates {
+//         lng
+//         lat
+//       }
+//       zoom
+//     }
+//   }
+// `

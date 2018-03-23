@@ -58,16 +58,54 @@ export default {
           }
         },
       },
-      // {
-      //   path: '/contact',
-      //   component: 'src/Contact/',
-      //   getData: async () => {
-      //     return {
-      //       strings: await getFrontmatter('./src/data/contact.md'),
-      //       footerStrings: await getFrontmatter('./src/data/footer.md'),
-      //     }
-      //   },
-      // },
+      {
+        path: '/contact',
+        component: 'src/Contact/',
+        getData: async () => {
+          return {
+            strings: await getFrontmatter('./src/data/contact.md'),
+            footerStrings: await getFrontmatter('./src/data/footer.md'),
+          }
+        },
+      },
+      {
+        path: '/flights',
+        component: 'src/Flights',
+        children: [
+          {
+            path: '/scenic',
+            component: 'src/Flights/scenic',
+            getData: async () => {
+              return {
+                strings: await getFrontmatter('./src/data/scenic-flights.md'),
+                footerStrings: await getFrontmatter('./src/data/footer.md'),
+              }
+            },
+          },
+          {
+            path: '/commercial',
+            component: 'src/Flights/commercial',
+            getData: async () => {
+              return {
+                strings: await getFrontmatter(
+                  './src/data/commercial-flights.md',
+                ),
+                footerStrings: await getFrontmatter('./src/data/footer.md'),
+              }
+            },
+          },
+          {
+            path: '/custom',
+            component: 'src/Flights/custom',
+            getData: async () => {
+              return {
+                strings: await getFrontmatter('./src/data/custom-flights.md'),
+                footerStrings: await getFrontmatter('./src/data/footer.md'),
+              }
+            },
+          },
+        ],
+      },
       // {
       //   path: '/about',
       //   component: 'src/containers/About',
