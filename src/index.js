@@ -1,8 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import 'typeface-source-sans-pro'
+import 'typeface-spectral'
+
+import './styles/base.css'
+import './styles/fa-svg-with-js.css'
 
 // required to kick off hydration process before react gets to it
-// import './lib/emotion'
+import './lib/emotion'
 
 // Your top level component
 import App from './App'

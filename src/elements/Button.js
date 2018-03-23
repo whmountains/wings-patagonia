@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'react-emotion'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-static'
 
 export const SafeLink = ({ to, className, children }) => {
   return (
@@ -20,7 +20,7 @@ export const LinkButton = styled(SafeLink)`
   border-radius: 3px;
   text-decoration: none;
   color: inherit;
-  ${p => p.accent && `color: white; background: #4a90e2;`};
+  ${(p) => p.accent && `color: white; background: #4a90e2;`};
 
   & > img {
     margin-right: 0.5em;

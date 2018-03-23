@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from 'react-emotion'
-import Img from '../lib/Image'
+import styled from '../lib/react-emotion'
+import Img from '../elements/Image'
 
 import { SafeLink } from '../elements/Button'
 
@@ -116,7 +116,7 @@ const FiveStarSection = ({ strings }) => {
   return (
     <FiveStarContainer>
       <BgImage>
-        <Img info={strings.footerImg} />
+        <Img fill info={strings.footerImg} />
       </BgImage>
       {/* <RatingRow>
         <i className="fa fa-star" aria-hidden="true" />
@@ -149,24 +149,24 @@ const FiveStarSection = ({ strings }) => {
 
 export default FiveStarSection
 
-export const pageQuery = graphql`
-  fragment FooterQuery on frontmatter_2 {
-    footerImg {
-      childImageSharp {
-        sizes(
-          maxWidth: 5120
-          traceSVG: { background: "transparent", color: "#999" }
-        ) {
-          # ...GatsbyImageSharpSizes_withWebp
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
-        }
-      }
-    }
-    raveReview
-    reviewAttr
-    actionBtn
-    actionBtnLink
-    infoBtn
-    infoBtnLink
-  }
-`
+// export const pageQuery = graphql`
+//   fragment FooterQuery on frontmatter_2 {
+//     footerImg {
+//       childImageSharp {
+//         sizes(
+//           maxWidth: 5120
+//           traceSVG: { background: "transparent", color: "#999" }
+//         ) {
+//           # ...GatsbyImageSharpSizes_withWebp
+//           ...GatsbyImageSharpSizes_withWebp_tracedSVG
+//         }
+//       }
+//     }
+//     raveReview
+//     reviewAttr
+//     actionBtn
+//     actionBtnLink
+//     infoBtn
+//     infoBtnLink
+//   }
+// `

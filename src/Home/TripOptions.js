@@ -2,13 +2,12 @@
 
 import React from 'react'
 import styled from 'react-emotion'
-import { css } from '../../lib/emotion'
-import { Link } from 'react-router-dom'
-import Img from '../../lib/Image'
+import { css } from '../lib/emotion'
+import Img from '../elements/Image'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 
-import { SafeLink } from '../../elements/Button'
+import { SafeLink } from '../elements/Button'
 
 // import scenicFlights from '../assets/scenic-flights.jpg'
 // import customFlights from '../assets/custom-flights.jpg'
@@ -96,13 +95,13 @@ const GoBtn = styled.span`
   ${'' /* margin-right: 1rem; */};
 `
 
-const InfoBtn = styled(Link)`
-  ${'' /* color: #666; */} color: #555;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.2rem;
-  margin-left: 1rem;
-`
+// const InfoBtn = styled(Link)`
+//   ${'' /* color: #666; */} color: #555;
+//   text-decoration: none;
+//   font-weight: 500;
+//   font-size: 1.2rem;
+//   margin-left: 1rem;
+// `
 
 const RestOfCard = styled.div`
   display: flex;
@@ -165,8 +164,7 @@ const SlantBg = styled.div`
   transform: rotate(-7deg) scale(1.5, 1);
 `
 
-const TripOptions = ({ data }) => {
-  const strings = data.homeStrings.frontmatter
+const TripOptions = ({ strings }) => {
   return (
     <Row>
       <SlantBg />

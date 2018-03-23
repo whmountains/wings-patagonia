@@ -2,12 +2,12 @@ import React from 'react'
 import styled, { keyframes } from 'react-emotion'
 
 // import { withStrings } from '../../lib/i18n'
-import { LinkButton } from '../../elements/Button.js'
-import Nav from '../Nav'
+import { LinkButton } from '../elements/Button.js'
+import Nav from '../components/Nav'
 
-import logo from '../../assets/logo-gray.svg'
-import scrollDown from '../../assets/scroll-down.svg'
-import yt from '../../assets/youtube-play.svg'
+import logo from '../assets/logo-gray.svg'
+import scrollDown from '../assets/scroll-down.svg'
+import yt from '../assets/youtube-play.svg'
 
 const Container = styled.div`
   display: flex;

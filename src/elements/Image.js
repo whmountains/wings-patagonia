@@ -1,26 +1,31 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export class ResponsiveImage extends React.PureComponent {
-  render() {
-    const { src, srcsets } = this.props.info
+// import { cx } from '../lib/emotion'
+import styled from '../lib/react-emotion'
+import Img from './GatsbyImage'
 
-    return (
-      <picture style={this.props.outerStyles}>
-        {srcsets.map(({ mime, srcset }) => (
-          <source
-            sizes={this.props.sizes}
-            srcSet={srcset.replace(/static\//g, '/static/')}
-            type={mime}
-            key={mime}
-          />
-        ))}
-        <img
-          src={'/' + src}
-          alt={this.props.alt}
-          className={this.props.className}
-          style={this.props.innerStyles}
-        />
-      </picture>
-    )
+const SingleImage = styled.img`
+  ${(p) =>
+    p.fill &&
+    `
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  `};
+`
+
+const Image = (props) => {
+  if (typeof props.info === 'string') {
+    return <SingleImage src={props.info} {...props} />
   }
+
+  return <Img sizes={props.info} {...props} />
 }
+
+Image.propTyeps = {
+  info: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
+}
+
+export default Image

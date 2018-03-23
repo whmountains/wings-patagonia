@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css, cx } from 'react-emotion'
-import Link from 'gatsby-link'
+import { Link } from 'react-static'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/fontawesome-free-solid'
 import { Manager, Target, Popper, Arrow } from 'react-popper'

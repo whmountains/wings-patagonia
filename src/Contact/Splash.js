@@ -1,10 +1,10 @@
 import React from 'react'
-import styled, { css } from '../../lib/react-emotion'
-import Image from '../../lib/react-emotion'
+import styled, { css } from '../lib/react-emotion'
+import Image from '../lib/react-emotion'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/fontawesome-free-solid'
 
-import Nav from '../Nav.js'
+import Nav from '../components/Nav.js'
 
 const Container = styled.div`
   display: flex;

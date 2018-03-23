@@ -1,9 +1,13 @@
 module.exports = {
-  extends: 'eslint:recommended',
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
   env: {
     browser: true,
     node: true,
     es6: true,
   },
-  sourceType: module,
+  rules: {
+    'no-console': 'warn',
+    'react/prop-types': 'warn',
+  },
+  parser: 'babel-eslint',
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
-import { Link } from 'react-router-dom'
-import Img from '../../lib/Image'
+import Img from '../elements/Image'
 
 const Container = styled.div`
   display: flex;
@@ -72,16 +71,11 @@ const QAttr = styled.span`
   font-style: italic;
 `
 
-const PlaneQuote = ({ data }) => {
-  const strings = data.homeStrings.frontmatter
+const PlaneQuote = ({ strings }) => {
   return (
     <Container>
       <ImageContainer>
-        <Img
-          className={imageInner}
-          outerWrapperClassName={imageOuter}
-          info={strings.quoteBg}
-        />
+        <Img fill info={strings.quoteBg} />
       </ImageContainer>
       <BottomCut />
       <QuoteContainer>

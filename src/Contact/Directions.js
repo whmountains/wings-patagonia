@@ -1,7 +1,6 @@
 import React from 'react'
-import { css } from '../../lib/emotion'
-import styled from '../../lib/react-emotion'
-import Img from '../../lib/Image'
+import { css } from '../lib/emotion'
+import styled from '../lib/react-emotion'
 import FaIcon from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/fontawesome-free-solid'
 import Remarkable from 'remarkable'
@@ -11,11 +10,8 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 // import 'mapbox-gl/mapb-x'
 
-import logoFlame from '../../assets/white-logo-flame.svg'
-import bg from '../../assets/contact-fill.svg'
-import scenery from '../../assets/contact-scenery.svg'
-import { blacklistProps } from '../../lib/propRemoval'
-import Mapbox from '../../elements/Mapbox'
+import { blacklistProps } from '../lib/propRemoval'
+import Mapbox from '../elements/Mapbox'
 
 const Container = styled.div`
   display: flex;

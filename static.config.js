@@ -1,25 +1,38 @@
 import React, { Component } from 'react'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { renderStylesToString } from './src/lib/emotion-server'
-const util = require('util')
-const chalk = require('chalk')
+import matter from 'gray-matter'
+import fs from 'fs-extra'
+import path from 'path'
 
-const dump = (...params) => {
-  for (const param of params) {
-    console.log(util.inspect(param, { depth: null, colors: true }))
-  }
-}
+import { transformData } from './buildTools'
+import { responsiveSizes } from './buildTools/imageEngine/'
 
-const dumpConfig = (config, title) => {
-  console.log(chalk.blue.underline.bold(title))
-  dump(
-    Object.assign({}, config, {
-      plugins: config.plugins.filter(
-        (p) =>
-          Object.getPrototypeOf(p).constructor.name !== 'EnvironmentPlugin',
-      ),
-    }),
+const ABS_ROOT = path.join(process.cwd(), 'public')
+
+const getFrontmatter = async (relativePath) => {
+  // resolve to absolute path
+  const absPath = require.resolve(relativePath)
+  // base dir for resolving relative paths
+  const { dir } = path.parse(absPath)
+
+  // read the file
+  const fileContents = await fs.readFile(absPath, { encoding: 'utf8' })
+
+  // parse the frontMatter
+  const rawMatter = matter(fileContents).data
+
+  // walk and transform to native objects
+  const frontmatter = transformData(
+    {
+      relativeRoot: dir,
+      absoluteRoot: ABS_ROOT,
+      outputDir: path.join(process.cwd(), 'dist/static'),
+    },
+    rawMatter,
   )
+
+  return frontmatter
 }
 
 export default {
@@ -31,8 +44,30 @@ export default {
     return [
       {
         path: '/',
-        component: 'src/pages/Home.js',
+        component: 'src/Home/',
+        getData: async () => {
+          return {
+            homeStrings: await getFrontmatter('./src/data/home.md'),
+            footerStrings: await getFrontmatter('./src/data/footer.md'),
+            seamlessImg: await responsiveSizes(
+              require.resolve('./src/assets/seamless.jpg'),
+              {
+                outputDir: path.join(__dirname, './dist/static'),
+              },
+            ),
+          }
+        },
       },
+      // {
+      //   path: '/contact',
+      //   component: 'src/Contact/',
+      //   getData: async () => {
+      //     return {
+      //       strings: await getFrontmatter('./src/data/contact.md'),
+      //       footerStrings: await getFrontmatter('./src/data/footer.md'),
+      //     }
+      //   },
+      // },
       // {
       //   path: '/about',
       //   component: 'src/containers/About',
@@ -85,7 +120,7 @@ export default {
   },
   webpack: [
     // create a cms entry point
-    (config, { stage, defaultLoaders }) => {
+    (config, { stage }) => {
       // include entry point name in output so we don't get conflics
       if (stage !== 'node') {
         config.output.filename = '[name].[hash].js'

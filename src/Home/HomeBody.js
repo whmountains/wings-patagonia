@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'react-emotion'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-static'
 
 import TripOptions from './TripOptions'
 import Partners from './Partners'
-import Footer from '../Footer'
+import Footer from '../components/Footer'
 import PlaneQuote from './PlaneQuote'
 
 const Container = styled.div`

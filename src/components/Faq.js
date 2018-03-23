@@ -59,11 +59,11 @@ class Faq extends React.Component {
 
 export default Faq
 
-export const pageQuery = graphql`
-  fragment FaqStrings on fields_2 {
-    faq {
-      q
-      a
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   fragment FaqStrings on fields_2 {
+//     faq {
+//       q
+//       a
+//     }
+//   }
+// `

@@ -6,11 +6,7 @@ import Routes from 'react-static-routes'
 
 const App = () => (
   <Router>
-    <div>
-      <div className="content">
-        <Routes />
-      </div>
-    </div>
+    <Routes />
   </Router>
 )
 

@@ -42,17 +42,15 @@ const PartnerImg = styled.img`
   margin: 1rem;
 `
 
-const PartnersSection = ({ data }) => {
-  const strings = data.homeStrings.frontmatter
-
+const PartnersSection = ({ strings }) => {
   return (
     <PartnersContainer>
-      {strings.partnersSections.map(section => {
+      {strings.partnersSections.map((section) => {
         return (
           <PartnersHalf key={section.title}>
             <SmallSectionTitle>{section.title}</SmallSectionTitle>
             <PartnersGrid>
-              {section.logos.map(logo => (
+              {section.logos.map((logo) => (
                 <PartnerImg
                   src={logo.image}
                   alt={logo.name}

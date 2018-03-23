@@ -1,9 +1,10 @@
 import React from 'react'
-import styled from '../../lib/react-emotion'
-import Image from '../../lib/Image'
 import Remarkable from 'remarkable'
 
-import { SvgSlant as Slant } from '../../elements/Slant'
+import styled from '../lib/react-emotion'
+import Image from '../elements/Image'
+
+import { SvgSlant as Slant } from '../elements/Slant'
 
 const OuterWrapper = styled.div`
   position: relative;
