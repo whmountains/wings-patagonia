@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Base64 preview 1`] = `
+Object {
+  "aspectRatio": 1.5384615384615385,
+  "height": 13,
+  "originalName": "simon-matzinger-320332-unsplash.jpg",
+  "src": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAHfJdsDYDhGX//EABkQAAIDAQAAAAAAAAAAAAAAAAACARITA//aAAgBAQABBQKyllLqR2aDeTY//8QAGBEAAgMAAAAAAAAAAAAAAAAAAAIRIlH/2gAIAQMBAT8BphCH/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAISUf/aAAgBAgEBPwGW0ltP/8QAFhABAQEAAAAAAAAAAAAAAAAAADFB/9oACAEBAAY/AsRFRH//xAAaEAEBAAIDAAAAAAAAAAAAAAABAGFxMVHh/9oACAEBAAE/IcMIYEXyTpjR3LPV/9oADAMBAAIAAwAAABC7/wD/xAAXEQEAAwAAAAAAAAAAAAAAAAAAITFh/9oACAEDAQE/EJWYv//EABYRAAMAAAAAAAAAAAAAAAAAAAEQUf/aAAgBAgEBPxCRr//EAB0QAAICAgMBAAAAAAAAAAAAAAERADEhkVFhocH/2gAIAQEAAT8QBskz6gNDqAA+EqplNftx5plkO9wkgdc5/9k=",
+  "width": 20,
+}
+`;
+
+exports[`job list 1`] = `
+Array [
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 1920,
+  },
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 1920,
+  },
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 3840,
+  },
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 3840,
+  },
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 4608,
+  },
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 4608,
+  },
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.jpeg",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 960,
+  },
+  Object {
+    "absolutePath": "/Users/mmc/code/wings/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "clientSrc": "/artifacts/simon-matzinger-320332-unsplash-23890d28-0cd635f1.webp",
+    "original": "/Users/mmc/code/wings/buildTools/imageEngine/simon-matzinger-320332-unsplash.jpg",
+    "quality": 50,
+    "width": 960,
+  },
+]
+`;
+
+exports[`optsFromArgs 1`] = `
+Object {
+  "base64Width": 20,
+  "maxWidth": 3840,
+  "outputDir": "/Users/mmc/code/wings",
+  "outputFormats": Array [
+    "jpeg",
+    "webp",
+  ],
+  "publicRoot": "/Users/mmc/code/wings",
+  "quality": 50,
+  "sizes": "(max-width: 4608px) 100vw, 2963px",
+}
+`;
+
+exports[`responsiveSizes 1`] = `
+Object {
+  "aspectRatio": 0.6430121527777778,
+  "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAHfJdsDYDhGX//EABkQAAIDAQAAAAAAAAAAAAAAAAACARITA//aAAgBAQABBQKyllLqR2aDeTY//8QAGBEAAgMAAAAAAAAAAAAAAAAAAAIRIlH/2gAIAQMBAT8BphCH/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAISUf/aAAgBAgEBPwGW0ltP/8QAFhABAQEAAAAAAAAAAAAAAAAAADFB/9oACAEBAAY/AsRFRH//xAAaEAEBAAIDAAAAAAAAAAAAAAABAGFxMVHh/9oACAEBAAE/IcMIYEXyTpjR3LPV/9oADAMBAAIAAwAAABC7/wD/xAAXEQEAAwAAAAAAAAAAAAAAAAAAITFh/9oACAEDAQE/EJWYv//EABYRAAMAAAAAAAAAAAAAAAAAAAEQUf/aAAgBAgEBPxCRr//EAB0QAAICAgMBAAAAAAAAAAAAAAERADEhkVFhocH/2gAIAQEAAT8QBskz6gNDqAA+EqplNftx5plkO9wkgdc5/9k=",
+  "density": 72,
+  "presentationHeight": 2963,
+  "presentationWidth": 4608,
+  "sizes": "(max-width: 4608px) 100vw, 2963px",
+  "src": "/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.jpeg",
+  "srcSet": "/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.jpeg 1920w,
+/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.webp 1920w,
+/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.jpeg 3840w,
+/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.webp 3840w,
+/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.jpeg 4608w,
+/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.webp 4608w,
+/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.jpeg 960w,
+/buildTools/imageEngine/artifacts/simon-matzinger-320332-unsplash-23890d28-69cf6d68.webp 960w",
+}
+`;
+
+exports[`returns list of widths 1`] = `
+Array [
+  1920,
+  3840,
+  4608,
+  960,
+]
+`;
+
+exports[`run job 1`] = `
+Object {
+  "channels": 3,
+  "depth": "uchar",
+  "format": "webp",
+  "hasAlpha": false,
+  "hasProfile": false,
+  "height": 617,
+  "space": "srgb",
+  "width": 960,
+}
+`;

@@ -9,5 +9,11 @@ module.exports = {
     'no-console': 'warn',
     'react/prop-types': 'off',
   },
+  overrides: {
+    files: ['**/*.test.js'],
+    env: {
+      jest: true,
+    },
+  },
   parser: 'babel-eslint',
 }

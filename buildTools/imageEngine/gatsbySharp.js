@@ -262,9 +262,7 @@ const queueJob = (job, reporter) => {
           reporter,
         )
       })
-    } else (
-      resolve()
-    )
+    } else resolve()
   })
 }
 
@@ -788,3 +786,4 @@ exports.responsiveSizes = responsiveSizes
 exports.responsiveResolution = resolutions
 exports.sizes = responsiveSizes
 exports.resolutions = resolutions
+exports.notMemoizedbase64 = notMemoizedbase64
