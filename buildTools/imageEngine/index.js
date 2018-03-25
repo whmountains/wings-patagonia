@@ -141,7 +141,7 @@ const runJobs = async (srcImg, jobs) => {
     ticks++
     if (bar) {
       bar.tick()
-    } else if (wasCached) {
+    } else if (!wasCached) {
       bar = new ProgressBar(
         `Generating responsive sizes for ${
           srcImg.base

@@ -40,6 +40,10 @@ export const transformValue = ({ relativeRoot, absoluteRoot, sizes }) => async (
     return value
   }
 
+  if (value.substr(-3) === 'png') {
+    return value
+  }
+
   const absolutePath = resolvePath(value, { relativeRoot, absoluteRoot })
 
   return sizes(absolutePath)
