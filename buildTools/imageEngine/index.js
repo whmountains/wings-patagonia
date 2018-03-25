@@ -8,8 +8,9 @@ const relativePath = require('relative')
 const sigmund = require('sigmund')
 const ProgressBar = require(`progress`)
 const isInside = require('path-is-inside')
+const cacache = require('cacache/en')
 
-const { base64 } = require('./gatsbySharp')
+const { notMemoizedbase64 } = require('./gatsbySharp')
 
 const getContentDigest = async (absolutePath) => {
   return (await hasha.fromFile(absolutePath, { algorithm: 'md5' })).substr(0, 8)
@@ -78,18 +79,21 @@ export const getJobList = (srcFile, options) => {
     // for each format
     options.outputFormats.forEach((format) => {
       // output file
-      const outputFile = path.join(
-        options.outputDir,
-        `${srcFile.name}-${srcFile.contentDigest}-${argsDigest}.${format}`,
-      )
+      const outputName = `${srcFile.name}-${
+        srcFile.contentDigest
+      }-${argsDigest}.${format}`
+      const outputFile = path.join(options.outputDir, outputName)
 
       // add that to the list
       jobs.push({
+        format,
         original: srcFile.absolutePath,
         width,
         quality: options.quality,
         absolutePath: outputFile,
         clientSrc: getClientSrc(outputFile, options),
+        cacheDir: options.cacheDir,
+        slug: outputName,
       })
     })
   })
@@ -97,32 +101,64 @@ export const getJobList = (srcFile, options) => {
   return jobs
 }
 
-export const runJob = async ({ original, width, quality, absolutePath }) => {
-  return sharp(original)
-    .resize(width)
-    .jpeg({ quality })
-    .webp({ quality })
-    .toFile(absolutePath)
+export const runJob = async ({
+  original,
+  width,
+  quality,
+  absolutePath,
+  format,
+  cacheDir,
+  slug,
+}) => {
+  if (await fs.pathExists(absolutePath)) {
+    return
+  }
+
+  try {
+    const { data } = await cacache.get(cacheDir, slug)
+    await fs.writeFile(absolutePath, data)
+    return true
+  } catch (e) {
+    let pipeline = sharp(original).resize(width)
+
+    if (format === 'jpeg') {
+      pipeline = pipeline.jpeg({ quality })
+    } else if (format === 'webp') {
+      pipeline = pipeline.webp({ quality })
+    }
+
+    await pipeline.toFile(absolutePath)
+    return false
+  }
 }
 
-// note this progress bar is in file-level scope
-// and will be shared between multiple resize operations
-const bar = new ProgressBar(
-  `Generating responsive images [:bar] :current/:total :elapsed secs :percent`,
-  {
-    total: 0,
-    width: 30,
-  },
-)
-
 // runs the jobs while updating the progress bar
-const runJobs = async (jobs) => {
-  bar.total += jobs.length
+const runJobs = async (srcImg, jobs) => {
+  // don't show the progress bar until we know we don't have a cached file
+  let bar
+  let ticks = 0
+  const maybeTick = (wasCached) => {
+    ticks++
+    if (bar) {
+      bar.tick()
+    } else if (wasCached) {
+      bar = new ProgressBar(
+        `Generating responsive sizes for ${
+          srcImg.base
+        } [:bar] :current/:total :elapsed secs :percent`,
+        {
+          total: jobs.length,
+          curr: ticks,
+        },
+      )
+    }
+  }
 
+  // run each job in turn
+  // (technically we don't need map, it's there for historical reasons.)
   return pMapSeries(jobs, async (job) => {
-    const jobResult = await runJob(job)
-    bar.tick()
-    return jobResult
+    const wasCached = await runJob(job)
+    maybeTick(wasCached)
   })
 }
 
@@ -131,7 +167,7 @@ export const getBase64 = async (srcImg, options) => {
     1,
     Math.round(options.base64Width * srcImg.aspectRatio),
   )
-  return await base64({
+  return await notMemoizedbase64({
     file: srcImg,
     args: {
       // duotone: options.duotone,
@@ -153,6 +189,7 @@ export const optsFromArgs = (srcImg, args) => {
     outputDir: process.cwd(),
     publicRoot: process.cwd(),
     sizes: `(max-width: ${srcImg.width}px) 100vw, ${srcImg.height}px`,
+    cacheDir: path.join(process.cwd(), '.cache'),
   }
   const options = Object.assign({}, defaultArgs, args)
 
@@ -175,6 +212,7 @@ export const responsiveSizes = async (file, args) => {
   // load a bunch of metadata about the image
   const srcImg = await srcInfo(file)
 
+  // set defaults undefined options and run some basic sanity checks
   const options = optsFromArgs(srcImg, args)
 
   // make space for the output files
@@ -186,7 +224,7 @@ export const responsiveSizes = async (file, args) => {
   const transformJobs = getJobList(srcImg, options)
 
   // run the jobs (we'll make some other calcs while we wait)
-  const runningJobs = runJobs(transformJobs)
+  const runningJobs = runJobs(srcImg, transformJobs)
 
   // create srcSet
   const srcSet = transformJobs
@@ -204,7 +242,7 @@ export const responsiveSizes = async (file, args) => {
   // wait for all jobs to finish (so output file is valid)
   await runningJobs
 
-  return {
+  const retVal = {
     base64: base64Image.src,
     aspectRatio: srcImg.aspectRatio,
     src: fallbackSrc,
@@ -214,4 +252,8 @@ export const responsiveSizes = async (file, args) => {
     presentationWidth: srcImg.width,
     presentationHeight: srcImg.height,
   }
+
+  // console.log(retVal)
+
+  return retVal
 }

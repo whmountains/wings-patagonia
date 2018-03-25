@@ -242,7 +242,7 @@ class Image extends React.Component {
             <Tag
               style={{
                 width: `100%`,
-                paddingBottom: `${100 / image.aspectRatio}%`,
+                paddingBottom: `${image.aspectRatio * 100}%`,
               }}
             />
 

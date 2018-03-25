@@ -5,8 +5,6 @@ import util from 'util'
 import chalk from 'chalk'
 import isRelative from 'is-relative'
 
-import { responsiveSizes } from './imageEngine/'
-
 export const dump = (...params) => {
   for (const param of params) {
     console.log(util.inspect(param, { depth: null, colors: true }))
@@ -31,11 +29,9 @@ export const resolvePath = (value, { relativeRoot, absoluteRoot }) => {
   return path.join(resolveRoot, value)
 }
 
-export const transformValue = ({
-  relativeRoot,
-  absoluteRoot,
-  outputDir,
-}) => async (value) => {
+export const transformValue = ({ relativeRoot, absoluteRoot, sizes }) => async (
+  value,
+) => {
   if (typeof value !== 'string') {
     return value
   }
@@ -46,9 +42,7 @@ export const transformValue = ({
 
   const absolutePath = resolvePath(value, { relativeRoot, absoluteRoot })
 
-  return responsiveSizes(absolutePath, {
-    outputDir,
-  })
+  return sizes(absolutePath)
 }
 
 export const transformData = async (opts, data) => {

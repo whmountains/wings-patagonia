@@ -23,6 +23,7 @@
     "babel-runtime": "^6.26.0",
     "bluebird": "^3.5.0",
     "bulma": "^0.6.2",
+    "cacache": "^10.0.4",
     "create-emotion": "^9.0.2",
     "create-emotion-server": "^9.0.2",
     "create-emotion-styled": "^9.0.1",

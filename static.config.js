@@ -5,10 +5,20 @@ import matter from 'gray-matter'
 import fs from 'fs-extra'
 import path from 'path'
 
-import { transformData, dumpConfig } from './buildTools'
-import { responsiveSizes } from './buildTools/imageEngine/'
+import { transformData } from './buildTools'
+import { responsiveSizes } from './buildTools/imageEngine'
 
 const ABS_ROOT = path.join(process.cwd(), 'public')
+
+const sizes = (file, options) => {
+  const publicRoot = path.join(process.cwd(), 'dist')
+  const outputDir = path.join(publicRoot, 'static')
+
+  return responsiveSizes(
+    file,
+    Object.assign({ outputDir, publicRoot }, options),
+  )
+}
 
 const getFrontmatter = async (relativePath) => {
   // resolve to absolute path
@@ -28,6 +38,7 @@ const getFrontmatter = async (relativePath) => {
       relativeRoot: dir,
       absoluteRoot: ABS_ROOT,
       outputDir: path.join(process.cwd(), 'dist/static'),
+      sizes,
     },
     rawMatter,
   )
@@ -49,7 +60,7 @@ export default {
           return {
             homeStrings: await getFrontmatter('./src/data/home.md'),
             footerStrings: await getFrontmatter('./src/data/footer.md'),
-            seamlessImg: await responsiveSizes(
+            seamlessImg: await sizes(
               require.resolve('./src/assets/seamless.jpg'),
               {
                 outputDir: path.join(__dirname, './dist/static'),
