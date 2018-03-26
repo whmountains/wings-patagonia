@@ -292,21 +292,20 @@ class Image extends React.Component {
             )}
 
             {/* Once the image is visible (or the browser doesn't support IntersectionObserver), start downloading the image */}
-            {/* {this.state.isVisible && ( */}
-            <Img
-              alt={alt}
-              title={title}
-              srcSet={image.srcSet}
-              src={image.src}
-              sizes={image.sizes}
-              style={imageStyle}
-              className="responsiveInnerImage"
-              // onLoad={() => {
-              //   this.state.IOSupported && this.setState({ imgLoaded: true })
-              //   this.props.onLoad && this.props.onLoad()
-              // }}
-            />
-            {/* )} */}
+            {this.state.isVisible && (
+              <Img
+                alt={alt}
+                title={title}
+                srcSet={image.srcSet}
+                src={image.src}
+                sizes={image.sizes}
+                style={imageStyle}
+                onLoad={() => {
+                  this.state.IOSupported && this.setState({ imgLoaded: true })
+                  this.props.onLoad && this.props.onLoad()
+                }}
+              />
+            )}
 
             {/* Show the original image during server-side rendering if JavaScript is disabled */}
             <noscript

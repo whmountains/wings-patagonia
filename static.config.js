@@ -138,18 +138,6 @@ export default {
     render() {
       const { Html, Head, Body, children } = this.props
 
-      const responsiveImageScript = {
-        __html: `
-      var responsiveImages = document.querySelectorAll('.responsiveInnerImage')
-    for (image of responsiveImages) {
-      image.addEventListener('load', handleLoad)
-    }
-    function handleLoad(e) {
-      e.target.style.opacity = 1
-    }
-      `,
-      }
-
       return (
         <Html>
           <Head>
@@ -159,10 +147,7 @@ export default {
               content="width=device-width, initial-scale=1"
             />
           </Head>
-          <Body>
-            {children}
-            <script dangerouslySetInnerHTML={responsiveImageScript} />
-          </Body>
+          <Body>{children}</Body>
         </Html>
       )
     }
