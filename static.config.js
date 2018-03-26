@@ -119,24 +119,6 @@ export default {
           // {path: '/admin', component: 'src/cms/cms.js'}
         ],
       },
-      // {
-      //   path: '/about',
-      //   component: 'src/containers/About',
-      // },
-      // {
-      //   path: '/blog',
-      //   component: 'src/containers/Blog',
-      //   getData: () => ({
-      //     posts,
-      //   }),
-      //   children: posts.map((post) => ({
-      //     path: `/post/${post.data.slug}`,
-      //     component: 'src/containers/Post',
-      //     getData: () => ({
-      //       post,
-      //     }),
-      //   })),
-      // },
       {
         is404: true,
         component: 'src/404',
@@ -169,58 +151,5 @@ export default {
       )
     }
   },
-  webpack: [
-    // create a cms entry point
-    // (config, { stage }) => {
-    //   // include entry point name in output so we don't get conflics
-    //   if (stage === 'dev') {
-    //     config.output.filename = '[name].[hash].js'
-    //
-    //     // exclude CMS chunk from main html
-    //     config.plugins = config.plugins.map((plugin) => {
-    //       if (
-    //         Object.getPrototypeOf(plugin).constructor.name ===
-    //         HtmlWebpackPlugin.name
-    //       ) {
-    //         plugin.options.excludeChunks.push('cms')
-    //       }
-    //       return plugin
-    //     })
-    //   }
-    //
-    //   if (stage !== 'node') {
-    //     // add a new entry point for the cms javascript
-    //     config.entry = {
-    //       main: config.entry,
-    //       cms: require.resolve('./src/cms/cms.js'),
-    //     }
-    //
-    //     // generate the cms html
-    //     config.plugins.push(
-    //       new HtmlWebpackPlugin({
-    //         title: `Content Manager`,
-    //         filename: `admin/index.html`,
-    //         template:
-    //           '!!raw-loader!' + require.resolve('./public/admin/index.html'),
-    //         chunks: [`cms`],
-    //       }),
-    //     )
-    //   }
-    //
-    //   // exclude netlify cms css from the main bundle
-    //   // config.module.rules[0].oneOf = config.module.rules[0].oneOf.map(
-    //   //   (rule) => {
-    //   //     if (String(rule.test) === '/\\.css$/') {
-    //   //       rule.exclude = /netlify-cms/
-    //   //     }
-    //   //     return rule
-    //   //   },
-    //   // )
-    //
-    //   // dumpConfig(config, stage)
-    //
-    //   return config
-    // },
-  ],
   bundleAnalyzer: false,
 }
