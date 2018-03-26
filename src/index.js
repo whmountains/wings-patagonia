@@ -9,6 +9,9 @@ import './styles/fa-svg-with-js.css'
 // required to kick off hydration process before react gets to it
 import './lib/emotion'
 
+// netlify identity
+import './cms/browser'
+
 // Your top level component
 import App from './App'
 
