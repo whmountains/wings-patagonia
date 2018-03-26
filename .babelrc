@@ -1,6 +1,33 @@
 {
-  "extends": "react-static/.babelrc",
+  "presets": [
+    [
+      "latest",
+      {
+        "loose": true,
+        "modules": false
+      }
+    ],
+    "stage-0",
+    "stage-3",
+    "react"
+  ],
   "plugins": [
+    [
+      "universal-import",
+      {
+        "disableWarnings": true
+      }
+    ],
+    "transform-class-properties",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ],
     [
       "emotion",
       {
@@ -9,5 +36,19 @@
         "instances": ["./src/lib/emotion", "./src/lib/react-emotion"]
       }
     ]
-  ]
+  ],
+  "env": {
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    },
+    "test": {
+      "presets": [
+        ["latest", { "modules": true }],
+        "stage-0",
+        "stage-3",
+        "react"
+      ]
+    }
+  },
+  "compact": false
 }

@@ -87,5 +87,8 @@
     "prettier": "^1.11.1",
     "serve": "^6.1.0",
     "strip-path": "^1.0.0"
+  },
+  "alias": {
+    "react-static-routes": "./dist/react-static-routes.js"
   }
 }

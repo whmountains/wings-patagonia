@@ -4,8 +4,9 @@ import { renderStylesToString } from './src/lib/emotion-server'
 import matter from 'gray-matter'
 import fs from 'fs-extra'
 import path from 'path'
+import chalk from 'chalk'
 
-import { transformData } from './buildTools'
+import { transformData, dumpConfig, dump } from './buildTools'
 import { responsiveSizes } from './buildTools/imageEngine'
 
 const ABS_ROOT = path.join(process.cwd(), 'public')
@@ -115,6 +116,7 @@ export default {
               }
             },
           },
+          // {path: '/admin', component: 'src/cms/cms.js'}
         ],
       },
       // {
@@ -169,57 +171,56 @@ export default {
   },
   webpack: [
     // create a cms entry point
-    (config, { stage }) => {
-      // dumpConfig(config)
-
-      return config
-
-      // include entry point name in output so we don't get conflics
-      if (stage !== 'node') {
-        config.output.filename = '[name].[hash].js'
-
-        // add a new entry point for the cms javascript
-        config.entry = {
-          main: config.entry,
-          cms: require.resolve('./src/cms/cms.js'),
-        }
-
-        // exclude CMS chunk from main html
-        config.plugins = config.plugins.map((plugin) => {
-          if (
-            Object.getPrototypeOf(plugin).constructor.name ===
-            HtmlWebpackPlugin.name
-          ) {
-            plugin.options.excludeChunks.push('cms')
-          }
-          return plugin
-        })
-
-        // generate the cms html
-        config.plugins.push(
-          new HtmlWebpackPlugin({
-            title: `Content Manager`,
-            filename: `admin/index.html`,
-            template:
-              '!!raw-loader!' + require.resolve('./public/admin/index.html'),
-            chunks: [`cms`],
-          }),
-        )
-
-        // interate over loader rules till we find the rule for css
-        config.module.rules[0].oneOf = config.module.rules[0].oneOf.map(
-          (rule) => {
-            if (String(rule.test) !== '/\\.css$/') {
-              return rule
-            }
-            // pass-through other rules
-            return rule
-          },
-        )
-
-        return config
-      }
-    },
+    // (config, { stage }) => {
+    //   // include entry point name in output so we don't get conflics
+    //   if (stage === 'dev') {
+    //     config.output.filename = '[name].[hash].js'
+    //
+    //     // exclude CMS chunk from main html
+    //     config.plugins = config.plugins.map((plugin) => {
+    //       if (
+    //         Object.getPrototypeOf(plugin).constructor.name ===
+    //         HtmlWebpackPlugin.name
+    //       ) {
+    //         plugin.options.excludeChunks.push('cms')
+    //       }
+    //       return plugin
+    //     })
+    //   }
+    //
+    //   if (stage !== 'node') {
+    //     // add a new entry point for the cms javascript
+    //     config.entry = {
+    //       main: config.entry,
+    //       cms: require.resolve('./src/cms/cms.js'),
+    //     }
+    //
+    //     // generate the cms html
+    //     config.plugins.push(
+    //       new HtmlWebpackPlugin({
+    //         title: `Content Manager`,
+    //         filename: `admin/index.html`,
+    //         template:
+    //           '!!raw-loader!' + require.resolve('./public/admin/index.html'),
+    //         chunks: [`cms`],
+    //       }),
+    //     )
+    //   }
+    //
+    //   // exclude netlify cms css from the main bundle
+    //   // config.module.rules[0].oneOf = config.module.rules[0].oneOf.map(
+    //   //   (rule) => {
+    //   //     if (String(rule.test) === '/\\.css$/') {
+    //   //       rule.exclude = /netlify-cms/
+    //   //     }
+    //   //     return rule
+    //   //   },
+    //   // )
+    //
+    //   // dumpConfig(config, stage)
+    //
+    //   return config
+    // },
   ],
   bundleAnalyzer: false,
 }
