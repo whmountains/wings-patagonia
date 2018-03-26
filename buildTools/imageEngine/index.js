@@ -109,9 +109,12 @@ export const runJob = async ({
   format,
   cacheDir,
   slug,
+  overshootDeringing,
+  optimizeScans,
+  trellisQuantization,
 }) => {
   if (await fs.pathExists(absolutePath)) {
-    return
+    return true
   }
 
   try {
@@ -122,12 +125,19 @@ export const runJob = async ({
     let pipeline = sharp(original).resize(width)
 
     if (format === 'jpeg') {
-      pipeline = pipeline.jpeg({ quality })
+      pipeline = pipeline.jpeg({
+        quality,
+        overshootDeringing,
+        optimizeScans,
+        trellisQuantization,
+      })
     } else if (format === 'webp') {
       pipeline = pipeline.webp({ quality })
     }
 
-    await pipeline.toFile(absolutePath)
+    const result = await pipeline.toBuffer()
+    await fs.writeFile(absolutePath, result)
+    await cacache.put(cacheDir, slug, result)
     return false
   }
 }
@@ -190,6 +200,9 @@ export const optsFromArgs = (srcImg, args) => {
     publicRoot: process.cwd(),
     sizes: `(max-width: ${srcImg.width}px) 100vw, ${srcImg.height}px`,
     cacheDir: path.join(process.cwd(), '.cache'),
+    trellisQuantization: true,
+    overshootDeringing: true,
+    optimizeScans: true,
   }
   const options = Object.assign({}, defaultArgs, args)
 

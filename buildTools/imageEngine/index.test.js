@@ -44,6 +44,9 @@ const defaultOptions = {
   sizes: `(max-width: ${srcFile.width}px) 100vw, ${srcFile.height}px`,
   outputDir: path.join(__dirname, 'artifacts'),
   publicRoot: __dirname,
+  trellisQuantization: true,
+  overshootDeringing: true,
+  optimizeScans: true,
 }
 
 test('returns list of widths', () => {
