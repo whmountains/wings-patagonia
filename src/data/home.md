@@ -55,10 +55,11 @@ partnersSections:
         url: 'http://nationalgeographic.com/'
     title: Customers
 raveReview: Best Flight Ever!
-reviewAttr: Satisfied Customer
+reviewAttr: Former Customer
 actionBtn: Book Now
 actionBtnLink: '/contact#book'
 infoBtn: Contact Us
 infoBtnLink: '/contact#contact'
 footerImg: ../assets/plane-sunset.jpg
 ---
+
