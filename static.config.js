@@ -65,6 +65,7 @@ export default {
               require.resolve('./src/assets/seamless.jpg'),
               {
                 outputDir: path.join(__dirname, './dist/static'),
+                base64: false,
               },
             ),
           }
@@ -152,4 +153,5 @@ export default {
     }
   },
   bundleAnalyzer: false,
+  preact: true,
 }

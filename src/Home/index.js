@@ -28,6 +28,7 @@ const SeamlessImageContainer = styled(Img)`
 `
 const imageContainerOuterStyles = css`
   z-index: -1 !important;
+  background: linear-gradient(to bottom, #e5ecf2, white);
 `
 
 const WhiteContainer = styled.div`

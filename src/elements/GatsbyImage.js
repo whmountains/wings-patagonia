@@ -248,12 +248,20 @@ class Image extends React.Component {
 
             {/* Show the blury base64 image. */}
             {image.base64 && (
-              <Img
-                alt={alt}
-                title={title}
-                src={image.base64}
-                style={imagePlaceholderStyle}
-              />
+              <React.Fragment>
+                <Img
+                  alt={alt}
+                  title={title}
+                  src={image.base64}
+                  style={imagePlaceholderStyle}
+                />
+                <Img
+                  alt={alt}
+                  title={title}
+                  src={image.base64}
+                  style={{ ...imagePlaceholderStyle, filter: 'blur(10px)' }}
+                />
+              </React.Fragment>
             )}
 
             {/* Show the traced SVG image. */}

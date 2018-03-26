@@ -53,6 +53,8 @@ export const getWidthList = (srcImg, options) => {
       options.maxWidth * 2,
       options.maxWidth * 3,
       srcImg.width,
+      640, // iPhone 5
+      750, // iPhone 6
     ]
       .filter((size) => size <= srcImg.width)
       .sort()
@@ -81,7 +83,7 @@ export const getJobList = (srcFile, options) => {
       // output file
       const outputName = `${srcFile.name}-${
         srcFile.contentDigest
-      }-${argsDigest}.${format}`
+      }-${argsDigest}-${width}w.${format}`
       const outputFile = path.join(options.outputDir, outputName)
 
       // add that to the list
@@ -112,6 +114,7 @@ export const runJob = async ({
   overshootDeringing,
   optimizeScans,
   trellisQuantization,
+  progressiveJpeg,
 }) => {
   if (await fs.pathExists(absolutePath)) {
     return true
@@ -130,6 +133,7 @@ export const runJob = async ({
         overshootDeringing,
         optimizeScans,
         trellisQuantization,
+        progressive: progressiveJpeg,
       })
     } else if (format === 'webp') {
       pipeline = pipeline.webp({ quality })
@@ -203,6 +207,8 @@ export const optsFromArgs = (srcImg, args) => {
     trellisQuantization: true,
     overshootDeringing: true,
     optimizeScans: true,
+    progressiveJpeg: true,
+    base64: true,
   }
   const options = Object.assign({}, defaultArgs, args)
 
@@ -250,13 +256,16 @@ export const responsiveSizes = async (file, args) => {
   ).clientSrc
 
   // get base64
-  const base64Image = await getBase64(srcImg, options)
+  let base64Src
+  if (options.base64) {
+    base64Src = (await getBase64(srcImg, options)).src
+  }
 
   // wait for all jobs to finish (so output file is valid)
   await runningJobs
 
   const retVal = {
-    base64: base64Image.src,
+    base64: base64Src,
     aspectRatio: srcImg.aspectRatio,
     src: fallbackSrc,
     srcSet,
@@ -265,8 +274,6 @@ export const responsiveSizes = async (file, args) => {
     presentationWidth: srcImg.width,
     presentationHeight: srcImg.height,
   }
-
-  // console.log(retVal)
 
   return retVal
 }
