@@ -2,10 +2,13 @@
 splashImg: ../assets/fitzroy.jpg
 title: Custom Flights
 description: >-
-  Reiciendis rerum dolorem dolores libero in. Et sed similique doloremque repellat quis et. Sint corporis est eveniet nihil. Earum maiores deserunt natus quisquam sed omnis numquam. Placeat dignissimos beatae ipsa sit rerum. Itaque maxime qui praesentium mollitia repudiandae a.
+  Reiciendis rerum dolorem dolores libero in. Et sed similique doloremque
+  repellat quis et. Sint corporis est eveniet nihil. Earum maiores deserunt
+  natus quisquam sed omnis numquam. Placeat dignissimos beatae ipsa sit rerum.
+  Itaque maxime qui praesentium mollitia repudiandae a b.
 ctaTitle: Where do I sign up?
-ctaSubtitle: >-
-  Want a custom flight all to yourself?  Just give us a call!
+ctaSubtitle: Want a custom flight all to yourself?  Just give us a call!
 ctaActionTxt: Contact Us
-ctaActionLink: "/contact"
+ctaActionLink: /contact
 ---
+
